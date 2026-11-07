@@ -1544,7 +1544,7 @@ The reconstruction and independent 120-placement executable check are documented
 [`audits/chhn-all-placement-rank-2026-07-26.md`](audits/chhn-all-placement-rank-2026-07-26.md).
 
 **Issue:** [#3, Formalize the exact-realization obstructions for
-`M₅(3)`](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/3).
+`M₅(3)`](https://github.com/forever-and-ever/math/issues/3).
 
 ### MM-O02: One-sided phase overlap
 
@@ -1604,7 +1604,7 @@ stronger than the reported statement: nonzero inactive row and column suffice; f
 rank two is unnecessary.
 
 **Issue:** [#3, Formalize the exact-realization obstructions for
-`M₅(3)`](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/3).
+`M₅(3)`](https://github.com/forever-and-ever/math/issues/3).
 
 ### MM-O04: Uniform rank-four paired series
 
@@ -1666,7 +1666,7 @@ determinant identities. `pairedRankHankel_det_ne_zero` certifies the integer Han
 out every exact five-state diagonal two-channel bridge.
 
 **Issue:** [#3, Formalize the exact-realization obstructions for
-`M₅(3)`](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/3).
+`M₅(3)`](https://github.com/forever-and-ever/math/issues/3).
 
 ### MM-O05: Width-three scheduled rank
 
@@ -2044,7 +2044,7 @@ The next certificate must retain sign cycles or exact radix carry.
 [`audits/m53-decimal-setter-hyperbolicity-2026-08-30.md`](audits/m53-decimal-setter-hyperbolicity-2026-08-30.md#finite-ray-obstruction).
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-O14: Decimal setter elliptic product
 
@@ -2085,7 +2085,7 @@ hyperbolicity. Arithmetic or suffix information may still prove exact pole avoid
 [`audits/m53-decimal-setter-elliptic-product-2026-08-30.md`](audits/m53-decimal-setter-elliptic-product-2026-08-30.md).
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-O15: Deletion-first fibre fracture
 
@@ -2875,7 +2875,7 @@ removing the orientation-reversing transfer, so the unswapped route is closed.
 **Artifact:** [`audits/m53-setter-projective-2026-07-24.md`](audits/m53-setter-projective-2026-07-24.md#side-normal-data).
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-M04: Swapped-digit setter
 
@@ -2940,7 +2940,7 @@ coefficient and the finite-slope theorem
 finite nonterminal slopes exposed by `MM-S07`.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-M05: Decimal swapped setter
 
@@ -2990,7 +2990,7 @@ and [`MM-O14`](#mm-o14-decimal-setter-elliptic-product) closes every argument fr
 hyperbolicity alone.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-M06: Formal decimal setter compiler
 
@@ -3043,7 +3043,7 @@ and [`MatrixMortality/DecimalSetterInteger.lean`](MatrixMortality/DecimalSetterI
 prove the integer emitter primitive recursive.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S01: Square-run projective normal form
 
@@ -3117,7 +3117,7 @@ pulse phase, signed intervals, or self-synchronizing code suffixes. Search
 states are projective values, not five-dimensional vectors.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S02: Reset-zero projective peeling
 
@@ -3176,7 +3176,7 @@ depth together with the pulse or suffix state.
 Residue-only projective abstractions saturate on the benchmark and cannot prove avoidance.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S03: Centered setter carry
 
@@ -3250,7 +3250,7 @@ two suffix equations at the distinguished boundary.
 word-valued suffix carry without forgetting the two resonant target families.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S04: Reverse suffix discrepancy
 
@@ -3301,7 +3301,7 @@ retain the exact recurrence; the tested residue-only quotients saturate.
 quotient for the surviving valuation-one target.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S05: Distinguished-boundary β-shell
 
@@ -3362,7 +3362,7 @@ blocks.
 valuation-one shell.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S06: Valuation-one divisor normal form
 
@@ -3449,7 +3449,7 @@ Either prove that only `(a₀,v₀)=(-μ,1)` is realizable, or return the first
 explicit false integral pole.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S07: Swapped-digit finite-slope reduction
 
@@ -3534,7 +3534,7 @@ violates the Neary pulse invariant.
 remaining valuation-one shell.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S08: Swapped distinguished-boundary beta shell
 
@@ -3611,7 +3611,7 @@ projective carriers through their own recurrence rather than weakening this
 physical interface.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S09: Canonical swapped residue cannot hit a pole
 
@@ -3665,7 +3665,7 @@ which is now a semantic source-halting question.
 source halting.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S10: Swapped target-suffix sieve
 
@@ -3740,7 +3740,7 @@ the surviving nonterminal values must then be intersected with the reverse
 Neary discrepancy.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S11: Decimal setter hyperbolicity
 
@@ -3792,7 +3792,7 @@ excluded by [`MM-O13`](#mm-o13-finite-positive-ray-setter-obstruction).
 the multi-role `(1,1)` resonance. Real cone refinements are closed.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S12: Decimal two-prime carry
 
@@ -3875,7 +3875,7 @@ through `centeredCoordinate_step`, `reciprocalCoordinate_step`,
 **Next:** construct or refute a backward normalized-suffix automaton on the `(1,1)` shell.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S13: Decimal first-transfer extinction
 
@@ -3945,7 +3945,7 @@ through `resetZero_successivePole_identity`, `resetOne_successivePole_identity`,
 first false pole at depth at least two.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S14: Ordinary depth-two shell forest
 
@@ -3996,7 +3996,7 @@ through `twoTransferTrace_identity`, `twoTransferTrace_shell_of_nonresonant`,
 method to the distinguished reset.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S15: Ordinary A-to-A length-two extinction
 
@@ -4044,7 +4044,7 @@ is the distinguished normalized suffix.
 distinguished-reset normalized-suffix successor.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S16: Complete ordinary depth-two extinction
 
@@ -4091,7 +4091,7 @@ through `allC_cLeading_avoids_singletonPole`, `allC_bLeading_avoids_singletonPol
 then derive a depth-uniform recurrence or invariant.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S17: Recursive decimal carrier
 
@@ -4149,7 +4149,7 @@ last decimal digit descends.
 upper length at least three.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S18: Length-two carrier extinction
 
@@ -4202,7 +4202,7 @@ transition at the unrestricted unit-carrier level.
 `m≥3` corridor.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S19: All-deletion raw-head extinction
 
@@ -4259,7 +4259,7 @@ constructing the generalized-carrier transition language.
 **Next:** graduated into `MM-S53`.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 ### MM-S20: Singleton carrier classification
 
 **Kind:** structure theorem and obstruction
@@ -4320,7 +4320,7 @@ encoded carrier reachability or stronger suffix semantics.
 distinguished suffix, then exclude or exhibit the remaining `m≥β+3` multi-to-singleton pole.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 ### MM-S21: Bounded decimal suffix cycles
 
 **Kind:** obstruction
@@ -4454,7 +4454,7 @@ through `gapFactor` and `gapClean_multiToSingleton_quotientGate`.
 which proper factors of the generally composite `q` can enter a reachable carrier numerator.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S24: Factorwise gap ancestry
 
@@ -4514,7 +4514,7 @@ through `gapFactor_not_dvd_twoCHead`, `carrierFactor_dvd_next_iff`,
 factorwise gates are not sufficient by themselves: the audit records a physical all-`D_c`
 word at `β=10` that passes both full-gap gates computationally.
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-O20: Decimal first-cylinder collision
 
@@ -4597,7 +4597,7 @@ or quotient phase-hidden blocks only after proving that the quotient preserves r
 whether a phase-blind quotient can be proved reachability-sound.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S26: Exact raw-head prime support
 
@@ -4644,7 +4644,7 @@ through `gapFactorDivisor_coprime_nine` and `rawHead_factor_iff`.
 `1≤s≤β−1`, then propagate the surviving support through the physical lower-code semigroup.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S25: Separated two-c periodic orbits
 
@@ -4830,7 +4830,7 @@ support-saturating all-erasure block, or any equivalent lower code, is an exact 
 transition; retain the upper code and complete inverse address in that reachability test.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S31: Gcd-saturated singleton gate
 
@@ -4931,7 +4931,7 @@ through `entrySaturationWidth_three_le`, `gapFactor_dvd_entrySaturationLowerCode
 grammar, then extend the reachability cut from raw heads to generalized product residuals.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S35: First multi-transfer trichotomy
 
@@ -4998,7 +4998,7 @@ through `firstMultiTransfer_trichotomy_of_pole`; the nonresonant and resonant co
 than only the `3`-adic shell.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S38: Two-c singleton-b extinction
 
@@ -5059,7 +5059,7 @@ through `swappedUpperCode_double_c`, `upperLength_double_c`, and
 punctuated upper code and the middle block's phase-dependent lower code.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S44: Compiler-envelope rule-bearing extinction
 
@@ -5126,7 +5126,7 @@ through `ruleBearing_allC_avoids_pole` and
 `D_c^(β+1)→singleton`; decide the sole remaining `D_c²→multi` carrier.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S50: Long all-erasure singleton extinction
 
@@ -5191,7 +5191,7 @@ directly from its rational cylinder and the target block's full upper/lower rati
 the integral raw-fringe classifier without an orbit-specific ancestry theorem.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S52: Double-deletion raw-ancestry obstruction
 
@@ -5266,7 +5266,7 @@ through `afterDoubleCDiscrepancy_eq`, `afterDoubleCDiscrepancy_integer_dvd_termi
 over `ℚ`; invoke `MM-S42` only if an orbit-specific proof supplies an integral raw witness.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S51: Double-deletion ratio-chamber extinction
 
@@ -5338,7 +5338,7 @@ through `allDeletionC_double_transferDiscrepancy`, `doubleDeletion_pole_targetRa
 bookkeeping; then prove the global earliest-pole reduction for a general centered fold.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S55: Physical role-block shell completion
 
@@ -5412,7 +5412,7 @@ centered fold is terminal, or else expose the exact later-history constructor no
 the first-multi interface.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S57: Centered-history defect transport
 
@@ -5532,7 +5532,7 @@ shell bookkeeping or one-sided sign interval can recover the discarded history.
 Neary suffix ancestry retained, or prove that any earliest threshold hit is terminal.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S59: Multiplicative threshold suffix carry
 
@@ -5613,7 +5613,7 @@ through `carryRun_iff`, `suffixCarry_iff_run`, `SuffixCarry.carry_mem`,
 centered reachability cannot supply the required height or modulus cut.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S61: Primitive carrier-gap no-go
 
@@ -5693,7 +5693,7 @@ through `blockStep_represents_nextCarrier`, `nextCarrier_gap`,
 (1), or use earliest-pole ancestry to exclude the `ρ`-divisible gap states before a target hit.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S63: Full-tail last-step resonance
 
@@ -5768,7 +5768,7 @@ through `primitiveCongruent_denominator_isUnit`,
 feed the forced value `g=a−1` into the exact suffix carry and exclude its first mismatch.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S64: Unique predecessor cylinder
 
@@ -5831,7 +5831,7 @@ theorem for its swapped Neary suffix. Independently, a global setter proof still
 arbitrary-target suffix theorem: `HasErasureTail β target` is not automatic.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S68: Backward numerator resonance
 
@@ -5904,7 +5904,7 @@ exact full-gap-zero return is projectively the distinguished reset needed by the
 first-multi theorem. The arbitrary-target suffix seam remains independent.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S69: Sequential double-deletion zero-gap extinction
 
@@ -5973,7 +5973,7 @@ singleton pair, then classify its first non-`D_c` cylinder. The generic target-s
 remains independent.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S71: Three-block backward frontier
 
@@ -6031,7 +6031,7 @@ its Neary source/upper ancestry rather than projecting to a fixed residue quotie
 target-suffix seam remains independent.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-O27: Reachable predecessor cylinder
 
@@ -6090,7 +6090,7 @@ through `reachable_nonDeletionC_predecessorCylinder`.
 retain the target carry or first-pole condition when pulling it through earlier history.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S73: Live three-block charge frontier
 
@@ -6165,7 +6165,7 @@ prefix and show that the unit chain (1) cannot persist on an arbitrary earlier c
 The generic target-suffix seam remains independent.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S76: Primitive target multiplier braid
 
@@ -6246,7 +6246,7 @@ through `witness_front_initialCylinder_residue_fork`.
 restriction remains independent.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-O29: Uniform empty-front local rays
 
@@ -6310,7 +6310,7 @@ history-sensitive geometry rather than a universal one-step norm. Attack the non
 front and arbitrary-target-suffix obligations independently.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S104: Exact deletion-C contraction chamber
 
@@ -6392,7 +6392,7 @@ prove a finite-memory two-step height inequality or exclude that entry channel b
 ancestry.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S87: Empty-front backward chamber cut
 
@@ -6465,7 +6465,7 @@ The interval alone permits longer blocks with prefix `(R_c,D_b)`; exact-block cl
 must use the `3H` gcd channel rather than an Archimedean code bound.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S105: Conditional post-RcDb no-reentry
 
@@ -6537,7 +6537,7 @@ shift. The next global cut must cover the `(R_c,D_b^k)` equal-spelling families 
 modular-return branch; canonical no-reentry alone cannot close the ancestry tree.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S106: Primitive physical pullback cancellation
 
@@ -6611,7 +6611,7 @@ through `deletionCHalfHead_dvd_pullbackRawNumerator_iff`,
 grammar; do not replace post-cancellation survival by raw divisibility.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S92: Primitive empty-front seed adapter
 
@@ -6686,7 +6686,7 @@ through `emptyFrontSeed_primitiveCoordinates`, `emptyFrontSeed_core_halfHead_gcd
 cancellation seam.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-O30: Primitive normalization collapse
 
@@ -6757,7 +6757,7 @@ through `exists_normalizationCollapseWitness`.
 Determine whether those physical restrictions exclude this collapse mechanism or merely thin it.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S93: Universal contraction-chamber entry gap
 
@@ -6823,7 +6823,7 @@ successor automaton. The remaining lower-spelling chambers require arithmetic ra
 blanket lower intercept estimate.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S99: Sharp post-contraction successor frontier
 
@@ -6888,7 +6888,7 @@ through `physicalBackwardBlock_chamber_epsilon_lt_sharp`,
 the sole uniform-width successor node; (4) is a finite-width arithmetic residue problem.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 ### MM-S30: Separated residue-eight drainage
 
 **Kind:** halting theorem
@@ -7640,7 +7640,7 @@ through `emittedHiddenInverseBranches_pullbackWord_sub_hasDecimalShell` and
 entry. Either prove that no lawful suffix pair has this first unequal cross-prime depth, or
 construct the first exact branch-switch cascade.
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S37: Decimal three-shape frontier extinction
 
@@ -7686,7 +7686,7 @@ through `DecimalSetterDepth.firstMultiTransfer_threeShapeFrontier_impossible`.
 the resulting cut to reachable generalized product residuals.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S39: Second-position `D_b` raw-head extinction
 
@@ -7733,7 +7733,7 @@ raw-head extinction through `secondBErase_rawHead_shell_impossible`.
 **Next:** graduated into `MM-S40`.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S40: First-beta-plus-one-position `D_b` extinction
 
@@ -7791,7 +7791,7 @@ proves (2), the unchanged lower code, conditional full-gap support, and
 **Next:** graduated into `MM-S45`.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S45: Exceptional-late one-`D_b` boundary
 
@@ -7847,7 +7847,7 @@ proves all-position regular extinction and
 **Next:** graduated into `MM-S47`.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S47: Global one-`D_b` raw-head extinction
 
@@ -7904,7 +7904,7 @@ proves (1), specializes the obstruction to physical words, and exposes
 **Next:** graduated into `MM-S49`.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S49: Nonempty-marker all-erasure extinction
 
@@ -7969,7 +7969,7 @@ all-zero lower word, physical obstruction, and
 **Next:** graduated into `MM-S53`.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S53: Complete all-erasure first-entry extinction
 
@@ -8075,7 +8075,7 @@ through `poleCongruence_four_fringe_pairs`, `positiveDepthOnePoleWitness_halts`,
 
 **Next:** assemble the analogous witness from the first surviving multi-transfer carriers.
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S54: Rightmost-rule phase-toggle trichotomy
 
@@ -8141,7 +8141,7 @@ in (2) on every remaining branch.
 off-diagonal companion shell on later rules and `b`-bearing words.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S56: Exact rule-resonance grammar
 
@@ -8211,7 +8211,7 @@ and the all-`c` position-two boundary graduates into
 [`MM-S62`](#mm-s62-all-c-position-two-rule-extinction).
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S60: Complete b-bearing rule-entry extinction
 
@@ -8259,7 +8259,7 @@ through `exceptionalThreeLead_hasValue`, `exceptionalAllC_scaled_lead`,
 divisibility, then attack the later all-`c` frontier collisions.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S62: All-c position-two rule extinction
 
@@ -8305,7 +8305,7 @@ through `regularAllC_twoPower_dvd`, `exceptionalAllC_twoPower_dvd`,
 [`MM-S65`](#mm-s65-complete-all-c-rule-entry-extinction).
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S65: Complete all-c rule-entry extinction
 
@@ -8348,7 +8348,7 @@ through `laterAllCRightmostRule_rawHead_shell_impossible` and
 [`MM-S66`](#mm-s66-complete-rule-bearing-first-entry-extinction).
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S66: Complete rule-bearing first-entry extinction
 
@@ -8383,7 +8383,7 @@ through `rightmostRule_rawHead_shell_impossible`.
 [`MM-S67`](#mm-s67-complete-distinguished-first-entry-extinction).
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S67: Complete distinguished first-entry extinction
 
@@ -8426,7 +8426,7 @@ integer mortality/source compiler; audit whether any singleton or later-carrier 
 remains.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S74: Triple-free bridge frontier
 
@@ -8489,7 +8489,7 @@ of the three frontier branches either to an existing extinction theorem or to a 
 carrier theorem. Prove primitive-recursive emission separately.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S77: Shallow generalized raw-head adapter
 
@@ -8540,7 +8540,7 @@ boundary, or exclude the displayed generalized equation for arbitrary rule-ended
 singleton targets and deeper histories as separate branches.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S79: Minimum-body lawful shallow pole
 
@@ -8605,7 +8605,7 @@ without excluding the lawful minimum-body normalization. The distinguishing inva
 more than the root's decimal-unit shell.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S81: One-`R_c` root terminal normalization
 
@@ -8663,7 +8663,7 @@ of length at least two. Seek a rightmost-root reduction to `ruleCRoot` plus a pr
 discrepancy, using the emitted body's strict length surplus.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S82: One-`R_b` root sign extinction
 
@@ -8711,7 +8711,7 @@ complement retains a sign chamber or reduces to the one-`R_c` terminal normaliza
 explicit nonzero discrepancy.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S83: Leading-`b` shallow-root sign extinction
 
@@ -8760,7 +8760,7 @@ through `tagCodeB_code_eq`, `leadingBRoot_complement_eq`,
 [`MM-S84`](#mm-s84-complete-shallow-root-terminal-normalization).
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S84: Complete shallow-root terminal normalization
 
@@ -8826,7 +8826,7 @@ deep-history branches beyond lawful terminal matches.
 remaining arithmetic on singleton targets and deeper histories.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S85: Parser-ray singleton adapter
 
@@ -8907,7 +8907,7 @@ the long multi-role current branch. The remaining upgrade is integral denominato
 must be killed separately.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S86: Two-block singleton-source classifier
 
@@ -8983,7 +8983,7 @@ surviving long-block equation. For target `D_c`, it reduces to the literal code 
 `2·10^β(P−V)=7μ·10^m`; attack that suffix equation before generalizing to deeper histories.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S88: `R_c`-root singleton-`D_c` extinction
 
@@ -9036,7 +9036,7 @@ through `singletonCTrace_eq`,
 `D_b` coefficient and closes the full two-block singleton slice.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S89: Complete two-block singleton extinction
 
@@ -9118,7 +9118,7 @@ minimal singleton history inherits a suffix factorization strong enough to repea
 contradiction.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S90: Exact singleton-tail ancestry equivalence
 
@@ -9204,7 +9204,7 @@ through `parsedRay_ne_zero_of_blocksLaw`,
 reduced-numerator gate from `MM-S91` with the exact pole equation and encoded-entry history.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S91: Exact parser gap-clean ancestry gate
 
@@ -9285,7 +9285,7 @@ force the divisibility and apply the quotient gate, or classify the contaminated
 that survives every physical predecessor.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S94: Three-block singleton chamber classification
 
@@ -9356,7 +9356,7 @@ then decide the two-c deep-root corridor and the `cb/cc` `R_c` suffix grammar wi
 that shell-compatible rays are reachable poles.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S95: Complete three-block singleton-current extinction
 
@@ -9424,7 +9424,7 @@ through `rootRay_ratio_lt_two`,
 physical root; then attack the resulting unified three-source grammar.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S96: Contaminated-tail factorwise pole gate
 
@@ -9491,7 +9491,7 @@ through `gapContaminatedTail_singletonPole_forces_lowerProduct`,
 factorwise ledger from this uniform tail to the `cb/cc` peeled-head family isolated by `MM-S94`.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S97: Short all-`c` three-block shell grammar
 
@@ -9530,7 +9530,7 @@ through `singletonPole_threeBlock_ruleCRoot_shortAllC_discrepancyGrammar`,
 the pure all-erasure slice.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S98: Long `R_c` gap-clean ancestry extinction
 
@@ -9585,7 +9585,7 @@ arbitrary peeled `cb/cc` head, then intersect forced gap support with the exact 
 language.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S100: Complete three-block singleton-next extinction
 
@@ -9620,7 +9620,7 @@ through `singletonPole_threeBlock_singletonBNext_impossible`,
 do not reopen singleton-current or singleton-next cases.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S101: Long `R_c` peeled-head support gate
 
@@ -9693,7 +9693,7 @@ support-saturated `cb` chamber through a second predecessor or an exact archimed
 bound.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S102: Long double-`c` relative-gap resonance
 
@@ -9743,7 +9743,7 @@ through `peeledDoubleCHead_unit_gapRelation`,
 support-saturated `cb` branch still requires a second predecessor or coefficient-size attack.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 ### MM-S103: Long terminal-head collapse extinction
 
@@ -9790,7 +9790,7 @@ through `singletonPole_threeBlock_ruleCRoot_long_cb_forces_twoBlockPole` and
 relative-gap resonance with the current lower spelling.
 
 **Issue:** [#6, Formalize the five-state setter candidate and decide projective
-avoidance](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+avoidance](https://github.com/forever-and-ever/math/issues/6).
 
 
 ### MM-C07: Free-monoid empty-return compression
@@ -10124,7 +10124,7 @@ a fixed rational input, not writable storage.
 **Use:** test arithmetic walls and same-zero modifications on a fully normalized rank-`(3,2)`
 laboratory without reopening the physical-word grammar.
 
-**Next:** [#12](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/12).
+**Next:** [#12](https://github.com/forever-and-ever/math/issues/12).
 
 ### R32-O02: Two-return square cage
 
@@ -12954,7 +12954,7 @@ language.
 
 **Next:** decide or prove undecidable normalized GPI₂.
 Tracked in
-[#11](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/11).
+[#11](https://github.com/forever-and-ever/math/issues/11).
 
 ### R32-M02: Finite-quotient sieve
 
@@ -13035,7 +13035,7 @@ architecture.
 **Next:** classify the semigroup generated by the projective returns at multiplicatively
 independent scales, or exhibit a guarded arithmetic simulation with an all-waits converse.
 Tracked in
-[#12](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/12).
+[#12](https://github.com/forever-and-ever/math/issues/12).
 
 ### R32-M04: Amalgamated valuation guard
 
@@ -13098,7 +13098,7 @@ on the deterministic tail recurrence, not add parser states or repair malformed 
 **Next:** classify or universalize the guarded arithmetic orbit in
 [`R32-S04`](#r32-s04-guarded-return-normal-form).
 Tracked in
-[#12](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/12).
+[#12](https://github.com/forever-and-ever/math/issues/12).
 
 ### R32-S04: Guarded return normal form
 
@@ -16133,7 +16133,7 @@ orbit with unbounded denominators and a genuinely nonperiodic wait word.
 ## Three-Generator Four-State Frontier
 
 Formal promotion of this section is tracked in
-[#5](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/5).
+[#5](https://github.com/forever-and-ever/math/issues/5).
 
 ### M4-C01: Two-state pushout compiler
 
@@ -24791,7 +24791,7 @@ inside that closed trap, or construct a higher-period rational rewrite family wi
 all-other-waits exclusion theorem.
 
 **Issue:** [#7, Formalize affine peeling and decide the `M₂(3)` benchmark
-shell](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/7).
+shell](https://github.com/forever-and-ever/math/issues/7).
 
 ### D2-O01: Canonical Collatz reachability is not automatic
 

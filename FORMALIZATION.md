@@ -1663,8 +1663,8 @@ queries. No universality or decision theorem is known for normalized GPI₂, des
 shortcut-Collatz subfamily, or for rational inverse-address membership and its cyclotomic
 cancellation histories. Their boundary is recorded in
 [`audits/m32-rank-return-2026-07-28.md`](audits/m32-rank-return-2026-07-28.md) and scheduled in
-[#11](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/11) and
-[#12](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/12).
+[#11](https://github.com/forever-and-ever/math/issues/11) and
+[#12](https://github.com/forever-and-ever/math/issues/12).
 
 ## Audited But Unformalized
 
@@ -2149,7 +2149,7 @@ the singleton-shell promotion is audited in
 the failed unconditional carrier splice is audited in
 [`audits/m53-swapped-depth-one-ancestry-2026-08-31.md`](audits/m53-swapped-depth-one-ancestry-2026-08-31.md);
 the remaining arbitrary-depth work stays in
-[#6](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+[#6](https://github.com/forever-and-ever/math/issues/6).
 
 The boundary-correct setter shear detour is closed in Lean. Record
 [`MM-O12`](SALVAGE.md#mm-o12-boundary-calibrated-setter-shear-is-gauge) comprises
@@ -3154,7 +3154,7 @@ union effectively rather than hide it behind pointwise decidability. The audit i
 the periodic saturation theorem and its remaining arithmetic boundary are reconstructed in
 [`audits/m32-gpi2-residue-blindness-2026-08-30.md`](audits/m32-gpi2-residue-blindness-2026-08-30.md);
 formalization and the shell attack are tracked in
-[#7](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/7).
+[#7](https://github.com/forever-and-ever/math/issues/7).
 
 The `M₅(3)` delimiter attack has the following foundational records:
 
@@ -3206,7 +3206,7 @@ The exact reconstruction and promotion boundary are recorded in
 The first projective peeling theorem and the bounded residue diagnostics are in
 [`audits/setter-projective-peeling-2026-07-25.md`](audits/setter-projective-peeling-2026-07-25.md).
 Formal promotion and the avoidance decision are tracked in
-[#6](https://github.com/aoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoaoa/math/issues/6).
+[#6](https://github.com/forever-and-ever/math/issues/6).
 
 The generic two-state compiler [`M4-C01`](SALVAGE.md#m4-c01-two-state-pushout-compiler), the
 exact toggle-fusion obstruction [`M4-O01`](SALVAGE.md#m4-o01-exact-toggle-fusion-leaves-an-immortal-core),
