@@ -20,9 +20,9 @@
 
   <div class="shell">
     <section class="abstract" aria-label="Abstract">
-      <strong>Verdict</strong>
-      <p>For every nonzero integer <var>n</var>, an explicit scalar-zero question for two rational 2 × 2 matrices has a zero word exactly when <var>n</var> reaches 1 under the shortcut-Collatz map. The underlying two Möbius transformations are fixed; only boundary data and nonzero scalar rescalings depend on <var>n</var>.</p>
-      <p>The theorem is an exact pointwise embedding into generic projective incidence. The separately formalized reverse-edge compiler places that incidence language inside two rank-two 3 × 3 matrices. Neither statement is an undecidability result, a proof of the Collatz conjecture, or a reduction from general projective incidence back to Collatz reachability.</p>
+      <strong>For every nonzero integer <var>n</var>, a two-generator projective-incidence question built from two fixed Möbius maps has a solution exactly when <var>n</var> reaches 1 under the shortcut Collatz map.</strong>
+      <p>The two maps are the inverse branches of the shortcut Collatz map; only the target row depends on <var>n</var>, and words that follow an illegal branch leave the integers forever. A second construction compiles every generic two-generator incidence instance into two rational 3 × 3 matrices of rank two that are mortal exactly when the instance has a solution. Together they place the reachability question for each given integer inside the rank-(2, 2) part of M<sub>3</sub>(2).</p>
+      <p>Neither construction proves undecidability, and nothing here bears on the Collatz conjecture. Both constructions are machine-checked; their composition is not packaged as one formal reduction.</p>
     </section>
 
     <nav class="contents" aria-label="Contents">
@@ -31,16 +31,21 @@
           <ol>
             <li><a href="#shortcut-map">Shortcut-Collatz reachability</a></li>
             <li><a href="#projective-incidence">Projective incidence</a></li>
-            <li><a href="#mortality-compiler">Rank-two mortality compiler</a></li>
           </ol>
         </li>
         <li><a href="#new-stuff">New Stuff</a>
           <ol>
-            <li><a href="#result">Exact embedding</a></li>
+            <li><a href="#result">Result</a></li>
             <li><a href="#inverse-branches">Inverse branches</a></li>
             <li><a href="#malformed-words">Malformed words</a></li>
-            <li><a href="#normalization">Generic normalization</a></li>
-            <li><a href="#meaning">Logical force</a></li>
+            <li><a href="#normalization">Normalization</a></li>
+            <li><a href="#mortality-compiler">From incidence to two 3 × 3 matrices</a>
+              <ol>
+                <li><a href="#two-planes">Two planes sharing a line</a></li>
+                <li><a href="#compiler-converse">Every zero product</a></li>
+              </ol>
+            </li>
+            <li><a href="#meaning">What follows</a></li>
           </ol>
         </li>
         <li><a href="#bookkeeping">Bookkeeping</a>
@@ -56,8 +61,8 @@
     <main id="article">
       <article>
         <nav class="module-context" aria-label="Module relations">
-          <p><b>Requires</b> <a href="#shortcut-map">shortcut-Collatz reachability</a> and <a href="#projective-incidence">two-generator projective incidence</a>.</p>
-          <p><b>Establishes</b> an exact arithmetic sublanguage of normalized generic projective incidence; the <a href="#mortality-compiler">rank-two compiler</a> transports it to mortality.</p>
+          <p><b>Requires</b> <a href="/math/matrix_mortality/interface_compression/#result">interface compression</a>.</p>
+          <p><b>Establishes</b> the <a href="#result">shortcut-Collatz incidence theorem</a> and the <a href="#mortality-compiler">rank-two incidence compiler</a>.</p>
         </nav>
 
         <details class="major-section">
@@ -65,7 +70,7 @@
 
           <section class="fragment-section">
           <h3 id="shortcut-map">Shortcut-Collatz reachability<a class="fragment-link" href="#shortcut-map" aria-label="Link to this section">#</a></h3>
-          <p>The <a class="glossary-term" href="/math/matrix_mortality/glossary/#shortcut-collatz" title="The map that halves an even integer and sends an odd integer n to (3n+1)/2.">shortcut-Collatz map</a> sends an integer <var>x</var> to</p>
+          <p>The <a class="glossary-term" href="/math/matrix_mortality/glossary/#shortcut-collatz" title="The map that halves an even integer and sends an odd integer n to (3n+1)/2.">shortcut Collatz map</a> is</p>
           <div class="formula">
             <math display="block">
               <mrow>
@@ -84,44 +89,25 @@
               </mrow>
             </math>
           </div>
-          <p>Write <var>x</var> ⇝ 1 when finitely many applications reach 1. This is a pointwise reachability predicate, not the universal assertion that every positive integer reaches 1.</p>
-
+          <p>Write <var>x</var> ⇝ 1 when some iterate of <var>x</var> equals 1. This is a question about one given integer; the Collatz conjecture is the statement that every positive integer reaches 1.</p>
           </section>
+
           <section class="fragment-section">
           <h3 id="projective-incidence">Projective incidence<a class="fragment-link" href="#projective-incidence" aria-label="Link to this section">#</a></h3>
-          <p>A point of the <a class="glossary-term" href="/math/matrix_mortality/glossary/#projective-line" title="Nonzero pairs considered up to a common nonzero scalar.">projective line</a> is a nonzero column up to scale. An invertible matrix moves such points, and a nonzero row specifies a target: its one-dimensional kernel. Incidence asks whether the source column can be moved into that kernel.</p>
-          <p>A two-generator <a class="glossary-term" href="/math/matrix_mortality/glossary/#projective-incidence" title="Zero reachability of one row–word–column coefficient under two projective matrices.">projective-incidence instance</a> consists of invertible rational 2 × 2 matrices <var>G</var>, <var>H</var>, a nonzero row <var>r</var><sup>T</sup>, and a nonzero column <var>c</var>. It asks whether</p>
+          <p>A two-generator <a class="glossary-term" href="/math/matrix_mortality/glossary/#projective-incidence" title="Whether some product of two invertible 2 × 2 matrices moves a column into the kernel of a row.">projective-incidence instance</a> consists of invertible rational 2 × 2 matrices <var>G</var>, <var>H</var>, a nonzero row <var>r</var><sup>T</sup>, and a nonzero column <var>c</var>. With <var>X</var><sub><var>w</var></sub> the product along a word <var>w</var> over {<var>G</var>, <var>H</var>}, it asks whether</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <mo>∃</mo><mi>w</mi><mo>∈</mo><mo>{</mo><mi>G</mi><mo>,</mo><mi>H</mi><msup><mo>}</mo><mo>*</mo></msup>
+                <mo>∃</mo><mi>w</mi><mo>∈</mo><msup><mrow><mo>{</mo><mi>G</mi><mo>,</mo><mi>H</mi><mo>}</mo></mrow><mo>*</mo></msup>
                 <mo>:</mo>
                 <msup><mi>r</mi><mi mathvariant="normal">T</mi></msup>
-                <msub><mi>M</mi><mi>w</mi></msub><mi>c</mi><mo>=</mo><mn>0</mn><mo>.</mo>
+                <msub><mi>X</mi><mi>w</mi></msub><mi>c</mi><mo>=</mo><mn>0</mn><mo>.</mo>
               </mrow>
             </math>
           </div>
-          <p>The empty word is allowed here. Multiplying either generator by a nonzero scalar changes every word coefficient by a nonzero factor, so it preserves the <a class="glossary-term" href="/math/matrix_mortality/glossary/#zero-language" title="The set of words with zero coefficient.">zero language</a>. The mortality compiler below uses the two scalars</p>
-          <div class="formula plain"><math display="block"><mrow><mi>α</mi><mo>=</mo><msup><mi>r</mi><mi mathvariant="normal">T</mi></msup><msup><mi>H</mi><mo>−1</mo></msup><mi>c</mi><mo>,</mo><mspace width="1em"></mspace><mi>β</mi><mo>=</mo><msup><mi>r</mi><mi mathvariant="normal">T</mi></msup><msup><mi>H</mi><mo>−1</mo></msup><mi>G</mi><msup><mi>H</mi><mo>−1</mo></msup><mi>c</mi><mo>.</mo></mrow></math></div>
-          <p>An ordered instance is <em>generic</em> when both scalars are nonzero. Rescaling the generators can then make both equal one. GPI₂ denotes this normalized problem in the present corpus; the restriction is not being imposed silently on arbitrary incidence inputs.</p>
-
-          </section>
-          <section class="fragment-section">
-          <h3 id="mortality-compiler">Rank-two mortality compiler<a class="fragment-link" href="#mortality-compiler" aria-label="Link to this section">#</a></h3>
-          <p>The link to mortality uses two two-dimensional interfaces. Three bridges carry <var>I</var>, <var>G</var> and <var>H</var>; the fourth is the rank-one test <math><mrow><msup><mi>β</mi><mo>−1</mo></msup><mo>(</mo><msup><mi>H</mi><mo>−1</mo></msup><mi>c</mi><mo>)</mo><msup><mi>r</mi><mi mathvariant="normal">T</mi></msup></mrow></math>. The nonzero normalization scalars make the bridges agree on a line shared by the interfaces. Thus they can be realized in three ambient dimensions rather than four. Completed paths between tests reproduce the original scalar coefficients; the arbitrary-path converse excludes extra zeros.</p>
-          <p>For invertible <var>G</var> and <var>H</var> in the generic chart, the <a class="glossary-term" href="/math/matrix_mortality/glossary/#interface-compression" title="Reduction of factored-cut mortality to products on their smaller interfaces.">interface construction</a> adapts four two-dimensional edges into two rational 3 × 3 matrices <var>P</var><sub>0</sub>, <var>P</var><sub>1</sub>. Each matrix has rank exactly two, and the arbitrary-product converse gives</p>
-          <div class="formula plain">
-            <math display="block">
-              <mrow>
-                <mtext>Mortal</mtext><mo>{</mo><msub><mi>P</mi><mn>0</mn></msub><mo>,</mo><msub><mi>P</mi><mn>1</mn></msub><mo>}</mo>
-                <mspace width="0.8em"></mspace><mo>⇔</mo><mspace width="0.8em"></mspace>
-                <mo>∃</mo><mi>w</mi><mo>:</mo>
-                <msup><mi>r</mi><mi mathvariant="normal">T</mi></msup>
-                <msub><mi>M</mi><mi>w</mi></msub><mi>c</mi><mo>=</mo><mn>0</mn><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>The normalized GPI₂ conditions make both required chart scalars equal to one. Independent nonzero denominator clearing converts the rational pair to an integer pair without changing mortality. Thus the shortcut-Collatz language occurs inside the rank-(2,2) stratum of M<sub>3</sub>(2), although the full cell contains other rank profiles.</p>
+          <p>The empty word is allowed. On the <a class="glossary-term" href="/math/matrix_mortality/glossary/#projective-line" title="Nonzero pairs considered up to a common nonzero scalar.">projective line</a> the question is whether the point <var>c</var> can be moved into the point ker <var>r</var><sup>T</sup> by the Möbius maps of <var>G</var> and <var>H</var>. Multiplying a generator by a nonzero scalar changes no answer. Two scalars of an ordered instance matter below:</p>
+          <div class="formula plain"><math display="block"><mrow><msub><mi>κ</mi><mn>1</mn></msub><mo>=</mo><msup><mi>r</mi><mi mathvariant="normal">T</mi></msup><msup><mi>H</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>c</mi><mo>,</mo><mspace width="1em"></mspace><msub><mi>κ</mi><mn>2</mn></msub><mo>=</mo><msup><mi>r</mi><mi mathvariant="normal">T</mi></msup><msup><mi>H</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>G</mi><msup><mi>H</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>c</mi><mo>.</mo></mrow></math></div>
+          <p>The instance is generic when both are nonzero; this excludes at most two source points <var>c</var>. Rescaling <var>G</var> and <var>H</var> can then make both equal to one, and GPI₂ denotes the problem restricted to instances normalized in this way.</p>
           </section>
         </details>
 
@@ -129,133 +115,192 @@
           <summary><h2 id="new-stuff">New Stuff<a class="fragment-link" href="#new-stuff" aria-label="Link to this section">#</a></h2></summary>
 
           <section class="fragment-section">
-          <h3 id="result">Exact embedding<a class="fragment-link" href="#result" aria-label="Link to this section">#</a></h3>
+          <h3 id="result">Result<a class="fragment-link" href="#result" aria-label="Link to this section">#</a></h3>
+          <p>A forward Collatz step chooses its branch by parity, while a matrix word chooses its letters freely. Running the map backward removes the mismatch. From 1, the two inverse branches <var>z</var> ↦ 2<var>z</var> and <var>z</var> ↦ (2<var>z</var> − 1)/3 generate every integer that reaches 1, and a word that uses the odd branch where it is not integral acquires a factor 3 in its denominator that never disappears. The two branches are Möbius maps, so incidence with the point <var>n</var> asks exactly whether <var>n</var> is a predecessor of 1.</p>
+          <p>Incidence tests one coefficient, and mortality needs a whole zero product. The compiler uses two rank-two cuts, each factoring through a plane, and chooses the four products between adjacent letters to be <var>G</var>, <var>H</var>, the identity, and a rank-one test. Two planes in ℚ<sup>3</sup> share a line, and the scalar <var>κ</var><sub>2</sub> makes the four maps agree on it, so three dimensions suffice.</p>
+
           <div class="theorem">
-            <p><strong>Shortcut-Collatz incidence.</strong> For every nonzero integer <var>n</var>, define</p>
+            <p><b>Theorem (shortcut-Collatz incidence).</b> For every nonzero integer <var>n</var>, put</p>
             <div class="formula">
               <math display="block">
-                <mtable columnalign="right center left">
-                  <mtr>
-                    <mtd><mi>A</mi></mtd>
-                    <mtd><mo>=</mo></mtd>
-                    <mtd>
-                      <mo fence="true" stretchy="true">[</mo>
-                      <mtable><mtr><mtd><mn>2</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable>
-                      <mo fence="true" stretchy="true">]</mo><mo>,</mo>
-                    </mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd><mi>B</mi></mtd>
-                    <mtd><mo>=</mo></mtd>
-                    <mtd>
-                      <mo fence="true" stretchy="true">[</mo>
-                      <mtable><mtr><mtd><mn>2</mn></mtd><mtd><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>3</mn></mtd></mtr></mtable>
-                      <mo fence="true" stretchy="true">]</mo><mo>,</mo>
-                    </mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd><msubsup><mi>r</mi><mi>n</mi><mi mathvariant="normal">T</mi></msubsup></mtd>
-                    <mtd><mo>=</mo></mtd>
-                    <mtd><mo>(</mo><mn>1</mn><mo>,</mo><mo>−</mo><mi>n</mi><mo>)</mo><mo>,</mo></mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd><mi>c</mi></mtd>
-                    <mtd><mo>=</mo></mtd>
-                    <mtd><msup><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup><mo>.</mo></mtd>
-                  </mtr>
-                </mtable>
-              </math>
-            </div>
-            <p>After the explicit nonzero central rescaling below, the generators <var>G</var><sub><var>n</var></sub>, <var>H</var><sub><var>n</var></sub> lie in the normalized GPI₂ chart and satisfy</p>
-            <div class="formula plain">
-              <math display="block">
                 <mrow>
-                  <mo>∃</mo><mi>w</mi><mo>:</mo>
-                  <msup><msub><mi>r</mi><mi>n</mi></msub><mi mathvariant="normal">T</mi></msup>
-                  <msub><mi>M</mi><mi>w</mi></msub><mi>c</mi><mo>=</mo><mn>0</mn>
-                  <mspace width="0.8em"></mspace><mo>⇔</mo><mspace width="0.8em"></mspace>
-                  <mi>n</mi><mo>⇝</mo><mn>1</mn><mo>.</mo>
+                  <mi>A</mi><mo>=</mo>
+                  <mo fence="true" stretchy="true">[</mo>
+                  <mtable><mtr><mtd><mn>2</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable>
+                  <mo fence="true" stretchy="true">]</mo><mo>,</mo>
+                  <mspace width="1em"></mspace>
+                  <mi>B</mi><mo>=</mo>
+                  <mo fence="true" stretchy="true">[</mo>
+                  <mtable><mtr><mtd><mn>2</mn></mtd><mtd><mo>−</mo><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>3</mn></mtd></mtr></mtable>
+                  <mo fence="true" stretchy="true">]</mo><mo>,</mo>
+                  <mspace width="1em"></mspace>
+                  <msubsup><mi>r</mi><mi>n</mi><mi mathvariant="normal">T</mi></msubsup><mo>=</mo><mo>(</mo><mn>1</mn><mo>,</mo><mo>−</mo><mi>n</mi><mo>)</mo><mo>,</mo>
+                  <mspace width="1em"></mspace>
+                  <mi>c</mi><mo>=</mo><msup><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup><mo>.</mo>
                 </mrow>
               </math>
             </div>
-            <p>The word may be empty; this is necessary for <var>n</var> = 1.</p>
+            <p>Some word <var>w</var> over {<var>A</var>, <var>B</var>}, possibly empty, has <var>r</var><sub><var>n</var></sub><sup>T</sup><var>X</var><sub><var>w</var></sub><var>c</var> = 0 exactly when <var>n</var> ⇝ 1. After the rescaling <var>H</var><sub><var>n</var></sub> = <var>λ</var><sub><var>n</var></sub><var>A</var>, <var>G</var><sub><var>n</var></sub> = (<var>λ</var><sub><var>n</var></sub><sup>2</sup>/<var>μ</var><sub><var>n</var></sub>)<var>B</var> of the <a href="#normalization">normalization</a>, the instance lies in GPI₂.</p>
+            <p><b>Theorem (rank-two incidence compiler).</b> For every generic two-generator incidence instance there are rational 3 × 3 matrices <var>P</var><sub>0</sub>, <var>P</var><sub>1</sub>, each of rank exactly two, with</p>
+            <div class="formula plain">
+              <math display="block">
+                <mrow>
+                  <mtext>Mortal</mtext><mo>{</mo><msub><mi>P</mi><mn>0</mn></msub><mo>,</mo><msub><mi>P</mi><mn>1</mn></msub><mo>}</mo>
+                  <mspace width="0.8em"></mspace><mo>⇔</mo><mspace width="0.8em"></mspace>
+                  <mo>∃</mo><mi>w</mi><mo>:</mo>
+                  <msup><mi>r</mi><mi mathvariant="normal">T</mi></msup>
+                  <msub><mi>X</mi><mi>w</mi></msub><mi>c</mi><mo>=</mo><mn>0</mn><mo>.</mo>
+                </mrow>
+              </math>
+            </div>
           </div>
-
+          <p>The empty word is necessary in the first theorem: <var>n</var> = 1 reaches 1 in no steps.</p>
           </section>
+
           <section class="fragment-section">
           <h3 id="inverse-branches">Inverse branches<a class="fragment-link" href="#inverse-branches" aria-label="Link to this section">#</a></h3>
-          <p>A forward Collatz step chooses its branch by parity, but a matrix word can choose either letter freely. Reverse the computation instead: start at 1, apply candidate inverse branches, and test whether the result is the supplied integer. The arithmetic argument below will reject every illegal branch automatically.</p>
-          <p>The projective actions of <var>A</var> and <var>B</var> are the two inverse branches</p>
+          <p>The projective actions of <var>A</var> and <var>B</var> are the inverse branches</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
                 <mi>a</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mn>2</mn><mi>z</mi><mo>,</mo>
                 <mspace width="1em"></mspace>
-                <mi>b</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mn>2</mn><mi>z</mi><mo>−</mo><mn>1</mn></mrow><mn>3</mn></mfrac><mo>.</mo>
+                <mi>b</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mn>2</mn><mi>z</mi><mo>−</mo><mn>1</mn></mrow><mn>3</mn></mfrac><mo>,</mo>
               </mrow>
             </math>
           </div>
-          <p>Starting from 1 and reading a word from right to left generates a candidate predecessor. Matrix multiplication tracks it homogeneously:</p>
+          <p>and <var>c</var> represents the point 1. Reading a word from right to left applies the branches to 1 and produces a candidate predecessor <var>x</var>(<var>w</var>); matrix multiplication tracks it with a scale factor,</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <msub><mi>M</mi><mi>w</mi></msub><mi>c</mi>
+                <msub><mi>X</mi><mi>w</mi></msub><mi>c</mi>
                 <mo>=</mo>
                 <mi>s</mi><mo>(</mo><mi>w</mi><mo>)</mo>
                 <msup><mrow><mo>(</mo><mi>x</mi><mo>(</mo><mi>w</mi><mo>)</mo><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup><mo>,</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>where <var>s</var>(<var>w</var>) is a nonzero power of three. Consequently the raw incidence is</p>
-          <div class="formula plain">
-            <math display="block">
-              <mrow>
-                <msup><msub><mi>r</mi><mi>n</mi></msub><mi mathvariant="normal">T</mi></msup>
-                <msub><mi>M</mi><mi>w</mi></msub><mi>c</mi>
+                <mspace width="1em"></mspace>
+                <msubsup><mi>r</mi><mi>n</mi><mi mathvariant="normal">T</mi></msubsup><msub><mi>X</mi><mi>w</mi></msub><mi>c</mi>
                 <mo>=</mo>
                 <mi>s</mi><mo>(</mo><mi>w</mi><mo>)</mo>
-                <mo>(</mo><mi>x</mi><mo>(</mo><mi>w</mi><mo>)</mo><mo>−</mo><mi>n</mi><mo>)</mo><mo>.</mo>
+                <mo>(</mo><mi>x</mi><mo>(</mo><mi>w</mi><mo>)</mo><mo>−</mo><mi>n</mi><mo>)</mo><mo>,</mo>
               </mrow>
             </math>
           </div>
-
+          <p>where <var>s</var>(<var>w</var>) is 3 to the number of letters <var>B</var> in <var>w</var>. The coefficient vanishes exactly when <var>x</var>(<var>w</var>) = <var>n</var>.</p>
           </section>
+
           <section class="fragment-section">
           <h3 id="malformed-words">Malformed words<a class="fragment-link" href="#malformed-words" aria-label="Link to this section">#</a></h3>
-          <p>The odd inverse branch is legal at an integer <var>z</var> only when 3 divides <math><mrow><mn>2</mn><mi>z</mi><mo>−</mo><mn>1</mn></mrow></math>. Otherwise its reduced denominator acquires a factor of 3. Doubling cannot cancel it; applying the odd branch again adds another factor of 3 because its numerator remains nonzero modulo 3. Hence no continuation can return to an integer. In <a class="glossary-term" href="/math/matrix_mortality/glossary/#padic-valuation" title="The exponent of 3 in a reduced rational number; denominator powers give negative values.">3-adic valuation</a> terms, the first illegal step has valuation −1, doubling preserves a negative valuation, and another odd step decreases it.</p>
-          <p>Thus every word either traces a lawful integral inverse orbit or enters a permanent nonintegral trap. Incidence with the integral target <var>n</var> occurs exactly on the lawful branch, closing the arbitrary-word converse.</p>
-
+          <p>The branch <var>b</var> is a genuine inverse step at an integer <var>z</var> exactly when 3 divides 2<var>z</var> − 1; its value is then an odd integer mapped to <var>z</var> by <var>T</var>, and <var>a</var>(<var>z</var>) is always an even integer mapped to <var>z</var>. When 3 does not divide 2<var>z</var> − 1, the result has <a class="glossary-term" href="/math/matrix_mortality/glossary/#padic-valuation" title="The exponent of p in a nonzero rational number.">3-adic valuation</a> −1. Doubling preserves a negative 3-adic valuation, and <var>b</var> lowers it further, since the numerator 2<var>z</var> − 1 then has valuation 0. No later letter returns to an integer.</p>
+          <p>Every word therefore either spells a legal backward run from 1 or leaves the integers permanently, and only the first kind can produce the integer <var>n</var>. The words of the first kind produce exactly the integers that reach 1.</p>
           </section>
+
           <section class="fragment-section">
-          <h3 id="normalization">Generic normalization<a class="fragment-link" href="#normalization" aria-label="Link to this section">#</a></h3>
-          <p>The inverse-word argument already proves the desired incidence equivalence for the raw matrices. We normalize only to meet the hypotheses of the rank-two mortality compiler. For the raw ordering <math><mrow><mi>G</mi><mo>=</mo><mi>B</mi><mo>,</mo><mi>H</mi><mo>=</mo><mi>A</mi></mrow></math>, the two chart scalars computed above are</p>
+          <h3 id="normalization">Normalization<a class="fragment-link" href="#normalization" aria-label="Link to this section">#</a></h3>
+          <p>For the ordering <var>G</var> = <var>B</var>, <var>H</var> = <var>A</var>, the chart scalars are</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <msub><mi>λ</mi><mi>n</mi></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>−</mo><mi>n</mi><mo>,</mo>
-                <mspace width="0.8em"></mspace>
-                <msub><mi>μ</mi><mi>n</mi></msub><mo>=</mo><mo>−</mo><mn>3</mn><mi>n</mi><mo>.</mo>
+                <msub><mi>κ</mi><mn>1</mn></msub><mo>=</mo><msub><mi>λ</mi><mi>n</mi></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>−</mo><mi>n</mi><mo>,</mo>
+                <mspace width="1em"></mspace>
+                <msub><mi>κ</mi><mn>2</mn></msub><mo>=</mo><msub><mi>μ</mi><mi>n</mi></msub><mo>=</mo><mo>−</mo><mn>3</mn><mi>n</mi><mo>,</mo>
               </mrow>
             </math>
           </div>
-          <p>For nonzero integral <var>n</var>, both required scalars are nonzero. Define</p>
+          <p>both nonzero for nonzero integers <var>n</var>. The rescaled generators <var>H</var><sub><var>n</var></sub> = <var>λ</var><sub><var>n</var></sub><var>A</var> and <var>G</var><sub><var>n</var></sub> = (<var>λ</var><sub><var>n</var></sub><sup>2</sup>/<var>μ</var><sub><var>n</var></sub>)<var>B</var> have the same Möbius maps and chart scalars <var>κ</var><sub>1</sub> = <var>κ</var><sub>2</sub> = 1, and every word keeps its zero or nonzero coefficient. The compiler below needs only that <var>κ</var><sub>1</sub> and <var>κ</var><sub>2</sub> are nonzero.</p>
+          </section>
+
+          <section class="fragment-section">
+          <h3 id="mortality-compiler">From incidence to two 3 × 3 matrices<a class="fragment-link" href="#mortality-compiler" aria-label="Link to this section">#</a></h3>
+          <p>Let (<var>G</var>, <var>H</var>, <var>r</var><sup>T</sup>, <var>c</var>) be generic, and put</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <msub><mi>H</mi><mi>n</mi></msub><mo>=</mo><msub><mi>λ</mi><mi>n</mi></msub><mi>A</mi><mo>,</mo>
-                <mspace width="0.8em"></mspace>
-                <msub><mi>G</mi><mi>n</mi></msub><mo>=</mo>
-                <mfrac><msubsup><mi>λ</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi>μ</mi><mi>n</mi></msub></mfrac><mi>B</mi><mo>.</mo>
+                <msub><mi>v</mi><mn>1</mn></msub><mo>=</mo><msup><mi>H</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>c</mi><mo>,</mo>
+                <mspace width="1em"></mspace>
+                <msub><mi>v</mi><mn>0</mn></msub><mo>=</mo><msup><mi>H</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>G</mi><msup><mi>H</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>c</mi><mo>,</mo>
+                <mspace width="1em"></mspace>
+                <mi>Θ</mi><mo>=</mo><msubsup><mi>κ</mi><mn>2</mn><mrow><mo>−</mo><mn>1</mn></mrow></msubsup><msub><mi>v</mi><mn>1</mn></msub><msup><mi>r</mi><mi mathvariant="normal">T</mi></msup><mo>.</mo>
               </mrow>
             </math>
           </div>
-          <p>Their two projectivities remain <var>a</var> and <var>b</var>. Lean proves that the two chart scalars α and β are both one and that the complete zero language is unchanged.</p>
+          <p>Then <var>r</var><sup>T</sup><var>v</var><sub>1</sub> = <var>κ</var><sub>1</sub> and <var>r</var><sup>T</sup><var>v</var><sub>0</sub> = <var>κ</var><sub>2</sub>, so <var>v</var><sub>0</sub>, <var>v</var><sub>1</sub> are nonzero, and the rank-one test Θ satisfies Θ<var>v</var><sub>0</sub> = <var>v</var><sub>1</sub>.</p>
 
-          </section>
           <section class="fragment-section">
-          <h3 id="meaning">Logical force<a class="fragment-link" href="#meaning" aria-label="Link to this section">#</a></h3>
-          <p>A decision procedure for GPI₂ would decide whether an arbitrary nonzero integer reaches 1 under shortcut Collatz: construct the displayed instance and ask whether it has a zero word. This is the sole direction established.</p>
-          <p>The theorem neither decides nor proves undecidable GPI₂. It supplies no reduction from GPI₂ to Collatz reachability, and it says nothing by itself about whether every positive integer reaches 1. “Collatz-hard” is therefore safe only as shorthand for this explicit one-way lower bound.</p>
+          <h4 id="two-planes">Two planes sharing a line<a class="fragment-link" href="#two-planes" aria-label="Link to this section">#</a></h4>
+          <p>In ℚ<sup>3</sup> take the planes Π<sub>0</sub> = span{<var>e</var><sub>1</sub>, <var>e</var><sub>2</sub>} and Π<sub>1</sub> = span{<var>e</var><sub>1</sub>, <var>e</var><sub>3</sub>}, which share the line ℚ<var>e</var><sub>1</sub>, with embeddings <var>ι</var><sub>0</sub>(<var>x</var>, <var>y</var>) = (<var>x</var>, <var>y</var>, 0) and <var>ι</var><sub>1</sub>(<var>x</var>, <var>y</var>) = (<var>x</var>, 0, <var>y</var>). Each generator will have the form <var>P</var><sub><var>t</var></sub> = <var>ι</var><sub><var>t</var></sub><var>O</var><sub><var>t</var></sub> with <var>O</var><sub><var>t</var></sub>: ℚ<sup>3</sup> → ℚ<sup>2</sup>. In the language of <a href="/math/matrix_mortality/interface_compression/#result">interface compression</a>, both generators are cuts, there are no transitions, and the bridge between adjacent letters <var>P</var><sub><var>t</var></sub><var>P</var><sub><var>s</var></sub> is <var>O</var><sub><var>t</var></sub><var>ι</var><sub><var>s</var></sub>, a map from plane <var>s</var> to plane <var>t</var>. The design prescribes these four bridges:</p>
+          <div class="table-scroll">
+          <table class="tile-table">
+            <thead>
+              <tr><th>Adjacent letters</th><th>Bridge</th><th>Role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><var>P</var><sub>0</sub><var>P</var><sub>0</sub></td><td>Θ</td><td>rank-one test</td></tr>
+              <tr><td><var>P</var><sub>0</sub><var>P</var><sub>1</sub></td><td><var>I</var></td><td>change of plane</td></tr>
+              <tr><td><var>P</var><sub>1</sub><var>P</var><sub>0</sub></td><td><var>H</var></td><td>generator</td></tr>
+              <tr><td><var>P</var><sub>1</sub><var>P</var><sub>1</sub></td><td><var>G</var></td><td>generator</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p>A single linear map <var>O</var><sub><var>t</var></sub> must produce both bridges out of plane <var>t</var>, from <var>ι</var><sub>0</sub> and from <var>ι</var><sub>1</sub>, and the two embeddings agree on the shared line. So the two bridges into <var>P</var><sub><var>t</var></sub> must agree on a distinguished vector of each plane. The vectors <var>v</var><sub>0</sub> for plane 0 and <var>v</var><sub>1</sub> for plane 1 work:</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <mi>Θ</mi><msub><mi>v</mi><mn>0</mn></msub><mo>=</mo><mi>I</mi><msub><mi>v</mi><mn>1</mn></msub><mo>,</mo>
+                <mspace width="1em"></mspace>
+                <mi>H</mi><msub><mi>v</mi><mn>0</mn></msub><mo>=</mo><mi>G</mi><msub><mi>v</mi><mn>1</mn></msub><mo>.</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>Change coordinates in plane <var>s</var> by the frame <var>F</var><sub><var>s</var></sub> = [<var>v</var><sub><var>s</var></sub> | <var>J</var><var>v</var><sub><var>s</var></sub>], where <var>J</var> is the quarter turn; det <var>F</var><sub><var>s</var></sub> = |<var>v</var><sub><var>s</var></sub>|<sup>2</sup> ≠ 0 over ℚ. The adapted bridges Ê<sub><var>ts</var></sub> = <var>F</var><sub><var>t</var></sub><sup>−1</sup><var>E</var><sub><var>ts</var></sub><var>F</var><sub><var>s</var></sub>, where <var>E</var><sub><var>ts</var></sub> is the tabulated bridge, then agree on <var>e</var><sub>1</sub>: Ê<sub><var>t</var>0</sub><var>e</var><sub>1</sub> = Ê<sub><var>t</var>1</sub><var>e</var><sub>1</sub>. Put</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <msub><mi>O</mi><mi>t</mi></msub><mo>=</mo><mo>[</mo><mspace width="0.2em"></mspace><msub><mover><mi>E</mi><mo>^</mo></mover><mrow><mi>t</mi><mn>0</mn></mrow></msub><msub><mi>e</mi><mn>1</mn></msub><mspace width="0.3em"></mspace><mo>|</mo><mspace width="0.3em"></mspace><msub><mover><mi>E</mi><mo>^</mo></mover><mrow><mi>t</mi><mn>0</mn></mrow></msub><msub><mi>e</mi><mn>2</mn></msub><mspace width="0.3em"></mspace><mo>|</mo><mspace width="0.3em"></mspace><msub><mover><mi>E</mi><mo>^</mo></mover><mrow><mi>t</mi><mn>1</mn></mrow></msub><msub><mi>e</mi><mn>2</mn></msub><mspace width="0.2em"></mspace><mo>]</mo><mo>,</mo>
+                <mspace width="1em"></mspace>
+                <msub><mi>P</mi><mi>t</mi></msub><mo>=</mo><msub><mi>ι</mi><mi>t</mi></msub><msub><mi>O</mi><mi>t</mi></msub><mo>.</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>Then <var>O</var><sub><var>t</var></sub><var>ι</var><sub><var>s</var></sub> = Ê<sub><var>ts</var></sub> for all <var>t</var>, <var>s</var>. Each <var>P</var><sub><var>t</var></sub> factors through ℚ<sup>2</sup>, so its rank is at most two, and projecting Ê<sub>01</sub> = <var>F</var><sub>0</sub><sup>−1</sup><var>F</var><sub>1</sub> and Ê<sub>10</sub> = <var>F</var><sub>1</sub><sup>−1</sup><var>H</var><var>F</var><sub>0</sub>, both invertible, out of <var>P</var><sub>0</sub> and <var>P</var><sub>1</sub> shows that the rank is exactly two. Frames cancel along any path, so adapted and tabulated bridges have the same zero products.</p>
+          <p>For the forward direction, map each letter <var>G</var> of <var>w</var> to <var>P</var><sub>1</sub> and each letter <var>H</var> to <var>P</var><sub>0</sub><var>P</var><sub>1</sub>. The physical word <var>P</var><sub>0</sub><var>P</var><sub>0</sub><var>P</var><sub>1</sub>φ(<var>w</var>)<var>P</var><sub>0</sub><var>P</var><sub>0</sub> has bridge product Θ<var>X</var><sub><var>w</var></sub><var>H</var>Θ, and</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <mi>Θ</mi><msub><mi>X</mi><mi>w</mi></msub><mi>H</mi><mi>Θ</mi>
+                <mo>=</mo>
+                <msubsup><mi>κ</mi><mn>2</mn><mrow><mo>−</mo><mn>1</mn></mrow></msubsup><mo>(</mo><msup><mi>r</mi><mi mathvariant="normal">T</mi></msup><msub><mi>X</mi><mi>w</mi></msub><mi>c</mi><mo>)</mo><mspace width="0.2em"></mspace><mi>Θ</mi><mo>,</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>which is zero when <var>w</var> solves the incidence problem.</p>
+          </section>
+
+          <section class="fragment-section">
+          <h4 id="compiler-converse">Every zero product<a class="fragment-link" href="#compiler-converse" aria-label="Link to this section">#</a></h4>
+          <p>By interface compression, a zero product of <var>P</var><sub>0</sub>, <var>P</var><sub>1</sub> gives a zero product of bridges along a path of planes. Cut that product at every test Θ:</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <msub><mi>B</mi><mn>0</mn></msub><mi>Θ</mi><msub><mi>B</mi><mn>1</mn></msub><mi>Θ</mi><mo>⋯</mo><mi>Θ</mi><msub><mi>B</mi><mi>m</mi></msub>
+                <mo>=</mo>
+                <mo>(</mo><msub><mi>B</mi><mn>0</mn></msub><msub><mi>v</mi><mn>1</mn></msub><mo>)</mo>
+                <mo fence="true" stretchy="true">[</mo>
+                <munder><mo>∏</mo><mrow><mn>1</mn><mo>≤</mo><mi>k</mi><mo>&lt;</mo><mi>m</mi></mrow></munder>
+                <msubsup><mi>κ</mi><mn>2</mn><mrow><mo>−</mo><mn>1</mn></mrow></msubsup><msup><mi>r</mi><mi mathvariant="normal">T</mi></msup><msub><mi>B</mi><mi>k</mi></msub><msub><mi>v</mi><mn>1</mn></msub>
+                <mo fence="true" stretchy="true">]</mo>
+                <mo>(</mo><msubsup><mi>κ</mi><mn>2</mn><mrow><mo>−</mo><mn>1</mn></mrow></msubsup><msup><mi>r</mi><mi mathvariant="normal">T</mi></msup><msub><mi>B</mi><mi>m</mi></msub><mo>)</mo><mo>,</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>where each block <var>B</var><sub><var>k</var></sub> is a product of the invertible bridges <var>I</var>, <var>G</var>, <var>H</var>. With no test the product is invertible, and otherwise the outer factors are nonzero. A test comes from the letters <var>P</var><sub>0</sub><var>P</var><sub>0</sub>, so the bridge before it comes from <var>P</var><sub>0</sub><var>P</var><sub>0</sub> or <var>P</var><sub>1</sub><var>P</var><sub>0</sub>: every inner block is empty or ends in <var>H</var>. An empty block contributes <var>κ</var><sub>1</sub>/<var>κ</var><sub>2</sub> ≠ 0. A block ending in <var>H</var> is <var>X</var><sub><var>w</var></sub><var>H</var> after the identity bridges are deleted, and contributes <var>κ</var><sub>2</sub><sup>−1</sup><var>r</var><sup>T</sup><var>X</var><sub><var>w</var></sub><var>c</var>. A zero product therefore needs a word <var>w</var> with <var>r</var><sup>T</sup><var>X</var><sub><var>w</var></sub><var>c</var> = 0.</p>
+          <p>The hypothesis <var>κ</var><sub>1</sub> ≠ 0 excludes a spurious zero: Θ<sup>2</sup> = (<var>κ</var><sub>1</sub>/<var>κ</var><sub>2</sub>)Θ. Multiplying <var>P</var><sub>0</sub> and <var>P</var><sub>1</sub> by nonzero integers clears denominators without changing ranks or zero products.</p>
+          </section>
+          </section>
+
+          <section class="fragment-section">
+          <h3 id="meaning">What follows<a class="fragment-link" href="#meaning" aria-label="Link to this section">#</a></h3>
+          <p>For each nonzero integer <var>n</var>, composing the two theorems and clearing denominators gives two integer 3 × 3 matrices of rank two that are mortal exactly when <var>n</var> ⇝ 1. A decision procedure for M<sub>3</sub>(2), or for GPI₂, would therefore decide, for a given integer, whether it reaches 1 under the shortcut Collatz map, a question for which no algorithm is known. That is the only direction established.</p>
+          <p>Neither theorem decides GPI₂ or M<sub>3</sub>(2), proves either undecidable, or reduces them back to Collatz reachability. The <a href="/math/matrix_mortality/m3_2_return_guard/">valuation guard</a> shows the same phenomenon for the other open rank profile: M<sub>3</sub>(2) already contains orbit questions about rational numbers whose status is unknown.</p>
           </section>
         </details>
 
@@ -267,33 +312,38 @@
           <div class="status-grid">
             <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/ProjectiveCollatz.lean">Inverse language</a></b>
-              <p><code>reachesOne_iff_shortcutCollatz</code> identifies the inductive inverse closure with finite shortcut-Collatz reachability.</p>
+              <p><code>reachesOne_iff_shortcutCollatz</code> identifies the backward closure of 1 with shortcut-Collatz reachability.</p>
             </div>
             <div>
-              <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/ProjectiveCollatz.lean">Malformed-word converse</a></b>
-              <p><code>predecessorState_reaches_or_negative</code> proves the integral-path or negative-3-adic-valuation dichotomy for every word.</p>
+              <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/ProjectiveCollatz.lean">Malformed words</a></b>
+              <p><code>predecessorState_reaches_or_negative</code> proves, for every word, that it spells a legal backward run or reaches negative 3-adic valuation.</p>
             </div>
             <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/ProjectiveCollatz.lean">Normalized incidence</a></b>
-              <p><code>normalizedScalars</code> and <code>exists_normalizedIncidence_zero_iff</code> prove generic normalization and the final pointwise equivalence.</p>
+              <p><code>normalizedScalars</code> and <code>exists_normalizedIncidence_zero_iff</code> prove the normalization and the final equivalence for every nonzero integer.</p>
+            </div>
+            <div>
+              <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/ReverseEdge.lean">Rank-two compiler</a></b>
+              <p><code>isMortal_adaptedGenerator_iff</code> and <code>adaptedGenerator_rank</code>, with <code>rawEdge_agrees</code>, <code>adaptedEdge_compatible</code>, <code>adaptedEdge_pathProduct_eq_zero_iff</code>, and the path grammar <code>pathBlocks_closed</code>.</p>
             </div>
             <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/main/verification/axioms.txt">Transitive axioms</a></b>
               <p>The publication-facing declarations use only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>.</p>
             </div>
           </div>
-
           </section>
+
           <section class="fragment-section">
           <h3 id="formal-scope">Formal scope<a class="fragment-link" href="#formal-scope" aria-label="Link to this section">#</a></h3>
-          <p>Lean checks the shortcut-step equivalence, every-word inverse semantics, permanent 3-adic trap, raw matrix action, raw incidence identity, normalization scalars, generator invertibility, normalized GPI₂ conditions, zero-language preservation, and final equivalence for every nonzero integer. The reverse-edge compiler and rank-two conclusion are separately machine-checked in <a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/ReverseEdge.lean"><code>ReverseEdge</code></a>; their composition with shortcut-Collatz incidence is not packaged as a separate endpoint declaration.</p>
-          <p>The formulas give an elementary effective transformation of <var>n</var> into rational matrices and boundary vectors. The repository does not yet package that transformation as a primitive-recursive many-one declaration, so the machine-checked endpoint is described as an exact pointwise embedding.</p>
-
+          <p>Lean checks the shortcut-step equivalence, the backward semantics of every word, the 3-adic trap, the raw incidence identity, the normalization, and the final equivalence for every nonzero integer. Lean separately checks the compiler for every generic instance, including both ranks and every zero product. Scaling generators by nonzero constants preserves mortality by <code>isMortal_smulMatrix_iff</code>.</p>
+          <p>The composition of the two theorems with denominator clearing is not a single Lean declaration, and the map from <var>n</var> to the matrices is not packaged as a primitive-recursive reduction; the formulas above make it explicitly computable.</p>
           </section>
+
           <section class="fragment-section">
           <h3 id="sources">References<a class="fragment-link" href="#sources" aria-label="Link to this section">#</a></h3>
           <ol class="references">
-            <li><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/ProjectiveCollatz.lean"><cite>Shortcut-Collatz Projective Incidence</cite></a>, 2026. Lean formalization of the exact embedding.</span></li>
+            <li id="ref-interface"><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/interface_compression/"><cite>Interface Compression</cite></a>, 2026. Cuts, bridges, and paths.</span></li>
+            <li id="ref-guard"><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/m3_2_return_guard/"><cite>A Valuation Guard in M₃(2)</cite></a>, 2026. The rank profile (3, 2).</span></li>
           </ol>
           </section>
         </details>

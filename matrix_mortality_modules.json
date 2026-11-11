@@ -10,7 +10,7 @@
       "assurance": "audited",
       "status": "established",
       "title": "Matrix mortality",
-      "summary": "Nonempty zero products in a finite family of integer matrices, with dimension and generator count fixed.",
+      "summary": "Whether some nonempty product of finitely many integer matrices is zero, with the dimension d and the number k of matrices fixed.",
       "href": "/math/matrix_mortality/#definition",
       "requires": [],
       "relations": []
@@ -22,8 +22,8 @@
       "origin": "literature",
       "assurance": "formalized",
       "status": "established",
-      "title": "Word-pair representation",
-      "summary": "A three-dimensional matrix morphism that records two ternary words and detects their equality in one coefficient.",
+      "title": "Word-pair matrices",
+      "summary": "Three-dimensional integer matrices that multiply like pairs of words and detect equality of the two words in one entry.",
       "href": "/math/matrix_mortality/m3_5/#word-pair-representation",
       "requires": [],
       "relations": []
@@ -36,7 +36,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Fixed-boundary correspondence",
-      "summary": "Four nonerasing word pairs recognize restricted tag halting when the terminal marker is fixed rather than selectable.",
+      "summary": "Four of Neary’s word pairs with one fixed boundary word recognize halting of binary tag systems, for every word over the pairs.",
       "href": "/math/matrix_mortality/m3_5/#four-tiles",
       "requires": [],
       "relations": []
@@ -49,7 +49,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Paired scalar series",
-      "summary": "The four source roles are encoded by two data controls and one toggle; their four-dimensional scalar coefficient detects the decoded word equality.",
+      "summary": "Three integer 4 × 4 matrices whose coefficient vanishes on a word exactly when the decoded tiles solve fixed-boundary correspondence; four dimensions are exact.",
       "href": "/math/matrix_mortality/paired_scalar_series/#result",
       "requires": [
         "mm/fixed-boundary-correspondence",
@@ -66,8 +66,8 @@
       "assurance": "audited",
       "status": "established",
       "title": "Paired-role compression",
-      "summary": "Two phase copies share an agreement subspace, replacing four linear actions by two data controls and a toggle.",
-      "href": "/math/matrix_mortality/m4_4/#paired-compression",
+      "summary": "Four maps that agree in pairs on an r-dimensional subspace become two data maps and a toggle in dimension 2d − r, with the same coefficients.",
+      "href": "/math/matrix_mortality/paired_scalar_series/#paired-compression",
       "requires": [],
       "relations": []
     },
@@ -79,7 +79,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Rank-one separator",
-      "summary": "One repeated outer product turns a vanishing scalar coefficient into a matrix zero; the converse accounts for arbitrary products.",
+      "summary": "A rank-one generator built from the boundary row and column turns a vanishing coefficient into a zero product; the converse covers every product.",
       "href": "/math/matrix_mortality/m3_5/#separator-construction",
       "requires": [
         "mm/matrix-mortality"
@@ -99,7 +99,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Interface compression",
-      "summary": "Partitioning an ordinary generator family into transitions and factored cuts reduces its cut-containing products exactly to paths of interface bridges; transition-only products remain a separate branch.",
+      "summary": "Mortality of transitions and factored cuts equals mortality of the transitions or of a path of small interface bridges.",
       "href": "/math/matrix_mortality/interface_compression/#result",
       "requires": [
         "mm/matrix-mortality"
@@ -114,10 +114,25 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Singular-return compression",
-      "summary": "When no transition power vanishes, mortality of one transition and one cut is equivalent to mortality of their complete return family.",
+      "summary": "For a transition A with no vanishing power and a cut UO, the pair is mortal exactly when its returns O Aⁿ U are.",
       "href": "/math/matrix_mortality/interface_compression/#single-cut",
       "requires": [
         "mm/interface-compression"
+      ],
+      "relations": []
+    },
+    {
+      "id": "mm/finite-return-shapes",
+      "kind": "lemma",
+      "prominence": "supporting",
+      "origin": "project",
+      "assurance": "audited",
+      "status": "established",
+      "title": "Finitely many return shapes",
+      "summary": "If every return is a nonzero multiple of one of finitely many matrices, each occurring, the returns and those matrices are mortal together.",
+      "href": "/math/matrix_mortality/interface_compression/#finite-shapes",
+      "requires": [
+        "mm/singular-return-compression"
       ],
       "relations": []
     },
@@ -129,7 +144,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Six-dimensional scalar compiler",
-      "summary": "Two-bit codewords select the four source roles. Sharing the unfinished upper-word coordinates gives two matrices in dimension six.",
+      "summary": "Two-bit codewords spell the four tiles; sharing coordinates after the phase bit gives two 6 × 6 matrices with the same coefficients.",
       "href": "/math/matrix_mortality/binary_compilers/#scalar-six",
       "requires": [
         "mm/fixed-boundary-correspondence",
@@ -145,7 +160,7 @@
       "assurance": "audited",
       "status": "established",
       "title": "Generator packing",
-      "summary": "A general alphabet reduction trades generator count for additional coordinate blocks, preserving mortality in both directions.",
+      "summary": "Spelling generators in a prefix code trades generators for dimension: M_d(hk + 1) reduces to M_kd(h + 1).",
       "href": "/math/matrix_mortality/m3_5/#generator-packing",
       "requires": [
         "mm/matrix-mortality"
@@ -160,7 +175,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Binary prefix decoder",
-      "summary": "A complete binary code represents the five source matrices on four three-dimensional decoder blocks; a synchronizing word handles every starting block.",
+      "summary": "A complete binary prefix code spells the five matrices of M₃(5) on four blocks of dimension three; a synchronizing word handles every start.",
       "href": "/math/matrix_mortality/binary_compilers/#prefix-code",
       "requires": [
         "mm/m3-5"
@@ -180,7 +195,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Common-image restriction",
-      "summary": "A decoder family is restricted to its common invariant image, with an appended-letter converse excluding new zero products.",
+      "summary": "Both twelve-dimensional generators map into a ten-dimensional subspace; one appended letter turns every restricted zero into an original zero.",
       "href": "/math/matrix_mortality/binary_compilers/#common-image",
       "requires": [
         "mm/binary-prefix-decoder"
@@ -195,8 +210,8 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Tilted separator",
-      "summary": "An injective length-tilted ternary code changes the nonzero coefficients needed by the realization while preserving the complete zero language.",
-      "href": "/math/matrix_mortality/m9_2/#tilted-separator",
+      "summary": "A separator row (1, q, q, q) whose zeros are exactly those of the paired series, by injectivity of the tilted code σ(x) + q·3^|x|.",
+      "href": "/math/matrix_mortality/m8_2/#tilted-separator",
       "requires": [
         "mm/paired-scalar-series"
       ],
@@ -210,8 +225,8 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Nine-dimensional return realization",
-      "summary": "Two length-three nilpotent chains, one length-two chain, and one eigenline realize three exceptional moments and a geometric tail.",
-      "href": "/math/matrix_mortality/m9_2/#nine-state-chart",
+      "summary": "A transition with Jordan blocks of sizes 3, 3, 2 and one eigenline whose returns are the three controls and multiples of the tilted separator.",
+      "href": "/math/matrix_mortality/m8_2/#nine-dimensional-realization",
       "requires": [
         "mm/tilted-separator"
       ],
@@ -224,9 +239,9 @@
       "origin": "project",
       "assurance": "formalized",
       "status": "established",
-      "title": "Tilted-geometric rank floor",
-      "summary": "One fixed source instance requires nine dimensions throughout the stated tilted geometric-tail family; the bound concerns exact realizations of those returns.",
-      "href": "/math/matrix_mortality/m9_2/#consequences",
+      "title": "Floor for uniform rows",
+      "summary": "At a benchmark source, every exact realization of the uniform-row return sequences needs nine dimensions, for every tail and slope.",
+      "href": "/math/matrix_mortality/m8_2/#rank-floor",
       "requires": [
         "mm/tilted-separator"
       ],
@@ -239,9 +254,9 @@
       "origin": "mixed",
       "assurance": "formalized",
       "status": "established",
-      "title": "Effective denominator clearing",
-      "summary": "Independent nonzero generator scalings convert a rational family to integer matrices while preserving and reflecting every zero product.",
-      "href": "/math/matrix_mortality/m9_2/#unreduced-clearing",
+      "title": "Denominator clearing",
+      "summary": "Scaling each generator by its own nonzero integer preserves and reflects every zero product, and unreduced fractions keep the scaling primitive recursive.",
+      "href": "/math/matrix_mortality/m8_2/#unreduced-clearing",
       "requires": [
         "mm/matrix-mortality"
       ],
@@ -255,7 +270,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Valuation guard",
-      "summary": "A three-mode return family forces one legal wait by a p-adic valuation and sends every wrong wait into a permanent trap.",
+      "summary": "Two 3 × 3 matrices whose returns act by Möbius maps, admit one wait per step by a p-adic valuation, and are mortal exactly when a deterministic orbit reaches 1.",
       "href": "/math/matrix_mortality/m3_2_return_guard/#result",
       "requires": [
         "mm/singular-return-compression"
@@ -269,8 +284,8 @@
       "origin": "project",
       "assurance": "formalized",
       "status": "established",
-      "title": "Valuation barriers",
-      "summary": "Parity and prime-divisibility conditions prove that specified guarded families have no zero product.",
+      "title": "Immortality certificates",
+      "summary": "Parity of the reset-defect numerator and valuation walls at primes dividing p − 1 prove large parameter regions of the guard immortal.",
       "href": "/math/matrix_mortality/m3_2_return_guard/#parity-smith",
       "requires": [
         "mm/valuation-guard"
@@ -285,7 +300,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Two-generator projective incidence",
-      "summary": "Given two invertible rational 2 × 2 matrices, a source column and a target row, ask whether some word moves the column into the row’s kernel.",
+      "summary": "Whether some product of two invertible rational 2 × 2 matrices moves a given column into the kernel of a given row.",
       "href": "/math/matrix_mortality/shortcut_collatz_incidence/#projective-incidence",
       "requires": [],
       "relations": []
@@ -298,7 +313,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Shortcut-Collatz reachability",
-      "summary": "Finite reachability of 1 under halving on even integers and (3n+1)/2 on odd integers.",
+      "summary": "Whether a given integer reaches 1 under x ↦ x/2 for even x and x ↦ (3x + 1)/2 for odd x.",
       "href": "/math/matrix_mortality/shortcut_collatz_incidence/#shortcut-map",
       "requires": [],
       "relations": []
@@ -311,7 +326,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Shortcut-Collatz incidence",
-      "summary": "Two fixed fractional-linear maps recognize exactly those supplied integers that reach 1 under shortcut Collatz, by a scalar-zero test.",
+      "summary": "For each nonzero integer n, two fixed Möbius maps and a target depending on n have an incidence exactly when n reaches 1.",
       "href": "/math/matrix_mortality/shortcut_collatz_incidence/#result",
       "requires": [
         "mm/projective-incidence",
@@ -326,8 +341,8 @@
       "origin": "project",
       "assurance": "formalized",
       "status": "established",
-      "title": "Rank-two projective-incidence compiler",
-      "summary": "Every generic two-generator projective-incidence instance compiles to two rational 3 × 3 matrices of rank exactly two, with mortality equivalent to incidence zero.",
+      "title": "Rank-two incidence compiler",
+      "summary": "Every generic incidence instance becomes two rational 3 × 3 matrices of rank two, mortal exactly when the instance has a solution.",
       "href": "/math/matrix_mortality/shortcut_collatz_incidence/#mortality-compiler",
       "requires": [
         "mm/projective-incidence",
@@ -348,7 +363,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "M₃(5) is undecidable",
-      "summary": "Four fixed-boundary payload matrices and one repeated rank-one separator give five 3 × 3 integer matrices.",
+      "summary": "Four tile matrices and one rank-one separator. On the current frontier.",
       "href": "/math/matrix_mortality/m3_5/#result",
       "requires": [
         "mm/fixed-boundary-correspondence",
@@ -365,7 +380,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "M₄(4) is undecidable",
-      "summary": "Paired-role compression gives three 4 × 4 scalar controls; one rank-one separator converts their zero coefficient to mortality.",
+      "summary": "The paired series and one rank-one separator, with a converse for singular controls. On the current frontier.",
       "href": "/math/matrix_mortality/m4_4/#result",
       "requires": [
         "mm/paired-scalar-series",
@@ -381,7 +396,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Z₆(2) is undecidable",
-      "summary": "The shared-partial compiler preserves the paired coefficient under every binary word in dimension six.",
+      "summary": "The six-dimensional scalar compiler, with common first column e₁. On the current scalar frontier.",
       "href": "/math/matrix_mortality/binary_compilers/#result",
       "requires": [
         "mm/shared-partial-binary-compiler"
@@ -396,7 +411,7 @@
       "assurance": "audited",
       "status": "established",
       "title": "R₇(2) is undecidable",
-      "summary": "The scalar-to-corner transport converts the six-dimensional two-generator scalar theorem to a seven-dimensional corner theorem.",
+      "summary": "The scalar-to-corner reduction applied to Z₆(2). On the current corner frontier.",
       "href": "/math/matrix_mortality/binary_compilers/#consequences",
       "requires": [
         "mm/z6-2"
@@ -411,7 +426,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "M₁₀(2) is undecidable",
-      "summary": "A complete binary prefix decoder followed by common-image restriction gives two 10 × 10 integer matrices.",
+      "summary": "The binary prefix decoder restricted to its common image. Subsumed by M₉(2).",
       "href": "/math/matrix_mortality/binary_compilers/#mortality-ten",
       "requires": [
         "mm/binary-prefix-decoder",
@@ -432,13 +447,14 @@
       "assurance": "formalized",
       "status": "established",
       "title": "M₉(2) is undecidable",
-      "summary": "A zero-language-equivalent separator and a nine-dimensional return realization give a primitive-recursive pair of integer matrices.",
-      "href": "/math/matrix_mortality/m9_2/#result",
+      "summary": "The tilted separator and a nine-dimensional return realization. Subsumed by M₈(2).",
+      "href": "/math/matrix_mortality/m8_2/#result",
       "requires": [
         "mm/paired-scalar-series",
         "mm/tilted-separator",
         "mm/nine-dimensional-return-realization",
         "mm/singular-return-compression",
+        "mm/finite-return-shapes",
         "mm/denominator-clearing"
       ],
       "relations": [
@@ -456,7 +472,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "M₆(3) is undecidable",
-      "summary": "Applying generator packing to M₃(5) gives M₆(3). This is a frontier bound, not a separate construction.",
+      "summary": "Generator packing applied to M₃(5). On the current frontier.",
       "href": "/math/matrix_mortality/m3_5/#result",
       "requires": [
         "mm/m3-5",
@@ -472,7 +488,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "M₁₂(2) is undecidable",
-      "summary": "Applying generator packing to M₃(5) gives M₁₂(2). The bound is now subsumed by M₈(2).",
+      "summary": "Generator packing applied to M₃(5). Subsumed by M₁₀(2).",
       "href": "/math/matrix_mortality/m3_5/#result",
       "requires": [
         "mm/m3-5",
@@ -487,8 +503,8 @@
       "origin": "project",
       "assurance": "formalized",
       "status": "established",
-      "title": "Periodic-prefix exclusion",
-      "summary": "The compiler's bcb prefix and lower-tile grammar exclude every competing capped period, ruling out all asymmetric wrong-phase zeros.",
+      "title": "Wrong-phase exclusion",
+      "summary": "The rule-phase value of the asymmetric row never vanishes: a zero would force a forbidden period of the body’s code.",
       "href": "/math/matrix_mortality/m8_2/#periodic-prefix",
       "requires": [
         "mm/paired-scalar-series"
@@ -503,7 +519,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Asymmetric separator",
-      "summary": "Only erase-phase equalities remain zero; a leading toggle recovers every discarded witness. Existence is preserved, not the pointwise zero language.",
+      "summary": "The row (1, a, q, q) fixed by two linear conditions accepts only deletion-phase zeros; a leading toggle recovers every other witness.",
       "href": "/math/matrix_mortality/m8_2/#asymmetric-separator",
       "requires": [
         "mm/paired-scalar-series",
@@ -520,7 +536,7 @@
       "assurance": "formalized",
       "status": "established",
       "title": "Eight-dimensional return realization",
-      "summary": "Two length-three nilpotent chains, one static coordinate, and one eigenline realize a rescaled toggle, two data roles, and the asymmetric separator tail.",
+      "summary": "Two nilpotent chains of length three, one static coordinate, and one eigenline realize a scaled toggle, both data controls, and the asymmetric separator.",
       "href": "/math/matrix_mortality/m8_2/#eight-state-realization",
       "requires": [
         "mm/asymmetric-separator"
@@ -535,13 +551,14 @@
       "assurance": "formalized",
       "status": "established",
       "title": "M₈(2) is undecidable",
-      "summary": "Existential phase selection and an eight-dimensional return realization give a primitive-recursive pair of integer matrices, mortal exactly when its source program halts.",
+      "summary": "The asymmetric separator and an eight-dimensional return realization. On the current frontier; M₇(2) is open.",
       "href": "/math/matrix_mortality/m8_2/#result",
       "requires": [
         "mm/paired-scalar-series",
         "mm/asymmetric-separator",
         "mm/eight-dimensional-return-realization",
         "mm/singular-return-compression",
+        "mm/finite-return-shapes",
         "mm/denominator-clearing"
       ],
       "relations": [
@@ -554,100 +571,87 @@
   ],
   "views": [
     {
-      "id": "foundations",
-      "title": "Foundations",
-      "summary": "The mortality problem and the matrix language every construction is written in.",
+      "id": "problems",
+      "title": "Problems",
+      "summary": "The decision problems the constructions start from and end at.",
       "nodes": [
         "mm/matrix-mortality",
-        "mm/word-pair-representation",
         "mm/projective-incidence",
         "mm/shortcut-collatz-reachability"
       ]
     },
     {
-      "id": "source-recognition",
-      "title": "Source Recognition",
-      "summary": "The undecidable source problem and the four-dimensional scalar series that later constructions reuse.",
+      "id": "word-equation",
+      "title": "Halting as a Word Equation",
+      "summary": "The undecidable source: tag-system halting as equality of two concatenations with a fixed boundary.",
       "nodes": [
-        "mm/fixed-boundary-correspondence",
-        "mm/paired-role-compression",
-        "mm/paired-scalar-series"
+        "mm/fixed-boundary-correspondence"
       ]
     },
     {
-      "id": "target-compression",
-      "title": "Target Compression",
-      "summary": "Reductions that turn scalar or interface zeros into unrestricted matrix products.",
+      "id": "one-coefficient",
+      "title": "A Word Equation as One Coefficient",
+      "summary": "Matrix representations whose single coefficient vanishes exactly on solutions, with fewer generators or coordinates than the naive encoding.",
       "nodes": [
-        "mm/interface-compression",
+        "mm/word-pair-representation",
+        "mm/paired-role-compression",
+        "mm/paired-scalar-series",
+        "mm/shared-partial-binary-compiler"
+      ]
+    },
+    {
+      "id": "zero-product",
+      "title": "One Coefficient as a Zero Product",
+      "summary": "Separators and cuts that make a whole product vanish exactly when a coefficient does, including separator rows chosen to reduce dimension.",
+      "nodes": [
         "mm/rank-one-separator",
+        "mm/interface-compression",
         "mm/singular-return-compression",
+        "mm/finite-return-shapes",
+        "mm/tilted-separator",
+        "mm/periodic-prefix-obstruction",
+        "mm/asymmetric-separator"
+      ]
+    },
+    {
+      "id": "fewer-generators",
+      "title": "Two Generators, Low Dimension, Integer Entries",
+      "summary": "Realizations that present many shapes with two matrices, their limits, and the passage from rational to integer entries.",
+      "nodes": [
+        "mm/prefix-transducer-packing",
+        "mm/binary-prefix-decoder",
         "mm/common-image-restriction",
+        "mm/nine-dimensional-return-realization",
+        "mm/tilted-geometric-rank-floor",
+        "mm/eight-dimensional-return-realization",
         "mm/denominator-clearing"
       ]
     },
     {
-      "id": "binary-and-return-constructions",
-      "title": "Binary and Return Constructions",
-      "summary": "Realizations that reach fewer generators or lower dimension, built on the source series and the interface reduction.",
-      "nodes": [
-        "mm/shared-partial-binary-compiler",
-        "mm/prefix-transducer-packing",
-        "mm/binary-prefix-decoder",
-        "mm/tilted-separator",
-        "mm/nine-dimensional-return-realization",
-        "mm/valuation-guard",
-        "mm/periodic-prefix-obstruction",
-        "mm/asymmetric-separator",
-        "mm/eight-dimensional-return-realization"
-      ]
-    },
-    {
-      "id": "arithmetic-incidence",
-      "title": "Arithmetic Incidence",
-      "summary": "Where two-generator projective incidence meets arithmetic dynamics, including its shortcut-Collatz instance.",
-      "nodes": [
-        "mm/shortcut-collatz-incidence",
-        "mm/projective-incidence-compiler"
-      ]
-    },
-    {
-      "id": "established-obstructions",
-      "title": "Established Obstructions",
-      "summary": "Limits proved for specified constructions, not impossibility results for the unresolved table entries.",
-      "nodes": [
-        "mm/tilted-geometric-rank-floor",
-        "mm/valuation-barriers"
-      ]
-    },
-    {
-      "id": "frontier-constructions",
-      "title": "Frontier Constructions",
-      "summary": "Constructions establishing current frontier bounds. Consequences obtained only by applying an existing transport are listed separately below.",
+      "id": "theorems",
+      "title": "Undecidability Theorems",
+      "summary": "Each card states whether the cell is on the current frontier or implied by a sharper theorem.",
       "nodes": [
         "mm/m3-5",
         "mm/m4-4",
         "mm/m8-2",
-        "mm/z6-2"
-      ]
-    },
-    {
-      "id": "subsumed-constructions",
-      "title": "Subsumed Constructions",
-      "summary": "Mortality constructions whose endpoint now follows from a sharper frontier theorem, retained for their distinct mechanisms.",
-      "nodes": [
-        "mm/m9-2",
-        "mm/m10-2"
-      ]
-    },
-    {
-      "id": "transported-bounds",
-      "title": "Transported Bounds",
-      "summary": "Corollaries of existing packing or scalar-to-corner reductions, not separate constructions. A transported bound may still lie on the numerical frontier.",
-      "nodes": [
+        "mm/z6-2",
         "mm/m6-3",
         "mm/r7-2",
+        "mm/m9-2",
+        "mm/m10-2",
         "mm/m12-2"
+      ]
+    },
+    {
+      "id": "m3-2",
+      "title": "The Cell M₃(2)",
+      "summary": "Exact equivalences between families of 3 × 3 pairs and arithmetic orbit questions; they do not settle the cell.",
+      "nodes": [
+        "mm/valuation-guard",
+        "mm/valuation-barriers",
+        "mm/shortcut-collatz-incidence",
+        "mm/projective-incidence-compiler"
       ]
     }
   ]

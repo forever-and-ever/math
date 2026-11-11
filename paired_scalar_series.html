@@ -20,24 +20,27 @@
 
   <div class="shell">
     <section class="abstract" aria-label="Abstract">
-      <strong>Verdict</strong>
-          <p>Starting from four word-pair actions, we encode their word-equality test using three integer matrices of dimension four. Two matrices select a data letter; the third switches between rule and deletion phases. Every control word is decoded, not just encodings of intended computations.</p>
-          <p>This is a scalar-zero construction, not yet a mortality theorem: one observed coefficient must vanish. It is reused by <a href="/math/matrix_mortality/m4_4/#mortality">M₄(4)</a>, <a href="/math/matrix_mortality/m9_2/#paired-source">M₉(2)</a>, and <a href="/math/matrix_mortality/m8_2/#paired-source">M₈(2)</a>. Four dimensions are necessary to preserve this exact series, but not necessarily its zero language alone.</p>
+      <p>Fixed-boundary correspondence for Neary’s tag systems uses four word pairs, a rule tile and a deletion tile for each of two letters. Three integer 4 × 4 matrices, two data controls and a phase toggle, encode the same equality test: for every word <var>z</var> over the controls, the coefficient <var>e</var><sub>1</sub><sup>T</sup><var>G</var><sub><var>z</var></sub><var>c</var> vanishes exactly when the role word decoded from <var>z</var> solves the fixed-boundary equation, and every role word is decoded from some control word. The saving comes from a plane on which the rule and deletion matrices of each letter agree. Every exact linear representation of this series needs four dimensions; representations that only preserve which words give zero may be smaller.</p>
+      <p>The series is a scalar construction, not a mortality theorem. It is the source of M<sub>4</sub>(4), Z<sub>4</sub>(3), M<sub>9</sub>(2), and M<sub>8</sub>(2).</p>
     </section>
 
     <nav class="contents" aria-label="Contents">
       <ol>
         <li><a href="#known-stuff">Known Stuff</a>
           <ol>
-            <li><a href="#source-language">Fixed-boundary source</a></li>
-            <li><a href="#word-pair">Word-pair matrices</a></li>
+            <li><a href="#source-language">The four roles</a></li>
+            <li><a href="#side-normal-form">Separated coordinates</a></li>
+            <li><a href="#hankel">Hankel rank</a></li>
           </ol>
         </li>
         <li><a href="#new-stuff">New Stuff</a>
           <ol>
             <li><a href="#result">Result</a></li>
-            <li><a href="#phase-quotient">Phase quotient</a></li>
-            <li><a href="#decoder">Complete decoder</a></li>
+            <li><a href="#agreement-plane">The agreement plane</a></li>
+            <li><a href="#phase-quotient">The phase quotient</a></li>
+            <li><a href="#explicit-system">Explicit matrices</a></li>
+            <li><a href="#decoder">Decoding every control word</a></li>
+            <li><a href="#phase-columns">The two phase columns</a></li>
             <li><a href="#minimality">Exact dimension</a></li>
             <li><a href="#uses">Dependents</a></li>
           </ol>
@@ -55,36 +58,52 @@
     <main id="article">
       <article>
         <nav class="module-context" aria-label="Module relations">
-          <p><b>Requires</b> <a href="/math/matrix_mortality/m3_5/#four-tiles">Fixed-boundary correspondence</a> and <a href="/math/matrix_mortality/m3_5/#word-pair-representation">word-pair representation</a>.</p>
-          <p><b>Used by</b> the <a href="/math/matrix_mortality/m4_4/#mortality">four-matrix mortality construction</a> and <a href="/math/matrix_mortality/m9_2/#tilted-separator">tilted separator</a>. The <a href="/math/matrix_mortality/binary_compilers/#scalar-six">binary scalar compiler</a> reuses the same upper-word agreement.</p>
+          <p><b>Requires</b> <a href="/math/matrix_mortality/m3_5/#four-tiles">fixed-boundary correspondence</a> and <a href="/math/matrix_mortality/m3_5/#word-pair-representation">word-pair matrices</a>.</p>
+          <p><b>Used by</b> <a href="/math/matrix_mortality/m4_4/">M<sub>4</sub>(4)</a> and the <a href="/math/matrix_mortality/m8_2/#tilted-separator">two-generator separators</a>. The <a href="/math/matrix_mortality/binary_compilers/#scalar-six">six-dimensional scalar compiler</a> uses the same agreement plane.</p>
         </nav>
 
         <details class="major-section">
           <summary><h2 id="known-stuff">Known Stuff<a class="fragment-link" href="#known-stuff" aria-label="Link to this section">#</a></h2></summary>
 
           <section class="fragment-section">
-          <h3 id="source-language">Fixed-boundary source<a class="fragment-link" href="#source-language" aria-label="Link to this section">#</a></h3>
-          <p>The <a href="/math/matrix_mortality/m3_5/#four-tiles">four-tile construction</a> turns a tag computation into a word-equality problem. Its alphabet has four <a class="glossary-term" href="/math/matrix_mortality/glossary/#tile" title="A selectable pair of words, labelled by its rule or deletion role.">roles</a>: rule and deletion actions for each letter in {b, c}. A role word selects word pairs in order. Write <var>U</var> and <var>V</var> for their upper and lower concatenations and <var>M</var> for the fixed terminal marker. Acceptance means</p>
+          <h3 id="source-language">The four roles<a class="fragment-link" href="#source-language" aria-label="Link to this section">#</a></h3>
+          <p><a href="/math/matrix_mortality/m3_5/#four-tiles">Fixed-boundary correspondence</a> turns a run of a Neary tag system with width <var>β</var> and body <var>B</var> into a word equation. Its alphabet has four <a class="glossary-term" href="/math/matrix_mortality/glossary/#tile" title="A word pair selected by one letter of a correspondence instance.">roles</a>, the tiles R<sub><var>x</var></sub> and D<sub><var>x</var></sub> for each letter <var>x</var> ∈ {<span class="word">b</span>, <span class="word">c</span>}. For a role word <var>w</var>, <var>U</var>(<var>w</var>) and <var>V</var>(<var>w</var>) are the upper and lower concatenations, and <var>M</var> = <span class="word">10<sup>β</sup></span> is the fixed boundary word. Call the source admissible when</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <mi>U</mi><mo>(</mo><mi>w</mi><mo>)</mo><mi>M</mi>
-                <mo>=</mo>
-                <mi>V</mi><mo>(</mo><mi>w</mi><mo>)</mo><mo>.</mo>
+                <mi>β</mi><mo>≥</mo><mn>3</mn><mo>,</mo><mspace width="1em"></mspace>
+                <mo>|</mo><mi>B</mi><mo>|</mo><mo>≥</mo><mi>β</mi><mo>−</mo><mn>1</mn><mo>,</mo><mspace width="1em"></mspace>
+                <mi>β</mi><mo>−</mo><mn>1</mn><mo>∣</mo><mo>|</mo><mi>B</mi><mo>|</mo><mo>.</mo>
               </mrow>
             </math>
           </div>
-          <p>The source parameters are a <a class="glossary-term" href="/math/matrix_mortality/glossary/#deletion-width" title="The number of queue letters removed by each tag step.">deletion width</a> <var>β</var> and a binary <a class="glossary-term" href="/math/matrix_mortality/glossary/#neary-body" title="The variable prefix B in the tag appendant Bb.">body</a> <var>B</var>. Here “admissible” means <math><mrow><mi>β</mi><mo>&gt;</mo><mn>2</mn><mo>,</mo><mspace width="0.4em"></mspace><mi>β</mi><mo>−</mo><mn>1</mn><mo>≤</mo><mo>|</mo><mi>B</mi><mo>|</mo><mo>,</mo><mspace width="0.4em"></mspace><mi>β</mi><mo>−</mo><mn>1</mn><mo>∣</mo><mo>|</mo><mi>B</mi><mo>|</mo></mrow></math>. For the emitted sources, a nonempty accepted role word exists exactly when the tag computation halts. We retain that equivalence while replacing four role labels by three controls.</p>
-
+          <p>For admissible sources, some role word satisfies <var>U</var>(<var>w</var>)<var>M</var> = <var>V</var>(<var>w</var>) exactly when the tag system halts, and deciding this is therefore impossible in general. With the <a href="/math/matrix_mortality/m3_5/#word-pair-representation">word-pair matrices</a> <var>X</var><sub><var>a</var></sub> = Ψ(<var>u</var><sub><var>a</var></sub>, <var>v</var><sub><var>a</var></sub>), the equation is the scalar test <var>e</var><sub>1</sub><sup>T</sup><var>X</var><sub><var>w</var></sub>Ψ(<var>M</var>, ε)<var>e</var><sub>3</sub> = 0. The empty role word gives <var>σ</var>(<var>M</var>) ≠ 0.</p>
           </section>
+
           <section class="fragment-section">
-          <h3 id="word-pair">Word-pair matrices<a class="fragment-link" href="#word-pair" aria-label="Link to this section">#</a></h3>
-          <p>Recode the source bits as nonzero <a class="glossary-term" href="/math/matrix_mortality/glossary/#ternary-value" title="The base-three integer obtained by replacing binary 0,1 with digits 1,2.">ternary digits</a>; write σ for the resulting word value. The <a href="/math/matrix_mortality/m3_5/#word-pair-representation">word-pair representation</a> assigns each pair (<var>u</var>, <var>v</var>) a 3 × 3 matrix Ψ. Matrix multiplication represents concatenation, and its upper-right entry is zero exactly when the words agree.</p>
-          <p>A <a class="glossary-term" href="/math/matrix_mortality/glossary/#change-of-basis" title="Conjugating every matrix by one invertible matrix; a unimodular change preserves integer entries.">unimodular basis change</a> gives the following equivalent coordinates. The second column carries the lower word and the third the upper word; “channel” refers to those coordinates:</p>
+          <h3 id="side-normal-form">Separated coordinates<a class="fragment-link" href="#side-normal-form" aria-label="Link to this section">#</a></h3>
+          <p>Conjugating by the unimodular matrix</p>
+          <div class="formula">
+            <math display="block">
+              <mrow>
+                <mi>P</mi><mo>=</mo>
+                <mo fence="true" stretchy="true">[</mo>
+                <mtable>
+                  <mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
+                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr>
+                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr>
+                </mtable>
+                <mo fence="true" stretchy="true">]</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>puts the two words in separate coordinates:</p>
           <div class="formula">
             <math display="block">
               <mrow>
                 <mi>Φ</mi><mo>(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo>)</mo>
+                <mo>=</mo><msup><mi>P</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup>
+                <mi>Ψ</mi><mo>(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo>)</mo><mi>P</mi>
                 <mo>=</mo>
                 <mo fence="true" stretchy="true">[</mo>
                 <mtable>
@@ -108,7 +127,26 @@
               </mrow>
             </math>
           </div>
-          <p>Let <var>R</var><sub><var>x</var></sub> and <var>D</var><sub><var>x</var></sub> be the rule and deletion matrices in these coordinates. For a fixed letter, the two roles have the same upper word. On the plane <math><mrow><mi>E</mi><mo>=</mo><mi mathvariant="normal">span</mi><mo>{</mo><msub><mi>e</mi><mn>1</mn></msub><mo>,</mo><msub><mi>e</mi><mn>3</mn></msub><mo>}</mo></mrow></math>, the lower-word column is unused, so the two matrices agree. This is the space we can share between phases.</p>
+          <p>The second coordinate carries the lower word and the third the upper word; the first accumulates the signed difference of their values. The row <var>e</var><sub>1</sub><sup>T</sup> is unchanged, and the boundary column becomes</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <msup><mi>P</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>Ψ</mi><mo>(</mo><mi>M</mi><mo>,</mo><mi>ε</mi><mo>)</mo><msub><mi>e</mi><mn>3</mn></msub>
+                <mo>=</mo>
+                <msup><mrow><mo>(</mo><mi>μ</mi><mo>,</mo><mo>−</mo><mn>1</mn><mo>,</mo><mi>t</mi><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup><mo>,</mo>
+                <mspace width="1em"></mspace>
+                <mi>μ</mi><mo>=</mo><mi>σ</mi><mo>(</mo><mi>M</mi><mo>)</mo><mo>,</mo>
+                <mspace width="0.5em"></mspace>
+                <mi>t</mi><mo>=</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>M</mi><mo>|</mo></mrow></msup><mo>.</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>From here on, R<sub><var>x</var></sub> and D<sub><var>x</var></sub> also denote the tiles’ matrices Φ(<var>u</var>, <var>v</var>) in these coordinates.</p>
+          </section>
+
+          <section class="fragment-section">
+          <h3 id="hankel">Hankel rank<a class="fragment-link" href="#hankel" aria-label="Link to this section">#</a></h3>
+          <p>A scalar function <var>f</var> on words has a <a class="glossary-term" href="/math/matrix_mortality/glossary/#linear-representation" title="A factorization of a word series into a row, a matrix morphism, and a column.">linear representation</a> of dimension <var>n</var> if <var>f</var>(<var>w</var>) = <var>λ</var><var>Y</var><sub><var>w</var></sub><var>γ</var> for a row <var>λ</var>, a column <var>γ</var>, and <var>n</var> × <var>n</var> matrices <var>Y</var><sub><var>a</var></sub> for the letters. Its <a class="glossary-term" href="/math/matrix_mortality/glossary/#hankel-rank" title="The rank of the matrix with entries f(uv); it bounds every representation dimension from below.">Hankel matrix</a> has entries <var>f</var>(<var>xy</var>) indexed by words <var>x</var>, <var>y</var>. Since <var>f</var>(<var>xy</var>) = (<var>λ</var><var>Y</var><sub><var>x</var></sub>)(<var>Y</var><sub><var>y</var></sub><var>γ</var>), the Hankel matrix factors through an <var>n</var>-dimensional space, so any <var>m</var> × <var>m</var> submatrix with nonzero determinant proves <var>n</var> ≥ <var>m</var>.</p>
           </section>
         </details>
 
@@ -117,66 +155,194 @@
 
           <section class="fragment-section">
           <h3 id="result">Result<a class="fragment-link" href="#result" aria-label="Link to this section">#</a></h3>
-          <div class="theorem">
-          <p><strong>Paired scalar series.</strong> For every admissible source, let <var>G</var><sub>b</sub>, <var>G</var><sub>c</sub> be the two data matrices and <var>T</var> the toggle. Write <var>G</var><sub><var>z</var></sub> for their ordered product on a control word <var>z</var>. There are an integer boundary row <var>r</var><sup>T</sup> and column <var>c</var> such that the <a class="glossary-term" href="/math/matrix_mortality/glossary/#word-series" title="A function assigning a scalar to each finite word.">word series</a> is</p>
+          <p>A role is a letter together with a phase, rule or deletion. The paired series moves the phase from the alphabet into the state. The current vector lives in one of two copies of the three-dimensional space, one copy per phase. A data letter <var>x</var> applies R<sub><var>x</var></sub> or D<sub><var>x</var></sub> according to the copy it finds the vector in and leaves the result in the deletion copy, and the toggle moves the vector to the other copy. This uses three generators in dimension six. For each letter, R<sub><var>x</var></sub> and D<sub><var>x</var></sub> have the same upper word, so they agree on the plane of vectors whose lower-word coordinate is zero, and the two copies may share that plane. Identifying them there leaves dimension 6 − 2 = 4.</p>
+
+          <div class="theorem" id="paired-compression">
+            <p><b>Theorem (paired-role compression).</b> Let <var>V</var> be a <var>d</var>-dimensional vector space over a field, let R<sub>0</sub>, R<sub>1</sub>, D<sub>0</sub>, D<sub>1</sub> be endomorphisms of <var>V</var>, and suppose R<sub><var>i</var></sub> and D<sub><var>i</var></sub> agree on an <var>r</var>-dimensional subspace <var>E</var> for <var>i</var> = 0, 1. For every row <var>ℓ</var> and column <var>γ</var> there are three endomorphisms of a (2<var>d</var>−<var>r</var>)-dimensional space, a row, a column, and a surjective decoder <var>τ</var> from control words to role words such that every control word <var>z</var> has coefficient <var>ℓ</var><var>X</var><sub><var>τ</var>(<var>z</var>)</sub><var>γ</var>.</p>
+            <p><b>Theorem (paired scalar series).</b> For every admissible source, the integer 4 × 4 matrices <var>G</var><sub>b</sub>, <var>G</var><sub>c</sub>, <var>T</var> and the column <var>c</var> = (<var>μ</var>, −1, <var>t</var>, 0)<sup>T</sup> below satisfy, for every word <var>z</var> over {<var>G</var><sub>b</sub>, <var>G</var><sub>c</sub>, <var>T</var>},</p>
             <div class="formula plain">
               <math display="block">
                 <mrow>
-                  <msub><mi>p</mi><mrow><mi>β</mi><mo>,</mo><mi>B</mi></mrow></msub>
-                  <mo>(</mo><mi>z</mi><mo>)</mo>
+                  <msubsup><mi>e</mi><mn>1</mn><mi mathvariant="normal">T</mi></msubsup><msub><mi>G</mi><mi>z</mi></msub><mi>c</mi>
                   <mo>=</mo>
-                  <msup><mi>r</mi><mi mathvariant="normal">T</mi></msup>
-                  <msub><mi>G</mi><mi>z</mi></msub><mi>c</mi><mo>,</mo>
+                  <mi>σ</mi><mo>(</mo><mi>U</mi><mo>(</mo><mi>τ</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>)</mo><mi>M</mi><mo>)</mo>
+                  <mo>−</mo>
+                  <mi>σ</mi><mo>(</mo><mi>V</mi><mo>(</mo><mi>τ</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>)</mo><mo>)</mo><mo>.</mo>
                 </mrow>
               </math>
             </div>
-            <p>and <var>p</var><sub><var>β</var>,<var>B</var></sub>(<var>z</var>) = 0 exactly when the decoded role word satisfies the fixed-boundary equation. The equivalence holds for every raw control word, including arbitrary toggles.</p>
+            <p>Hence some nonempty control word has coefficient zero exactly when the tag system halts. Every exact linear representation of this function of <var>z</var> over ℚ has dimension at least four.</p>
           </div>
-
+          <p>The coefficient <var>e</var><sub>1</sub><sup>T</sup><var>G</var><sub><var>z</var></sub><var>c</var> is the <a class="glossary-term" href="/math/matrix_mortality/glossary/#paired-scalar-series" title="The four-dimensional word series built from two data controls and a toggle.">paired coefficient</a> of <var>z</var>. Toggle-only words decode to the empty role word and have coefficient <var>μ</var> ≠ 0, so they never give a spurious zero.</p>
           </section>
+
           <section class="fragment-section">
-          <h3 id="phase-quotient">Phase quotient<a class="fragment-link" href="#phase-quotient" aria-label="Link to this section">#</a></h3>
-          <p>A phase records whether the next data letter, acting on a column, selects a rule or a deletion. Before compression, store one copy of the word-pair vector for each phase. On their direct sum the data action and toggle are</p>
-          <div class="formula plain"><math display="block"><mrow><msub><mover><mi>G</mi><mo>^</mo></mover><mi>x</mi></msub><mo>(</mo><mi>p</mi><mo>,</mo><mi>q</mi><mo>)</mo><mo>=</mo><mo>(</mo><mn>0</mn><mo>,</mo><msub><mi>R</mi><mi>x</mi></msub><mi>p</mi><mo>+</mo><msub><mi>D</mi><mi>x</mi></msub><mi>q</mi><mo>)</mo><mo>,</mo><mspace width="1em"></mspace><mover><mi>T</mi><mo>^</mo></mover><mo>(</mo><mi>p</mi><mo>,</mo><mi>q</mi><mo>)</mo><mo>=</mo><mo>(</mo><mi>q</mi><mo>,</mo><mi>p</mi><mo>)</mo><mo>.</mo></mrow></math></div>
-          <p>Write <var>V</var> for the original three-dimensional space. The data actions send a difference between the two copies of <var>E</var> to zero, because the rule and deletion agree there. Thus the anti-diagonal subspace</p>
-          <div class="formula plain">
+          <h3 id="agreement-plane">The agreement plane<a class="fragment-link" href="#agreement-plane" aria-label="Link to this section">#</a></h3>
+          <p>On the plane <var>E</var> = span{<var>e</var><sub>1</sub>, <var>e</var><sub>3</sub>}, where the lower-word coordinate is zero, the lower word has no effect:</p>
+          <div class="formula">
             <math display="block">
               <mrow>
-                <mi>K</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>x</mi><mo>,</mo><mo>−</mo><mi>x</mi><mo>)</mo><mo>:</mo><mi>x</mi><mo>∈</mo><mi>E</mi><mo>}</mo>
+                <mi>Φ</mi><mo>(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo>)</mo>
+                <msup><mrow><mo>(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo>,</mo><mi>z</mi><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup>
+                <mo>=</mo>
+                <msup><mrow><mo>(</mo><mi>a</mi><mo>+</mo><mi>σ</mi><mo>(</mo><mi>u</mi><mo>)</mo><mi>z</mi><mo>,</mo><mn>0</mn><mo>,</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>u</mi><mo>|</mo></mrow></msup><mi>z</mi><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup><mo>.</mo>
               </mrow>
             </math>
           </div>
-          <p>is killed by both data controls and preserved by the phase toggle. All three maps descend to the quotient</p>
+          <p>The tiles R<sub><var>x</var></sub> and D<sub><var>x</var></sub> have the same upper word, <var>H</var>(<var>x</var>), so</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <msub><mi mathvariant="normal">R</mi><mi>x</mi></msub>
+                <msub><mo>|</mo><mi>E</mi></msub>
+                <mo>=</mo>
+                <msub><mi mathvariant="normal">D</mi><mi>x</mi></msub>
+                <msub><mo>|</mo><mi>E</mi></msub>
+                <mspace width="0.8em"></mspace><mo>(</mo><mi>x</mi><mo>∈</mo><mo>{</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>}</mo><mo>)</mo><mo>.</mo>
+              </mrow>
+            </math>
+          </div>
+          </section>
+
+          <section class="fragment-section">
+          <h3 id="phase-quotient">The phase quotient<a class="fragment-link" href="#phase-quotient" aria-label="Link to this section">#</a></h3>
+          <p>On <var>V</var> ⊕ <var>V</var>, the first summand holds a vector in rule phase and the second a vector in deletion phase. Define</p>
+          <div class="formula">
+            <math display="block">
+              <mrow>
+                <msub><mover><mi>G</mi><mo>^</mo></mover><mi>x</mi></msub><mo>(</mo><mi>p</mi><mo>,</mo><mi>q</mi><mo>)</mo>
+                <mo>=</mo>
+                <mo>(</mo><mn>0</mn><mo>,</mo><mspace width="0.2em"></mspace><msub><mi mathvariant="normal">R</mi><mi>x</mi></msub><mi>p</mi><mo>+</mo><msub><mi mathvariant="normal">D</mi><mi>x</mi></msub><mi>q</mi><mo>)</mo><mo>,</mo>
+                <mspace width="1em"></mspace>
+                <mover><mi>T</mi><mo>^</mo></mover><mo>(</mo><mi>p</mi><mo>,</mo><mi>q</mi><mo>)</mo>
+                <mo>=</mo>
+                <mo>(</mo><mi>q</mi><mo>,</mo><mi>p</mi><mo>)</mo><mo>.</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>Starting from (<var>γ</var>, 0), the vector always lies in one summand, and a data letter applies the tile of the phase it finds. Because R<sub><var>x</var></sub> and D<sub><var>x</var></sub> agree on <var>E</var>, both data maps kill the anti-diagonal</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <mi>K</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>p</mi><mo>,</mo><mo>−</mo><mi>p</mi><mo>)</mo><mo>:</mo><mi>p</mi><mo>∈</mo><mi>E</mi><mo>}</mo><mo>,</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>and the toggle maps <var>K</var> to itself. All three maps therefore descend to the quotient</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
                 <mi>W</mi><mo>=</mo><mo>(</mo><mi>V</mi><mo>⊕</mo><mi>V</mi><mo>)</mo><mo>/</mo><mi>K</mi><mo>,</mo>
-                <mspace width="0.8em"></mspace>
-                <mi>dim</mi><mi>W</mi><mo>=</mo><mn>2</mn><mo>·</mo><mn>3</mn><mo>−</mo><mn>2</mn><mo>=</mo><mn>4</mn><mo>.</mo>
+                <mspace width="1em"></mspace>
+                <mi>dim</mi><mi>W</mi><mo>=</mo><mn>2</mn><mi>d</mi><mo>−</mo><mi>r</mi><mo>.</mo>
               </mrow>
             </math>
           </div>
-          <p>The boundary row reads the sum of the two copies, so it annihilates <var>K</var>: identifying vectors differing by <var>K</var> cannot alter the coefficient. The boundary column starts in rule phase. The <a href="/math/matrix_mortality/m4_4/#explicit-system">explicit integer matrices and boundary vectors</a> implement this quotient; the <a href="/math/matrix_mortality/m4_4/#quotient">general quotient argument</a> works in dimension <math><mrow><mn>2</mn><mi>d</mi><mo>−</mo><mi>r</mi></mrow></math>, where <var>d</var> is the original dimension and <var>r</var> the agreement dimension.</p>
-
+          <p>The boundary row (<var>ℓ</var>, <var>ℓ</var>) reads the sum of the two summands, so it vanishes on <var>K</var> and descends as well; the column is the class of (<var>γ</var>, 0). Passing to the quotient therefore changes no coefficient. This proves the compression theorem, with the decoder described below.</p>
           </section>
+
           <section class="fragment-section">
-          <h3 id="decoder">Complete decoder<a class="fragment-link" href="#decoder" aria-label="Link to this section">#</a></h3>
-          <p>Matrix products act on the boundary column from right to left. The decoder therefore scans a control word from its suffix. It begins in rule phase; a toggle exchanges phases; a data letter emits its rule or deletion role according to the current phase and then enters deletion phase.</p>
-          <p>For example, the control word <span class="word">bc</span> decodes to <math><mrow><msub><mi>D</mi><mi mathvariant="normal">b</mi></msub><msub><mi>R</mi><mi mathvariant="normal">c</mi></msub></mrow></math>: the rightmost c acts in rule phase and leaves deletion phase for b. A trailing toggle changes which role that c selects. Induction proves coefficient preservation for every control word. Conversely, inserting toggles gives a control spelling for every role word. These are different alphabets, linked by the decoder; existence of a nonempty zero is equivalent on the two sides.</p>
-
+          <h3 id="explicit-system">Explicit matrices<a class="fragment-link" href="#explicit-system" aria-label="Link to this section">#</a></h3>
+          <p>For the four roles, <var>d</var> = 3 and <var>r</var> = 2. Use the quotient coordinates</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <mo>(</mo><mi>p</mi><mo>,</mo><mi>q</mi><mo>)</mo>
+                <mo>↦</mo>
+                <msup><mrow><mo>(</mo><msub><mi>p</mi><mn>1</mn></msub><mo>+</mo><msub><mi>q</mi><mn>1</mn></msub><mo>,</mo><mspace width="0.2em"></mspace><msub><mi>p</mi><mn>2</mn></msub><mo>,</mo><mspace width="0.2em"></mspace><msub><mi>p</mi><mn>3</mn></msub><mo>+</mo><msub><mi>q</mi><mn>3</mn></msub><mo>,</mo><mspace width="0.2em"></mspace><msub><mi>q</mi><mn>2</mn></msub><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup><mo>:</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>the difference and the upper word are shared, and the lower word sits in coordinate two in rule phase and in coordinate four in deletion phase. Let <var>u</var><sub><var>x</var></sub> = <var>H</var>(<var>x</var>) be the common upper word of the tiles for <var>x</var>, and <var>v</var><sub><var>x</var></sub><sup>R</sup>, <var>v</var><sub><var>x</var></sub><sup>D</sup> their lower words. Write</p>
+          <div class="formula">
+            <math display="block">
+              <mtable columnalign="left left">
+                <mtr>
+                  <mtd><msub><mi>U</mi><mi>x</mi></msub><mo>=</mo><mi>σ</mi><mo>(</mo><msub><mi>u</mi><mi>x</mi></msub><mo>)</mo><mo>,</mo></mtd>
+                  <mtd><msub><mi>A</mi><mi>x</mi></msub><mo>=</mo><msup><mn>3</mn><mrow><mo>|</mo><msub><mi>u</mi><mi>x</mi></msub><mo>|</mo></mrow></msup><mo>,</mo></mtd>
+                </mtr>
+                <mtr>
+                  <mtd><msubsup><mi>V</mi><mi>x</mi><mi>R</mi></msubsup><mo>=</mo><mi>σ</mi><mo>(</mo><msubsup><mi>v</mi><mi>x</mi><mi>R</mi></msubsup><mo>)</mo><mo>,</mo></mtd>
+                  <mtd><msubsup><mi>B</mi><mi>x</mi><mi>R</mi></msubsup><mo>=</mo><msup><mn>3</mn><mrow><mo>|</mo><msubsup><mi>v</mi><mi>x</mi><mi>R</mi></msubsup><mo>|</mo></mrow></msup><mo>,</mo></mtd>
+                </mtr>
+                <mtr>
+                  <mtd><msubsup><mi>V</mi><mi>x</mi><mi>D</mi></msubsup><mo>=</mo><mi>σ</mi><mo>(</mo><msubsup><mi>v</mi><mi>x</mi><mi>D</mi></msubsup><mo>)</mo><mo>,</mo></mtd>
+                  <mtd><msubsup><mi>B</mi><mi>x</mi><mi>D</mi></msubsup><mo>=</mo><msup><mn>3</mn><mrow><mo>|</mo><msubsup><mi>v</mi><mi>x</mi><mi>D</mi></msubsup><mo>|</mo></mrow></msup><mo>.</mo></mtd>
+                </mtr>
+              </mtable>
+            </math>
+          </div>
+          <p>These are numbers, not further generators. The quotient maps are</p>
+          <div class="formula">
+            <math display="block">
+              <mrow>
+                <msub><mi>G</mi><mi>x</mi></msub><mo>=</mo>
+                <mo fence="true" stretchy="true">[</mo>
+                <mtable>
+                  <mtr><mtd><mn>1</mn></mtd><mtd><msubsup><mi>V</mi><mi>x</mi><mi>R</mi></msubsup></mtd><mtd><msub><mi>U</mi><mi>x</mi></msub></mtd><mtd><msubsup><mi>V</mi><mi>x</mi><mi>D</mi></msubsup></mtd></mtr>
+                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
+                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><msub><mi>A</mi><mi>x</mi></msub></mtd><mtd><mn>0</mn></mtd></mtr>
+                  <mtr><mtd><mn>0</mn></mtd><mtd><msubsup><mi>B</mi><mi>x</mi><mi>R</mi></msubsup></mtd><mtd><mn>0</mn></mtd><mtd><msubsup><mi>B</mi><mi>x</mi><mi>D</mi></msubsup></mtd></mtr>
+                </mtable>
+                <mo fence="true" stretchy="true">]</mo><mo>,</mo>
+                <mspace width="1em"></mspace>
+                <mi>T</mi><mo>=</mo>
+                <mo fence="true" stretchy="true">[</mo>
+                <mtable>
+                  <mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
+                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr>
+                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr>
+                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
+                </mtable>
+                <mo fence="true" stretchy="true">]</mo><mo>,</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>with boundary row <var>e</var><sub>1</sub><sup>T</sup> = (1, 0, 0, 0) and boundary column <var>c</var> = (<var>μ</var>, −1, <var>t</var>, 0)<sup>T</sup>, the separated boundary column placed in rule phase. All entries are integers. The toggle is a permutation matrix exchanging coordinates two and four. Both data matrices have zero second row, so they are singular. All three matrices have first column <var>e</var><sub>1</sub>.</p>
           </section>
+
+          <section class="fragment-section">
+          <h3 id="decoder">Decoding every control word<a class="fragment-link" href="#decoder" aria-label="Link to this section">#</a></h3>
+          <p>In a product <var>G</var><sub><var>z</var></sub><var>c</var> the rightmost letter of <var>z</var> acts first. The decoder <var>τ</var> therefore reads <var>z</var> from right to left, starting in rule phase:</p>
+          <ol>
+            <li>a toggle switches the phase;</li>
+            <li>a data letter <var>x</var> emits R<sub><var>x</var></sub> in rule phase and D<sub><var>x</var></sub> in deletion phase, and then sets the phase to deletion.</li>
+          </ol>
+          <p><var>τ</var>(<var>z</var>) is the emitted role word in left-to-right order. For example, <var>G</var><sub>b</sub><var>G</var><sub>c</sub> decodes to D<sub>b</sub>R<sub>c</sub>, and <var>G</var><sub>b</sub><var>G</var><sub>c</sub><var>T</var> to D<sub>b</sub>D<sub>c</sub>. Induction on <var>z</var> proves the coefficient identity of the theorem for every control word, including words with leading, trailing, adjacent, or repeated toggles. Conversely, a role word is encoded from right to left: each role becomes its data letter, with a toggle immediately to its right exactly when the current phase differs from the role’s phase. Hence <var>τ</var> is surjective, and the empty role word is <var>τ</var>(<var>T</var>).</p>
+          <p>The two alphabets are different: a control word and its decoded role word have different letters and lengths. Only the existence of a zero transfers, and it transfers in both directions.</p>
+          </section>
+
+          <section class="fragment-section">
+          <h3 id="phase-columns">The two phase columns<a class="fragment-link" href="#phase-columns" aria-label="Link to this section">#</a></h3>
+          <p>For a control word <var>z</var>, put <var>X</var> = <var>U</var>(<var>τ</var>(<var>z</var>))<var>M</var>, <var>Y</var> = <var>V</var>(<var>τ</var>(<var>z</var>)), and <var>h</var> = <var>σ</var>(<var>X</var>) − <var>σ</var>(<var>Y</var>). The whole column, not only its first coordinate, is determined by <var>X</var>, <var>Y</var>, and the final phase:</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <msub><mi>G</mi><mi>z</mi></msub><mi>c</mi><mo>=</mo>
+                <mrow>
+                  <mo>{</mo>
+                  <mtable columnalign="left left">
+                    <mtr><mtd><msup><mrow><mo>(</mo><mi>h</mi><mo>,</mo><mo>−</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>Y</mi><mo>|</mo></mrow></msup><mo>,</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>X</mi><mo>|</mo></mrow></msup><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup></mtd><mtd><mtext>in rule phase,</mtext></mtd></mtr>
+                    <mtr><mtd><msup><mrow><mo>(</mo><mi>h</mi><mo>,</mo><mn>0</mn><mo>,</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>X</mi><mo>|</mo></mrow></msup><mo>,</mo><mo>−</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>Y</mi><mo>|</mo></mrow></msup><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup></mtd><mtd><mtext>in deletion phase.</mtext></mtd></mtr>
+                  </mtable>
+                </mrow>
+              </mrow>
+            </math>
+          </div>
+          <p>The paired coefficient reads only <var>h</var>, which vanishes exactly when <var>X</var> = <var>Y</var>. A different boundary row may also read the length coordinates; the <a href="/math/matrix_mortality/m8_2/#tilted-separator">two-generator constructions</a> use this freedom.</p>
+          </section>
+
           <section class="fragment-section">
           <h3 id="minimality">Exact dimension<a class="fragment-link" href="#minimality" aria-label="Link to this section">#</a></h3>
-          <p>Four explicit prefixes and four explicit suffixes form a 4 × 4 finite <a class="glossary-term" href="/math/matrix_mortality/glossary/#hankel-rank" title="The matrix with prefix u, suffix v entry equal to the coefficient of uv.">Hankel section</a> with nonzero determinant for every admissible source. Any exact linear representation of this scalar series over ℚ therefore has at least four dimensions. The quotient construction has dimension four, so its realization dimension is exact.</p>
-
+          <p>Take the control-word prefixes ε, <span class="word">b</span>, <span class="word">bb</span>, <span class="word">b</span><var>T</var> and suffixes ε, <var>T</var>, <span class="word">b</span>, <span class="word">b</span><var>T</var>, where <span class="word">b</span> stands for <var>G</var><sub>b</sub>. The corresponding 4 × 4 section of the Hankel matrix is the product of a matrix of reachable rows and a matrix of observable columns, and both determinants are nonzero for every <var>β</var> ≥ 3 and every body. Every exact linear representation of the paired series over ℚ therefore has dimension at least four, and the quotient attains it. A representation that only needs the same zero set is not bound by this argument.</p>
           </section>
+
           <section class="fragment-section">
           <h3 id="uses">Dependents<a class="fragment-link" href="#uses" aria-label="Link to this section">#</a></h3>
           <ul>
-            <li><a href="/math/matrix_mortality/m4_4/#mortality">The four-matrix mortality construction</a> uses the four-dimensional matrices directly and adds a rank-one separator.</li>
-            <li><a href="/math/matrix_mortality/binary_compilers/#scalar-six">The shared-partial compiler</a> binary-encodes the four source roles while retaining a common unfinished word channel.</li>
-            <li><a href="/math/matrix_mortality/m9_2/#tilted-separator">The tilted separator</a> changes nonzero coefficients without changing this series’ zero language, enabling a nine-dimensional return realization.</li>
-            <li><a href="/math/matrix_mortality/m8_2/#existential-transport">The asymmetric separator</a> preserves only existence of a zero, replacing discarded witnesses by a leading toggle and permitting eight dimensions.</li>
+            <li><a href="/math/matrix_mortality/m4_4/">M<sub>4</sub>(4)</a> adds the rank-one separator <var>c</var><var>e</var><sub>1</sub><sup>T</sup> to the three matrices; the three matrices alone give Z<sub>4</sub>(3).</li>
+            <li>The <a href="/math/matrix_mortality/binary_compilers/#scalar-six">six-dimensional scalar compiler</a> spells the four roles in two bits and shares the upper-word coordinates between unfinished codewords.</li>
+            <li><a href="/math/matrix_mortality/m8_2/">M<sub>9</sub>(2) and M<sub>8</sub>(2)</a> replace the boundary row by rows that also read the length coordinates, then realize the three controls and a rank-one separator as the returns of two matrices.</li>
           </ul>
           </section>
         </details>
@@ -189,34 +355,34 @@
           <div class="status-grid">
             <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/PairedCompression.lean">Four-dimensional realization</a></b>
-              <p>Lean checks the quotient coordinates, explicit matrices, decoder, coefficient identity, and surjectivity.</p>
+              <p>Lean checks the separated coordinates, the agreement plane, the explicit matrices, the coefficient identity for every control word, and decoder surjectivity.</p>
             </div>
             <div>
-              <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/PairedRank.lean">Exact rank</a></b>
-              <p>Lean checks the finite Hankel factorization, both determinant certificates, the four-dimensional lower bound, and attainment by the native representation.</p>
+              <b><a href="https://github.com/forever-and-everoa/math/blob/main/MatrixMortality/PairedRank.lean">Exact dimension</a></b>
+              <p>Lean checks the Hankel factorization, both determinants, and the lower bound <code>paired_exact_state_lower_bound</code>.</p>
             </div>
             <div>
-              <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/Undecidability/UniversalMortality44.lean">Universal zero language</a></b>
-              <p>Lean proves that existence of a nonempty paired zero is exactly code halting and is not a computable predicate.</p>
+              <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/Undecidability/UniversalMortality44.lean">Undecidability of the zero set</a></b>
+              <p>Lean proves that existence of a nonempty control word with zero paired coefficient is equivalent to code halting and is not a computable predicate.</p>
             </div>
             <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/main/verification/axioms.txt">Transitive axioms</a></b>
               <p>The publication-facing declarations use only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>.</p>
             </div>
           </div>
-
           </section>
+
           <section class="fragment-section">
           <h3 id="formal-scope">Formal scope<a class="fragment-link" href="#formal-scope" aria-label="Link to this section">#</a></h3>
-          <p>The explicit matrices, every-word decoder identity, decoder surjectivity, exact zero-language theorem, universal source reduction, and state lower bound are machine-checked. The page introduces no approximation, intended-language restriction, or finite-word premise.</p>
-
+          <p>The explicit matrices, the coefficient identity for every control word, decoder surjectivity, the undecidability of the zero set, and the dimension lower bound are machine-checked. The general (2<var>d</var>−<var>r</var>)-dimensional compression theorem is proved on this page and has no separate Lean declaration; only its instance is formalized.</p>
           </section>
+
           <section class="fragment-section">
           <h3 id="sources">References<a class="fragment-link" href="#sources" aria-label="Link to this section">#</a></h3>
           <ol class="references">
-            <li><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/m3_5/"><cite>Fixed-Boundary Correspondence</cite></a>, 2026. The four-role source zero language.</span></li>
-            <li><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/m4_4/"><cite>Paired-Role Compression</cite></a>, 2026. The explicit quotient matrices and mortality application.</span></li>
-            <li><span>Julien Cassaigne, Vesa Halava, Tero Harju, and François Nicolas, <a href="https://arxiv.org/abs/1404.0644"><cite>Tighter Undecidability Bounds for Matrix Mortality, Zero-in-the-Corner Problems, and More</cite></a>, 2014. Standard word-pair matrices.</span></li>
+            <li id="ref-m35"><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/m3_5/"><cite>M₃(5): Mortality of Five 3 × 3 Integer Matrices</cite></a>, 2026. Fixed-boundary correspondence.</span></li>
+            <li id="ref-m44"><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/m4_4/"><cite>M₄(4): Mortality of Four 4 × 4 Integer Matrices</cite></a>, 2026. The first publication of the paired construction.</span></li>
+            <li id="ref-chhn-2014"><span>Julien Cassaigne, Vesa Halava, Tero Harju, and François Nicolas, <a href="https://arxiv.org/abs/1404.0644"><cite>Tighter Undecidability Bounds for Matrix Mortality, Zero-in-the-Corner Problems, and More</cite></a>, 2014. Word-pair matrices.</span></li>
           </ol>
           </section>
         </details>
@@ -227,7 +393,6 @@
   <footer>
     <div>
       <p>GPT-5.6 Sol · elicited by @eternalism_4eva · 3 September 2026</p>
-      <p><a href="https://github.com/forever-and-ever/math">Source repository</a></p>
     </div>
   </footer>
 </body>

@@ -4,25 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="GPT-5.6 Sol; elicited by @eternalism_4eva">
-  <meta property="og:title" content="Paired-Role Compression">
+  <meta property="og:title" content="M₄(4): Mortality of Four 4 × 4 Integer Matrices">
   <meta property="og:type" content="article">
-  <title>Paired-Role Compression | Matrix Mortality</title>
+  <title>M₄(4): Mortality of Four 4 × 4 Integer Matrices | Matrix Mortality</title>
 </head>
 <body>
   <a class="skip-link" href="#article">Skip to the exposition</a>
 
   <header class="masthead">
     <div class="masthead-inner">
-      <h1>Paired-Role Compression</h1>
+      <h1>M₄(4): Mortality of Four 4 × 4 Integer Matrices</h1>
       <p class="byline">GPT-5.6 Sol · elicited by <a href="https://x.com/eternalism_4eva">@eternalism_4eva</a></p>
     </div>
   </header>
 
   <div class="shell">
     <section class="abstract" aria-label="Abstract">
-      <strong>Matrix mortality for four 4 × 4 integer generators is undecidable: M<sub>4</sub>(4).</strong>
-      <p>This remains true when three generators have common first column <var>e</var><sub>1</sub>, one of those three is a permutation matrix, and the fourth is a nonzero integer matrix of rank one over ℚ.</p>
-      <p>The construction also proves structured scalar zero reachability Z̊<sub>4</sub>(3) undecidable; consequently Z<sub>4</sub>(3) and R<sub>5</sub>(3) are undecidable.</p>
+      <strong>Matrix mortality for four 4 × 4 integer matrices is undecidable: M<sub>4</sub>(4).</strong>
+      <p>Three of the matrices are the controls of the paired scalar series, which share first column <var>e</var><sub>1</sub> and include a permutation matrix; the fourth is a rank-one separator. Two of the controls are singular, so the standard converse for rank-one separators does not apply; the common fixed column replaces it. The previous four-generator bound was M<sub>5</sub>(4).</p>
+      <p>The three controls alone prove scalar zero reachability Z̊<sub>4</sub>(3) undecidable, and hence Z<sub>4</sub>(3) and R<sub>5</sub>(3).</p>
     </section>
 
     <nav class="contents" aria-label="Contents">
@@ -30,35 +30,20 @@
         <li>
           <a href="#known-stuff">Known Stuff</a>
           <ol>
-            <li><a href="#part-one">The four-role fixed-boundary problem</a></li>
-            <li><a href="#word-pair-matrices">Word-pair matrices</a></li>
-            <li><a href="#previous-bound">Previous bounds</a></li>
+            <li><a href="#previous-bound">Bounds before this work</a></li>
+            <li><a href="#paired-source">The paired scalar series</a></li>
+            <li><a href="#scalar-problems">Scalar and corner problems</a></li>
           </ol>
         </li>
         <li>
           <a href="#new-stuff">New Stuff</a>
           <ol>
-            <li><a href="#result">Result and mechanism</a></li>
-            <li>
-              <a href="#shared-channel">The shared channel</a>
-              <ol>
-                <li><a href="#side-normal-form">Side-normal form</a></li>
-                <li><a href="#agreement-plane">Agreement plane</a></li>
-              </ol>
-            </li>
-            <li>
-              <a href="#paired-compression">Paired-role compression</a>
-              <ol>
-                <li><a href="#quotient">The quotient</a></li>
-                <li><a href="#control-words">Arbitrary control words</a></li>
-              </ol>
-            </li>
-            <li><a href="#explicit-system">Explicit scalar system</a></li>
+            <li><a href="#result">Result</a></li>
             <li>
               <a href="#mortality">From a scalar zero to mortality</a>
               <ol>
                 <li><a href="#mortality-forward">Forward implication</a></li>
-                <li><a href="#mortality-converse">Arbitrary-product converse</a></li>
+                <li><a href="#mortality-converse">Arbitrary products</a></li>
               </ol>
             </li>
             <li><a href="#consequences">Consequences</a></li>
@@ -79,119 +64,16 @@
     <main id="article">
       <article>
         <nav class="module-context" aria-label="Module relations">
-          <p><b>Requires</b> the <a href="/math/matrix_mortality/m3_5/#four-tiles">four-role source theorem</a> and <a href="/math/matrix_mortality/m3_5/#word-pair-representation">word-pair representation</a>. The <a href="/math/matrix_mortality/paired_scalar_series/#result">paired scalar module</a> summarizes the interface constructed here.</p>
-          <p><b>Establishes</b> <a href="#paired-compression">paired-role compression</a> and M<sub>4</sub>(4).</p>
+          <p><b>Requires</b> the <a href="/math/matrix_mortality/paired_scalar_series/#result">paired scalar series</a> and the <a href="/math/matrix_mortality/m3_5/#separator-construction">rank-one separator</a>.</p>
+          <p><b>Establishes</b> M<sub>4</sub>(4) and Z̊<sub>4</sub>(3).</p>
         </nav>
 
         <details class="major-section">
           <summary><h2 id="known-stuff">Known Stuff<a class="fragment-link" href="#known-stuff" aria-label="Link to this section">#</a></h2></summary>
 
           <section class="fragment-section">
-          <h3 id="part-one">The four-role fixed-boundary problem<a class="fragment-link" href="#part-one" aria-label="Link to this section">#</a></h3>
-          <p>Here <a class="glossary-term" href="/math/matrix_mortality/glossary/#bounded-mortality" title="Nonempty-product mortality with dimension and generator count fixed.">M₄(4)</a> means mortality of at most four integer 4 × 4 matrices. The earlier construction needs five generators: four word-pair matrices and one separator. We save one generator by encoding each rule/deletion pair with one data control and a shared phase toggle, at the cost of one extra dimension.</p>
-          <p>The input is the <a href="/math/matrix_mortality/m3_5/#four-tiles">four-role fixed-boundary problem</a>: choose word pairs whose upper concatenation, followed by a fixed marker, equals their lower concatenation. This subsection states the source contract needed below; the linked proof explains its tag-machine origin.</p>
-
-          <p>Fix a <a class="glossary-term" href="/math/matrix_mortality/glossary/#deletion-width" title="The number of queue symbols removed at each tag step.">deletion width</a> <var>β</var> and write <var>H</var> for Neary’s binary word code, with <var>H</var>(<span class="word">b</span>) = 10<sup><var>β</var></sup>1 and <var>H</var>(<span class="word">c</span>) = 1. For the <a class="glossary-term" href="/math/matrix_mortality/glossary/#neary-body" title="The variable word B in the appendant Bb.">Neary body</a> <var>B</var> of the <span class="word">c</span>-appendant, the four ordinary roles are</p>
-          <div class="formula">
-            <math display="block">
-              <mtable columnalign="left left">
-                <mtr>
-                  <mtd><msub><mi>R</mi><mi>c</mi></msub></mtd>
-                  <mtd><mo>=</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mi>H</mi><mo>(</mo><mi>B</mi><mo>)</mo><mn>10</mn><mo>)</mo><mo>,</mo></mtd>
-                </mtr>
-                <mtr>
-                  <mtd><msub><mi>D</mi><mi>c</mi></msub></mtd>
-                  <mtd><mo>=</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo><mo>,</mo></mtd>
-                </mtr>
-                <mtr>
-                  <mtd><msub><mi>R</mi><mi>b</mi></msub></mtd>
-                  <mtd><mo>=</mo><mo>(</mo><mi>H</mi><mo>(</mo><mi>b</mi><mo>)</mo><mo>,</mo><mn>110</mn><mo>)</mo><mo>,</mo></mtd>
-                </mtr>
-                <mtr>
-                  <mtd><msub><mi>D</mi><mi>b</mi></msub></mtd>
-                  <mtd><mo>=</mo><mo>(</mo><mi>H</mi><mo>(</mo><mi>b</mi><mo>)</mo><mo>,</mo><mn>0</mn><mo>)</mo><mo>.</mo></mtd>
-                </mtr>
-              </mtable>
-            </math>
-          </div>
-
-          <p>Let <var>U</var>(<var>w</var>) and <var>V</var>(<var>w</var>) be the upper and lower concatenations of a role word <var>w</var>, and put <var>M</var> = 10<sup><var>β</var></sup>. The M<sub>3</sub>(5) result proves</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <mo>∃</mo><mi>w</mi><mo>:</mo>
-                <mi>U</mi><mo>(</mo><mi>w</mi><mo>)</mo><mi>M</mi>
-                <mo>=</mo>
-                <mi>V</mi><mo>(</mo><mi>w</mi><mo>)</mo>
-                <mspace width="0.8em"></mspace>
-                <mo>⇔</mo>
-                <mspace width="0.8em"></mspace>
-                <mtext>the associated restricted tag system halts.</mtext>
-              </mrow>
-            </math>
-          </div>
-          <p>The soundness proof analyzes every role word. Zero-run synchronization forces exact deletion-width blocks, and a global history equation reconstructs lawful tag steps. Neary’s restricted binary-tag undecidability theorem supplies the external tag family <a href="#ref-neary-2015">[Neary 2015]</a>.</p>
-          <div class="theorem">
-            <p><strong>Neary padding corollary.</strong> If the cyclic program has <var>p</var> appendants, Neary’s compiler has <var>β</var> = 10<var>p</var> and permits a computably chosen sufficiently large padding parameter <var>s</var>. Taking <var>s</var> = <var>x</var>(<var>β</var>−1)+1 makes the body length</p>
-            <div class="formula plain">
-              <math display="block">
-                <mrow>
-                  <mo>|</mo><mi>B</mi><mo>|</mo>
-                  <mo>=</mo><mi>β</mi><mi>s</mi><mo>−</mo><mn>1</mn>
-                  <mo>=</mo><mo>(</mo><mi>x</mi><mi>β</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>(</mo><mi>β</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>.</mo>
-                </mrow>
-              </math>
-            </div>
-            <div class="formula plain">
-              <math display="block">
-                <mrow>
-                  <mi>β</mi><mo>&gt;</mo><mn>2</mn><mo>,</mo>
-                  <mspace width="0.7em"></mspace>
-                  <mi>β</mi><mo>−</mo><mn>1</mn><mo>≤</mo><mo>|</mo><mi>B</mi><mo>|</mo><mo>,</mo>
-                  <mspace width="0.7em"></mspace>
-                  <mi>β</mi><mo>−</mo><mn>1</mn><mo>∣</mo><mo>|</mo><mi>B</mi><mo>|</mo><mo>.</mo>
-                </mrow>
-              </math>
-            </div>
-            <p>The padded subfamily remains undecidable. These conditions follow from the construction’s padding freedom, not from the bare statement of Lemma 9.</p>
-          </div>
-
-          </section>
-          <section class="fragment-section">
-          <h3 id="word-pair-matrices">Word-pair matrices<a class="fragment-link" href="#word-pair-matrices" aria-label="Link to this section">#</a></h3>
-          <p>Recode binary symbols as nonzero base-three digits. For a digit word <var>x</var>, let <var>σ</var>(<var>x</var>) be its <a class="glossary-term" href="/math/matrix_mortality/glossary/#ternary-value" title="The base-three value after replacing bits 0,1 with digits 1,2.">base-three value</a>. The standard <a class="glossary-term" href="/math/matrix_mortality/m3_5/#word-pair-representation" title="A matrix morphism encoding two words so a boundary coefficient detects equality.">word-pair representation</a> is</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <mi>Ψ</mi><mo>(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo>)</mo><mo>=</mo>
-                <mo fence="true" stretchy="true">[</mo>
-                <mtable>
-                  <mtr>
-                    <mtd><mn>1</mn></mtd>
-                    <mtd><mrow><mi>σ</mi><mo>(</mo><mi>v</mi><mo>)</mo></mrow></mtd>
-                    <mtd><mrow><mi>σ</mi><mo>(</mo><mi>u</mi><mo>)</mo><mo>−</mo><mi>σ</mi><mo>(</mo><mi>v</mi><mo>)</mo></mrow></mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd><mn>0</mn></mtd>
-                    <mtd><msup><mn>3</mn><mrow><mo>|</mo><mi>v</mi><mo>|</mo></mrow></msup></mtd>
-                    <mtd><mrow><msup><mn>3</mn><mrow><mo>|</mo><mi>u</mi><mo>|</mo></mrow></msup><mo>−</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>v</mi><mo>|</mo></mrow></msup></mrow></mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd><mn>0</mn></mtd>
-                    <mtd><mn>0</mn></mtd>
-                    <mtd><msup><mn>3</mn><mrow><mo>|</mo><mi>u</mi><mo>|</mo></mrow></msup></mtd>
-                  </mtr>
-                </mtable>
-                <mo fence="true" stretchy="true">]</mo><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>It is a monoid morphism, and its upper-right entry vanishes exactly when <var>u</var> = <var>v</var> <a href="#ref-chhn-2014">[Cassaigne et al. 2014]</a>. The M<sub>3</sub>(5) construction assigns one such matrix to each role and one rank-one separator, giving five 3 × 3 generators.</p>
-
-          </section>
-          <section class="fragment-section">
-          <h3 id="previous-bound">Previous bounds<a class="fragment-link" href="#previous-bound" aria-label="Link to this section">#</a></h3>
-          <p>After the M<sub>3</sub>(5) result, the established Pareto-minimal mortality-undecidability points were</p>
+          <h3 id="previous-bound">Bounds before this work<a class="fragment-link" href="#previous-bound" aria-label="Link to this section">#</a></h3>
+          <p>After <a href="/math/matrix_mortality/m3_5/">M<sub>3</sub>(5)</a>, the minimal known undecidable mortality cells were</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
@@ -202,7 +84,25 @@
               </mrow>
             </math>
           </div>
-          <p>The four-generator entry M<sub>5</sub>(4) came from earlier packing results. This result lowers its dimension by one.</p>
+          <p>The four-generator cell M<sub>5</sub>(4) is due to Cassaigne, Halava, Harju, and Nicolas <a href="#ref-chhn-2014">[Cassaigne et al. 2014]</a>. This article lowers its dimension to four.</p>
+          </section>
+
+          <section class="fragment-section">
+          <h3 id="paired-source">The paired scalar series<a class="fragment-link" href="#paired-source" aria-label="Link to this section">#</a></h3>
+          <p>The <a href="/math/matrix_mortality/paired_scalar_series/#result">paired scalar series</a> replaces the four tiles of fixed-boundary correspondence by two data controls <var>G</var><sub>b</sub>, <var>G</var><sub>c</sub> and a toggle <var>T</var>, all integer 4 × 4 matrices. With the column <var>c</var> = (<var>μ</var>, −1, <var>t</var>, 0)<sup>T</sup>, where <var>μ</var> = <var>σ</var>(<var>M</var>) and <var>t</var> = 3<sup>|<var>M</var>|</sup>, a nonempty control word <var>z</var> with</p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <msubsup><mi>e</mi><mn>1</mn><mi mathvariant="normal">T</mi></msubsup><msub><mi>G</mi><mi>z</mi></msub><mi>c</mi><mo>=</mo><mn>0</mn>
+              </mrow>
+            </math>
+          </div>
+          <p>exists exactly when the tag system halts. The <a href="/math/matrix_mortality/paired_scalar_series/#explicit-system">explicit matrices</a> have two properties used below: all three fix <var>e</var><sub>1</sub>, and the data controls are singular. Toggle-only words have coefficient <var>μ</var> ≠ 0.</p>
+          </section>
+
+          <section class="fragment-section">
+          <h3 id="scalar-problems">Scalar and corner problems<a class="fragment-link" href="#scalar-problems" aria-label="Link to this section">#</a></h3>
+          <p><a class="glossary-term" href="/math/matrix_mortality/glossary/#scalar-zero-reachability" title="Whether a fixed row and column give zero on some nonempty product.">Scalar zero reachability</a> Z<sub><var>d</var></sub>(<var>k</var>) supplies a row <var>L</var>, a column <var>C</var>, and at most <var>k</var> integer <var>d</var> × <var>d</var> matrices, and asks whether <var>LYC</var> = 0 for some nonempty product <var>Y</var>. The structured problem Z̊<sub><var>d</var></sub>(<var>k</var>) additionally requires every generator to have first column <var>e</var><sub>1</sub>. The <a class="glossary-term" href="/math/matrix_mortality/glossary/#zero-in-the-corner" title="Whether some nonempty product has zero in a fixed corner entry.">corner problem</a> R<sub><var>d</var></sub>(<var>k</var>) fixes <var>L</var> and <var>C</var> to coordinate vectors, and Z<sub><var>d</var></sub>(<var>k</var>) ≤<sub>m</sub> R<sub><var>d</var>+1</sub>(<var>k</var>) <a href="#ref-chhn-2014">[Cassaigne et al. 2014]</a>.</p>
           </section>
         </details>
 
@@ -210,247 +110,22 @@
           <summary><h2 id="new-stuff">New Stuff<a class="fragment-link" href="#new-stuff" aria-label="Link to this section">#</a></h2></summary>
 
           <section class="fragment-section">
-          <h3 id="result">Result and mechanism<a class="fragment-link" href="#result" aria-label="Link to this section">#</a></h3>
-          <p>The rule and deletion roles for a fixed tag symbol have the same upper word. After separating the upper and lower matrix channels, each pair therefore agrees on a two-dimensional subspace. Two three-dimensional phase spaces can be identified along that subspace, leaving four dimensions. A toggle selects which member of each pair acts. Every toggle pattern decodes to a role word, and every role word has an encoding.</p>
+          <h3 id="result">Result<a class="fragment-link" href="#result" aria-label="Link to this section">#</a></h3>
+          <p>M<sub>3</sub>(5) spends four generators on the tiles and one on the separator. The paired series does the work of the four tiles with three matrices in dimension four, so adding the separator <var>c</var><var>e</var><sub>1</sub><sup>T</sup> gives four generators. The standard converse for a rank-one separator uses nonsingular ordinary generators to show that the outer factors of a product never vanish, and here the data controls are singular. The common fixed column <var>e</var><sub>1</sub> does the same job: it keeps every row <var>e</var><sub>1</sub><sup>T</sup><var>Q</var> nonzero, and a column <var>Q</var><var>c</var> can vanish only if its own coefficient does.</p>
 
           <div class="theorem">
-            <p><strong>Paired-role compression.</strong> Let <var>V</var> be a finite-dimensional vector space over a field, with dim <var>V</var> = <var>d</var>, and let <var>R</var><sub>0</sub>, <var>R</var><sub>1</sub>, <var>D</var><sub>0</sub>, <var>D</var><sub>1</sub> be linear endomorphisms of <var>V</var>. If <var>R</var><sub>i</sub> and <var>D</var><sub>i</sub> agree on an <var>r</var>-dimensional subspace <var>E</var> for <var>i</var> = 0,1, then scalar zero reachability for the four actions reduces to scalar zero reachability for three actions in dimension 2<var>d</var>−<var>r</var>.</p>
+            <p><b>Theorem (M<sub>4</sub>(4)).</b> A primitive-recursive map sends every program to four 4 × 4 integer matrices, three with first column <var>e</var><sub>1</sub>, one of them a permutation matrix, and one nonzero of rank one, that are mortal exactly when the program halts. Hence M<sub>4</sub>(4) is undecidable.</p>
+            <p><b>Theorem (Z̊<sub>4</sub>(3)).</b> Scalar zero reachability for three 4 × 4 integer matrices with common first column <var>e</var><sub>1</sub> is undecidable.</p>
           </div>
-
-          <p>The Neary role matrices have <var>d</var> = 3 and <var>r</var> = 2. The compressed scalar system has three 4 × 4 matrices. A fourth rank-one matrix converts its zero coefficient into a zero matrix product.</p>
-
           </section>
-          <section class="fragment-section">
-          <h3 id="shared-channel">The shared channel<a class="fragment-link" href="#shared-channel" aria-label="Link to this section">#</a></h3>
 
-          <section class="fragment-section">
-          <h4 id="side-normal-form">Side-normal form<a class="fragment-link" href="#side-normal-form" aria-label="Link to this section">#</a></h4>
-          <p>Use the unimodular change of basis</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <mi>P</mi><mo>=</mo>
-                <mo fence="true" stretchy="true">[</mo>
-                <mtable>
-                  <mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
-                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr>
-                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr>
-                </mtable>
-                <mo fence="true" stretchy="true">]</mo><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>Conjugating <var>Ψ</var> separates the two word channels:</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <mi>Φ</mi><mo>(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo>)</mo>
-                <mo>=</mo><msup><mi>P</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup>
-                <mi>Ψ</mi><mo>(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo>)</mo><mi>P</mi>
-                <mo>=</mo>
-                <mo fence="true" stretchy="true">[</mo>
-                <mtable>
-                  <mtr>
-                    <mtd><mn>1</mn></mtd>
-                    <mtd><mrow><mi>σ</mi><mo>(</mo><mi>v</mi><mo>)</mo></mrow></mtd>
-                    <mtd><mrow><mi>σ</mi><mo>(</mo><mi>u</mi><mo>)</mo></mrow></mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd><mn>0</mn></mtd>
-                    <mtd><msup><mn>3</mn><mrow><mo>|</mo><mi>v</mi><mo>|</mo></mrow></msup></mtd>
-                    <mtd><mn>0</mn></mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd><mn>0</mn></mtd>
-                    <mtd><mn>0</mn></mtd>
-                    <mtd><msup><mn>3</mn><mrow><mo>|</mo><mi>u</mi><mo>|</mo></mrow></msup></mtd>
-                  </mtr>
-                </mtable>
-                <mo fence="true" stretchy="true">]</mo><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-
-          </section>
-          <section class="fragment-section">
-          <h4 id="agreement-plane">Agreement plane<a class="fragment-link" href="#agreement-plane" aria-label="Link to this section">#</a></h4>
-          <p>On the upper-side plane</p>
-          <div class="formula plain">
-            <math display="block">
-              <mrow>
-                <msub><mi>E</mi><mi>U</mi></msub>
-                <mo>=</mo>
-                <mtext>span</mtext><mo>{</mo><msub><mi>e</mi><mn>1</mn></msub><mo>,</mo><msub><mi>e</mi><mn>3</mn></msub><mo>}</mo>
-                <mo>=</mo>
-                <mo>{</mo><mo>(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo>,</mo><mi>z</mi><mo>)</mo><msup><mspace width="0.1em"></mspace><mi mathvariant="normal">T</mi></msup><mo>}</mo><mo>,</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>the lower word disappears:</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <mi>Φ</mi><mo>(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo>)</mo>
-                <mo>(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo>,</mo><mi>z</mi><mo>)</mo><msup><mspace width="0.1em"></mspace><mi mathvariant="normal">T</mi></msup>
-                <mo>=</mo>
-                <mo>(</mo><mi>a</mi><mo>+</mo><mi>σ</mi><mo>(</mo><mi>u</mi><mo>)</mo><mi>z</mi><mo>,</mo><mn>0</mn><mo>,</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>u</mi><mo>|</mo></mrow></msup><mi>z</mi><mo>)</mo><msup><mspace width="0.1em"></mspace><mi mathvariant="normal">T</mi></msup><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>Since <var>R</var><sub><var>x</var></sub> and <var>D</var><sub><var>x</var></sub> have the same upper word,</p>
-          <div class="formula plain">
-            <math display="block">
-              <mrow>
-                <msub><mi>R</mi><mi>x</mi></msub>
-                <msub><mo>|</mo><msub><mi>E</mi><mi>U</mi></msub></msub>
-                <mo>=</mo>
-                <msub><mi>D</mi><mi>x</mi></msub>
-                <msub><mo>|</mo><msub><mi>E</mi><mi>U</mi></msub></msub>
-                <mspace width="0.8em"></mspace><mo>(</mo><mi>x</mi><mo>∈</mo><mo>{</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>}</mo><mo>)</mo><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-
-          </section>
-          </section>
-          <section class="fragment-section">
-          <h3 id="paired-compression">Paired-role compression<a class="fragment-link" href="#paired-compression" aria-label="Link to this section">#</a></h3>
-
-          <section class="fragment-section">
-          <h4 id="quotient">The quotient<a class="fragment-link" href="#quotient" aria-label="Link to this section">#</a></h4>
-          <p>Keep a rule-phase vector in the first copy of <var>V</var> and a deletion-phase vector in the second. A data control applies the selected role and places its output in deletion phase; the toggle exchanges phases. In block form:</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <msub><mover><mi>G</mi><mo>^</mo></mover><mi>x</mi></msub>
-                <mo>=</mo>
-                <mo fence="true" stretchy="true">[</mo>
-                <mtable><mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><msub><mi>R</mi><mi>x</mi></msub></mtd><mtd><msub><mi>D</mi><mi>x</mi></msub></mtd></mtr></mtable>
-                <mo fence="true" stretchy="true">]</mo><mo>,</mo>
-                <mspace width="1em"></mspace>
-                <mover><mi>T</mi><mo>^</mo></mover>
-                <mo>=</mo>
-                <mo fence="true" stretchy="true">[</mo>
-                <mtable><mtr><mtd><mn>0</mn></mtd><mtd><mi>I</mi></mtd></mtr><mtr><mtd><mi>I</mi></mtd><mtd><mn>0</mn></mtd></mtr></mtable>
-                <mo fence="true" stretchy="true">]</mo><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>The subspace</p>
-          <div class="formula plain">
-            <math display="block">
-              <mrow>
-                <mi>K</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>p</mi><mo>,</mo><mo>−</mo><mi>p</mi><mo>)</mo><mo>:</mo><mi>p</mi><mo>∈</mo><mi>E</mi><mo>}</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>is annihilated by both data matrices and preserved by the toggle. The three maps descend to</p>
-          <div class="formula plain">
-            <math display="block">
-              <mrow>
-                <mi>W</mi><mo>=</mo><mo>(</mo><mi>V</mi><mo>⊕</mo><mi>V</mi><mo>)</mo><mo>/</mo><mi>K</mi><mo>,</mo>
-                <mspace width="1em"></mspace>
-                <mi>dim</mi><mi>W</mi><mo>=</mo><mn>2</mn><mi>d</mi><mo>−</mo><mi>r</mi><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>For the source boundary row ℓ<sup>T</sup> and column <var>c</var>, the row (<var>ℓ</var><sup>T</sup>, <var>ℓ</var><sup>T</sup>) annihilates <var>K</var>; the boundary column (<var>c</var>,0)<sup>T</sup> descends without restriction. Thus the quotient preserves the required scalar coefficients.</p>
-
-          </section>
-          <section class="fragment-section">
-          <h4 id="control-words">Arbitrary control words<a class="fragment-link" href="#control-words" aria-label="Link to this section">#</a></h4>
-          <p>The quotient matrices are indexed by two data letters and one toggle. Products are written in role-word order, but the rightmost matrix acts first on the boundary column. The decoder is therefore suffix-controlled: scan from right to left with a two-valued phase.</p>
-          <ol>
-            <li>The initial phase is rule.</li>
-            <li>A toggle flips the phase.</li>
-            <li>A data letter <var>x</var> emits <var>R</var><sub><var>x</var></sub> in rule phase or <var>D</var><sub><var>x</var></sub> in deletion phase, then sets the phase to deletion.</li>
-          </ol>
-          <p>Let <var>τ</var>(<var>z</var>) be the emitted role word in the original left-to-right order. Write <var>X</var><sub><var>w</var></sub> for the source role-matrix product and <var>G</var><sub><var>z</var></sub> for the control product, including toggles. Let <var>L</var> and <var>C</var> be the quotient row and column just constructed. Induction on <var>z</var> gives the coefficient identity</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <mi>L</mi>
-                <msub><mi>G</mi><mi>z</mi></msub><mi>C</mi>
-                <mo>=</mo>
-                <msubsup><mi>e</mi><mn>1</mn><mi mathvariant="normal">T</mi></msubsup><msub><mi>X</mi><mrow><mi>τ</mi><mo>(</mo><mi>z</mi><mo>)</mo></mrow></msub><mi>c</mi><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>Leading, trailing, adjacent, and repeated toggles are included. Conversely, induction on a role word inserts at most one toggle before each recursively encoded suffix, so <var>τ</var> is surjective. The scalar system has a zero witness exactly when the four-role fixed-boundary problem has one.</p>
-
-          </section>
-          </section>
-          <section class="fragment-section">
-          <h3 id="explicit-system">Explicit scalar system<a class="fragment-link" href="#explicit-system" aria-label="Link to this section">#</a></h3>
-          <p>The word <var>u</var><sub><var>x</var></sub> is the common upper image of the rule/deletion pair; <var>v</var><sub><var>x</var></sub><sup>R</sup> and <var>v</var><sub><var>x</var></sub><sup>D</sup> are its two lower images. The symbols below are their numeral values and length powers, not additional controls.</p>
-          <p>For <var>x</var> ∈ {<span class="word">b</span>,<span class="word">c</span>}, write</p>
-          <div class="formula">
-            <math display="block">
-              <mtable columnalign="left left left">
-                <mtr>
-                  <mtd><msub><mi>U</mi><mi>x</mi></msub><mo>=</mo><mi>σ</mi><mo>(</mo><msub><mi>u</mi><mi>x</mi></msub><mo>)</mo><mo>,</mo></mtd>
-                  <mtd><msub><mi>A</mi><mi>x</mi></msub><mo>=</mo><msup><mn>3</mn><mrow><mo>|</mo><msub><mi>u</mi><mi>x</mi></msub><mo>|</mo></mrow></msup><mo>,</mo></mtd>
-                  <mtd></mtd>
-                </mtr>
-                <mtr>
-                  <mtd><msubsup><mi>V</mi><mi>x</mi><mi>R</mi></msubsup><mo>=</mo><mi>σ</mi><mo>(</mo><msubsup><mi>v</mi><mi>x</mi><mi>R</mi></msubsup><mo>)</mo><mo>,</mo></mtd>
-                  <mtd><msubsup><mi>B</mi><mi>x</mi><mi>R</mi></msubsup><mo>=</mo><msup><mn>3</mn><mrow><mo>|</mo><msubsup><mi>v</mi><mi>x</mi><mi>R</mi></msubsup><mo>|</mo></mrow></msup><mo>,</mo></mtd>
-                  <mtd></mtd>
-                </mtr>
-                <mtr>
-                  <mtd><msubsup><mi>V</mi><mi>x</mi><mi>D</mi></msubsup><mo>=</mo><mi>σ</mi><mo>(</mo><msubsup><mi>v</mi><mi>x</mi><mi>D</mi></msubsup><mo>)</mo><mo>,</mo></mtd>
-                  <mtd><msubsup><mi>B</mi><mi>x</mi><mi>D</mi></msubsup><mo>=</mo><msup><mn>3</mn><mrow><mo>|</mo><msubsup><mi>v</mi><mi>x</mi><mi>D</mi></msubsup><mo>|</mo></mrow></msup><mo>.</mo></mtd>
-                  <mtd></mtd>
-                </mtr>
-              </mtable>
-            </math>
-          </div>
-          <p>In quotient coordinates (<var>p</var><sub>1</sub>+<var>q</var><sub>1</sub>, <var>p</var><sub>2</sub>, <var>p</var><sub>3</sub>+<var>q</var><sub>3</sub>, <var>q</var><sub>2</sub>)<sup>T</sup>, the matrices are</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <msub><mi>G</mi><mi>x</mi></msub><mo>=</mo>
-                <mo fence="true" stretchy="true">[</mo>
-                <mtable>
-                  <mtr><mtd><mn>1</mn></mtd><mtd><msubsup><mi>V</mi><mi>x</mi><mi>R</mi></msubsup></mtd><mtd><msub><mi>U</mi><mi>x</mi></msub></mtd><mtd><msubsup><mi>V</mi><mi>x</mi><mi>D</mi></msubsup></mtd></mtr>
-                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
-                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><msub><mi>A</mi><mi>x</mi></msub></mtd><mtd><mn>0</mn></mtd></mtr>
-                  <mtr><mtd><mn>0</mn></mtd><mtd><msubsup><mi>B</mi><mi>x</mi><mi>R</mi></msubsup></mtd><mtd><mn>0</mn></mtd><mtd><msubsup><mi>B</mi><mi>x</mi><mi>D</mi></msubsup></mtd></mtr>
-                </mtable>
-                <mo fence="true" stretchy="true">]</mo><mo>,</mo>
-                <mspace width="1em"></mspace>
-                <mi>T</mi><mo>=</mo>
-                <mo fence="true" stretchy="true">[</mo>
-                <mtable>
-                  <mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
-                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr>
-                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr>
-                  <mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
-                </mtable>
-                <mo fence="true" stretchy="true">]</mo><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>Let <var>μ</var> = <var>σ</var>(<var>M</var>) and <var>t</var> = 3<sup>|<var>M</var>|</sup>. The boundary row and column are</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <mi>L</mi><mo>=</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>)</mo><mo>,</mo>
-                <mspace width="1em"></mspace>
-                <mi>C</mi><mo>=</mo><mo>(</mo><mi>μ</mi><mo>,</mo><mo>−</mo><mn>1</mn><mo>,</mo><mi>t</mi><mo>,</mo><mn>0</mn><mo>)</mo><msup><mspace width="0.1em"></mspace><mi mathvariant="normal">T</mi></msup><mo>.</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>All entries are integers. Both data matrices have a zero second row; nonsingularity is not used. All three controls fix <var>e</var><sub>1</sub>, and <var>T</var> is a permutation matrix. A control word containing no data letter is a power of <var>T</var> and has coefficient <var>LC</var> = <var>μ</var> ≠ 0.</p>
-
-          </section>
           <section class="fragment-section">
           <h3 id="mortality">From a scalar zero to mortality<a class="fragment-link" href="#mortality" aria-label="Link to this section">#</a></h3>
-          <p>So far only a scalar coefficient is tested. To make that scalar zero annihilate an entire product, adjoin the <a class="glossary-term" href="/math/matrix_mortality/glossary/#outer-product-separator" title="A rank-one matrix formed from the boundary column and row.">outer product</a></p>
+          <p>Adjoin the <a class="glossary-term" href="/math/matrix_mortality/glossary/#outer-product-separator" title="A rank-one matrix formed from the boundary column and row.">outer product</a></p>
           <div class="formula">
             <math display="block">
               <mrow>
-                <mi>S</mi><mo>=</mo><mi>C</mi><mi>L</mi><mo>=</mo>
+                <mi>S</mi><mo>=</mo><mi>c</mi><msubsup><mi>e</mi><mn>1</mn><mi mathvariant="normal">T</mi></msubsup><mo>=</mo>
                 <mo fence="true" stretchy="true">[</mo>
                 <mtable>
                   <mtr><mtd><mi>μ</mi></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
@@ -458,72 +133,50 @@
                   <mtr><mtd><mi>t</mi></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
                   <mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr>
                 </mtable>
-                <mo fence="true" stretchy="true">]</mo><mo>.</mo>
+                <mo fence="true" stretchy="true">]</mo>
               </mrow>
             </math>
           </div>
-          <p>The vector <var>C</var> and row <var>L</var> are nonzero, so <var>S</var> is nonzero and has rank one over ℚ.</p>
-          <p>The outer-product reduction from scalar zero reachability to mortality is prior art <a href="#ref-chhn-2014">[Cassaigne et al. 2014]</a>. The new steps are the four-dimensional scalar system and the converse for a control family containing singular data matrices, using its common fixed column.</p>
+          <p>to <var>G</var><sub>b</sub>, <var>G</var><sub>c</sub>, <var>T</var>. It is a nonzero integer matrix of rank one.</p>
 
           <section class="fragment-section">
           <h4 id="mortality-forward">Forward implication<a class="fragment-link" href="#mortality-forward" aria-label="Link to this section">#</a></h4>
-          <p>If a control product <var>Q</var> satisfies <var>LQC</var> = 0, then</p>
+          <p>If a control product <var>Q</var> satisfies <var>e</var><sub>1</sub><sup>T</sup><var>Q</var><var>c</var> = 0, then</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <mi>SQS</mi><mo>=</mo><mi>C</mi><mo>(</mo><mi>LQC</mi><mo>)</mo><mi>L</mi><mo>=</mo><mn>0</mn><mo>.</mo>
+                <mi>S</mi><mi>Q</mi><mi>S</mi><mo>=</mo><mi>c</mi><mo>(</mo><msubsup><mi>e</mi><mn>1</mn><mi mathvariant="normal">T</mi></msubsup><mi>Q</mi><mi>c</mi><mo>)</mo><msubsup><mi>e</mi><mn>1</mn><mi mathvariant="normal">T</mi></msubsup><mo>=</mo><mn>0</mn><mo>.</mo>
               </mrow>
             </math>
           </div>
-          <p>Thus every fixed-boundary solution produces a mortality witness over {<var>G</var><sub><var>b</var></sub>, <var>G</var><sub><var>c</var></sub>, <var>T</var>, <var>S</var>}.</p>
-
           </section>
+
           <section class="fragment-section">
-          <h4 id="mortality-converse">Arbitrary-product converse<a class="fragment-link" href="#mortality-converse" aria-label="Link to this section">#</a></h4>
-          <p>A product without <var>S</var> fixes <var>e</var><sub>1</sub> and is therefore nonzero. A product with <var>m</var> ≥ 1 occurrences has a unique decomposition</p>
+          <h4 id="mortality-converse">Arbitrary products<a class="fragment-link" href="#mortality-converse" aria-label="Link to this section">#</a></h4>
+          <p>A product without <var>S</var> fixes <var>e</var><sub>1</sub> and is therefore nonzero. A product with <var>r</var> ≥ 1 copies of <var>S</var> has a unique form</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
                 <msub><mi>Q</mi><mn>0</mn></msub><mi>S</mi>
                 <msub><mi>Q</mi><mn>1</mn></msub><mi>S</mi>
-                <mo>⋯</mo><mi>S</mi><msub><mi>Q</mi><mi>m</mi></msub><mo>,</mo>
-              </mrow>
-            </math>
-          </div>
-          <p>where each <var>Q</var><sub><var>i</var></sub> is a possibly empty control product. Expanding the outer products gives</p>
-          <div class="formula">
-            <math display="block">
-              <mrow>
-                <mo>(</mo><msub><mi>Q</mi><mn>0</mn></msub><mi>C</mi><mo>)</mo>
+                <mo>⋯</mo><mi>S</mi><msub><mi>Q</mi><mi>r</mi></msub>
+                <mo>=</mo>
+                <mo>(</mo><msub><mi>Q</mi><mn>0</mn></msub><mi>c</mi><mo>)</mo>
                 <mo fence="true" stretchy="true">[</mo>
-                <munder><mo>∏</mo><mrow><mn>1</mn><mo>≤</mo><mi>i</mi><mo>&lt;</mo><mi>m</mi></mrow></munder>
-                <mi>L</mi><msub><mi>Q</mi><mi>i</mi></msub><mi>C</mi>
+                <munder><mo>∏</mo><mrow><mn>1</mn><mo>≤</mo><mi>i</mi><mo>&lt;</mo><mi>r</mi></mrow></munder>
+                <msubsup><mi>e</mi><mn>1</mn><mi mathvariant="normal">T</mi></msubsup><msub><mi>Q</mi><mi>i</mi></msub><mi>c</mi>
                 <mo fence="true" stretchy="true">]</mo>
-                <mo>(</mo><mi>L</mi><msub><mi>Q</mi><mi>m</mi></msub><mo>)</mo><mo>.</mo>
+                <mo>(</mo><msubsup><mi>e</mi><mn>1</mn><mi mathvariant="normal">T</mi></msubsup><msub><mi>Q</mi><mi>r</mi></msub><mo>)</mo><mo>,</mo>
               </mrow>
             </math>
           </div>
-          <p>The terminal row is nonzero because (<var>LQ</var><sub><var>m</var></sub>)<var>e</var><sub>1</sub> = 1. If <var>Q</var><sub>0</sub><var>C</var> = 0, then <var>LQ</var><sub>0</sub><var>C</var> = 0 already supplies a scalar witness; an empty <var>Q</var><sub>0</sub> cannot collapse the nonzero column <var>C</var>. Otherwise the exterior outer product is nonzero, so the full product vanishes only when an internal scalar <var>LQ</var><sub><var>i</var></sub><var>C</var> vanishes. Empty internal blocks contribute <var>LC</var> = <var>μ</var> ≠ 0.</p>
-          <p>This covers one separator, adjacent separators, arbitrary exterior blocks, and every separator count. The argument uses the shared fixed column in place of control-matrix invertibility.</p>
+          <p>where each <var>Q</var><sub><var>i</var></sub> is a possibly empty control product. The final row is nonzero because <var>Q</var><sub><var>r</var></sub><var>e</var><sub>1</sub> = <var>e</var><sub>1</sub> gives (<var>e</var><sub>1</sub><sup>T</sup><var>Q</var><sub><var>r</var></sub>)<var>e</var><sub>1</sub> = 1. If the product is zero, then either <var>Q</var><sub>0</sub><var>c</var> = 0, in which case <var>Q</var><sub>0</sub> is nonempty because <var>c</var> ≠ 0 and <var>e</var><sub>1</sub><sup>T</sup><var>Q</var><sub>0</sub><var>c</var> = 0, or some inner scalar <var>e</var><sub>1</sub><sup>T</sup><var>Q</var><sub><var>i</var></sub><var>c</var> vanishes, in which case <var>Q</var><sub><var>i</var></sub> is nonempty because an empty block contributes <var>μ</var> ≠ 0. Either way some nonempty control word has zero paired coefficient, and the tag system halts.</p>
+          </section>
+          </section>
 
-          </section>
-          </section>
           <section class="fragment-section">
           <h3 id="consequences">Consequences<a class="fragment-link" href="#consequences" aria-label="Link to this section">#</a></h3>
-          <p>Here Z<sub><var>d</var></sub>(<var>k</var>) asks, for supplied <var>L</var> and <var>C</var>, whether</p>
-          <div class="formula plain">
-            <math display="block">
-              <mrow><mi>L</mi><mi>Y</mi><mi>C</mi><mo>=</mo><mn>0</mn></mrow>
-            </math>
-          </div>
-          <p>for some nonempty product <var>Y</var> of at most <var>k</var> integer <var>d</var> × <var>d</var> matrices. The decorated form Z̊ requires every generator to have first column <var>e</var><sub>1</sub>. The empty product cannot witness this instance:</p>
-          <div class="formula plain">
-            <math display="block">
-              <mrow><mi>L</mi><mi>C</mi><mo>=</mo><mi>μ</mi><mo>≠</mo><mn>0</mn><mo>.</mo></mrow>
-            </math>
-          </div>
-          <p>The direct scalar construction proves Z̊<sub>4</sub>(3) undecidable. Forgetting the restriction gives Z<sub>4</sub>(3); the established reduction Z<sub><var>d</var></sub>(<var>k</var>) ≤<sub>m</sub> R<sub><var>d</var>+1</sub>(<var>k</var>) gives R<sub>5</sub>(3) <a href="#ref-chhn-2014">[Cassaigne et al. 2014]</a>.</p>
-          <p>The four-dimensional separator construction proves M<sub>4</sub>(4). The <a href="/math/matrix_mortality/#frontier">series landing page</a> records the current scalar, corner, and mortality frontiers.</p>
+          <p>The instance (<var>e</var><sub>1</sub><sup>T</sup>, <var>c</var>; <var>G</var><sub>b</sub>, <var>G</var><sub>c</sub>, <var>T</var>) of Z̊<sub>4</sub>(3) has a zero exactly when the tag system halts, which proves the second theorem. Dropping the structural condition gives Z<sub>4</sub>(3), and the reduction to corners gives R<sub>5</sub>(3). The <a href="/math/matrix_mortality/#frontier">decidability table</a> records the current mortality frontier.</p>
           </section>
         </details>
 
@@ -535,11 +188,11 @@
           <div class="status-grid">
             <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/b99e6590225fca81b50a6837adbab97073321505/MatrixMortality/PairedCompression.lean">Paired compression</a></b>
-              <p>Lean checks the side-normal conjugation, agreement plane, explicit matrices, coefficient identity for every control word, and decoder surjectivity.</p>
+              <p>Lean checks the separated coordinates, the agreement plane, the explicit matrices, the coefficient identity for every control word, and decoder surjectivity.</p>
             </div>
             <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/b99e6590225fca81b50a6837adbab97073321505/MatrixMortality/PairedMortality.lean">Mortality equivalence</a></b>
-              <p>Lean checks every separator count and placement, the common-column converse with singular data controls, integer reflection, nonzeroness, and rational rank one.</p>
+              <p>Lean checks every number and placement of separators, the common-column converse with singular data controls, integrality, and that the separator is nonzero of rank one over ℚ.</p>
             </div>
             <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/b99e6590225fca81b50a6837adbab97073321505/verification/axioms.txt">Transitive axioms</a></b>
@@ -547,35 +200,34 @@
             </div>
             <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/b99e6590225fca81b50a6837adbab97073321505/tools/scour_source.py">Independent falsifier</a></b>
-              <p>A separate exact-arithmetic program checks bounded arbitrary role words, compressed coefficients, decoder coverage, and arbitrary four-matrix products. It is not used in the proof.</p>
+              <p>A separate exact-arithmetic program checks bounded arbitrary role words, compressed coefficients, decoder coverage, and arbitrary products of the four matrices. The proof does not use it.</p>
             </div>
           </div>
-
           </section>
+
           <section class="fragment-section">
           <h3 id="formal-scope">Formal scope<a class="fragment-link" href="#formal-scope" aria-label="Link to this section">#</a></h3>
-          <p>The instance-level equivalence from the restricted tag semantics through the four exact integer matrices is machine-checked. The theorem <a href="https://github.com/forever-and-ever/math/blob/b99e6590225fca81b50a6837adbab97073321505/MatrixMortality/Undecidability/PairedProblems.lean"><code>nearyMortality44_mortal_iff_tagHaltsFrom</code></a> is the encoded boundary.</p>
-          <p>Lean checks the explicit four-dimensional realization and its arbitrary-word identity. The abstract 2<var>d</var>−<var>r</var> quotient theorem above is paper mathematics, not a separate Lean declaration.</p>
-          <p>The computable reduction from mathlib’s code-halting predicate through the fixed universal machine, two-tag system, cyclic-tag system, and restricted binary-tag compiler is machine-checked. Lean proves the four-matrix constructor primitive recursive, <code>codeHalts_reduces_mortality44</code>, and <code>mortality44_not_computable</code>; no external universality theorem is assumed. The abstract 2<var>d</var>−<var>r</var> quotient and bibliographic priority claim remain outside Lean.</p>
-
+          <p>The equivalence from the tag semantics to mortality of the four integer matrices is machine-checked as <a href="https://github.com/forever-and-ever/math/blob/b99e6590225fca81b50a6837adbab97073321505/MatrixMortality/Undecidability/PairedProblems.lean"><code>nearyMortality44_mortal_iff_tagHaltsFrom</code></a>. The computable reduction from mathlib’s code-halting predicate, through a fixed universal machine, a two-tag system, a cyclic tag system, and Neary’s compiler, is also machine-checked: Lean proves the four-matrix constructor primitive recursive, <code>codeHalts_reduces_mortality44</code>, and <code>mortality44_not_computable</code>, and assumes no external universality theorem. The priority claim is outside Lean.</p>
           </section>
+
           <section class="fragment-section">
           <h3 id="priority">Priority<a class="fragment-link" href="#priority" aria-label="Link to this section">#</a></h3>
-          <p>To our knowledge, after searches through 22 July 2026, no prior proof establishes M<sub>4</sub>(4), nor scalar zero reachability for three 4 × 4 integer matrices sharing first column <var>e</var><sub>1</sub>. The closest CHHN bounds are M<sub>5</sub>(4) and structured Z<sub>5</sub>(3) <a href="#ref-chhn-2014">[Cassaigne et al. 2014]</a>. The anti-diagonal quotient is standard linear algebra, and the rank-one scalar-to-mortality separator is prior art; no source was found for the paired-role suffix decoder, the resulting four-dimensional scalar theorem, or the common-column mortality converse. “No prior art found” is limited to publicly discoverable work.</p>
+          <p>Searches of public literature through 22 July 2026 found no prior proof of M<sub>4</sub>(4) or of Z̊<sub>4</sub>(3). The closest earlier bounds are M<sub>5</sub>(4) and the structured Z<sub>5</sub>(3) <a href="#ref-chhn-2014">[Cassaigne et al. 2014]</a>. The anti-diagonal quotient is standard linear algebra and the rank-one separator is prior art; no source was found for the paired-role decoder, the four-dimensional scalar theorem, or the common-column converse.</p>
 
           <ul class="artifact-list" aria-label="Proof artifacts">
             <li><a href="https://github.com/forever-and-ever/math/tree/m44"><b>Complete source branch</b>Lean development, verification gate, finite falsifier, references, and version history</a></li>
             <li><a href="https://github.com/forever-and-ever/math/blob/m44/audits/m44-prior-art-2026-07-22.md"><b>Prior-art investigation</b>Convention audit, claim ledger, search coverage, version histories, and qualified priority language</a></li>
             <li><a href="https://github.com/forever-and-ever/math/blob/m44/audits/m44-adversarial-audit-2026-07-22.md"><b>Adversarial audit</b>Claim-by-claim review, repairs applied, formal scope, and remaining external seam</a></li>
           </ul>
-
           </section>
+
           <section class="fragment-section">
           <h3 id="sources">References<a class="fragment-link" href="#sources" aria-label="Link to this section">#</a></h3>
           <ol class="references">
-            <li id="ref-part-one"><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/m3_5/#four-tiles"><cite>Fixed-Boundary Correspondence</cite></a>, 2026. The synchronized four-role fixed-boundary theorem.</span></li>
-            <li id="ref-neary-2015"><span>Turlough Neary, <a href="https://doi.org/10.4230/LIPIcs.STACS.2015.649"><cite>Undecidability in Binary Tag Systems and the Post Correspondence Problem for Five Pairs of Words</cite></a>, STACS 2015. The restricted binary-tag undecidability source.</span></li>
-            <li id="ref-chhn-2014"><span>Julien Cassaigne, Vesa Halava, Tero Harju, and François Nicolas, <a href="https://arxiv.org/abs/1404.0644"><cite>Tighter Undecidability Bounds for Matrix Mortality, Zero-in-the-Corner Problems, and More</cite></a>, 2014. Definitions, prior bounds, and the scalar-to-corner reductions.</span></li>
+            <li id="ref-m35"><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/m3_5/"><cite>M₃(5): Mortality of Five 3 × 3 Integer Matrices</cite></a>, 2026. Fixed-boundary correspondence and the rank-one separator.</span></li>
+            <li id="ref-paired"><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/paired_scalar_series/"><cite>The Paired Scalar Series</cite></a>, 2026. The three controls and their decoder.</span></li>
+            <li id="ref-neary-2015"><span>Turlough Neary, <a href="https://doi.org/10.4230/LIPIcs.STACS.2015.649"><cite>Undecidability in Binary Tag Systems and the Post Correspondence Problem for Five Pairs of Words</cite></a>, STACS 2015. The binary tag systems.</span></li>
+            <li id="ref-chhn-2014"><span>Julien Cassaigne, Vesa Halava, Tero Harju, and François Nicolas, <a href="https://arxiv.org/abs/1404.0644"><cite>Tighter Undecidability Bounds for Matrix Mortality, Zero-in-the-Corner Problems, and More</cite></a>, 2014. Definitions, prior bounds, and the scalar-to-corner reduction.</span></li>
           </ol>
           </section>
         </details>

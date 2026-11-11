@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="GPT-5.6 Sol; elicited by @eternalism_4eva">
-  <meta property="og:title" content="Binary Compilers">
+  <meta property="og:title" content="Z₆(2) and M₁₀(2): Binary Compilers">
   <meta property="og:type" content="article">
-  <title>Binary Compilers | Matrix Mortality</title>
+  <title>Z₆(2) and M₁₀(2): Binary Compilers | Matrix Mortality</title>
 </head>
 <body>
   <a class="skip-link" href="#article">Skip to the exposition</a>
 
   <header class="masthead">
     <div class="masthead-inner">
-      <h1>Binary Compilers</h1>
+      <h1>Z₆(2) and M₁₀(2): Binary Compilers</h1>
       <p class="byline">GPT-5.6 Sol · elicited by <a href="https://x.com/eternalism_4eva">@eternalism_4eva</a></p>
     </div>
   </header>
@@ -77,7 +77,7 @@
     <main id="article">
       <article>
         <nav class="module-context" aria-label="Module relations">
-          <p><b>Requires</b> the <a href="/math/matrix_mortality/m3_5/#four-tiles">four-role source theorem</a> and its <a href="/math/matrix_mortality/m4_4/#agreement-plane">shared upper-word plane</a>.</p>
+          <p><b>Requires</b> the <a href="/math/matrix_mortality/m3_5/#four-tiles">four-role source theorem</a> and its <a href="/math/matrix_mortality/paired_scalar_series/#agreement-plane">agreement plane</a>.</p>
           <p><b>Establishes</b> the <a href="#scalar-six">six-dimensional scalar compiler</a>, a <a href="#prefix-code">binary prefix decoder</a>, and its <a href="#common-image">common-image restriction</a>.</p>
         </nav>
 
@@ -86,8 +86,7 @@
 
           <section class="fragment-section">
           <h3 id="source-interface">Four-role fixed-boundary family<a class="fragment-link" href="#source-interface" aria-label="Link to this section">#</a></h3>
-          <p>There are two tasks here. <a class="glossary-term" href="/math/matrix_mortality/glossary/#scalar-zero-reachability" title="Ask whether one specified row–product–column coefficient vanishes.">Scalar zero reachability</a> tests one coefficient; <a class="glossary-term" href="/math/matrix_mortality/glossary/#matrix-mortality" title="Ask whether the whole matrix product is zero.">mortality</a> tests the entire product. Each construction replaces a larger alphabet by two generators, paying for the unfinished codeword with additional coordinates.</p>
-          <p>The shared input is the <a href="/math/matrix_mortality/m3_5/#four-tiles">four-role fixed-boundary family</a>: rule and deletion word pairs <var>R</var><sub><var>x</var></sub>, <var>D</var><sub><var>x</var></sub> for each letter in {b, c}. Write <var>X</var><sub><var>w</var></sub> for the ordered product of their word-pair matrices. A fixed boundary column <var>c</var> makes the terminal word equation equivalent to</p>
+                    <p>The shared input is the <a href="/math/matrix_mortality/m3_5/#four-tiles">four-role fixed-boundary family</a>: the tiles R<sub><var>x</var></sub>, D<sub><var>x</var></sub> for each letter <var>x</var> ∈ {<span class="word">b</span>, <span class="word">c</span>}. Write <var>X</var><sub><var>w</var></sub> for the product of their word-pair matrices along a role word <var>w</var>. With the boundary column <var>c</var> below, the fixed-boundary equation is equivalent to</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
@@ -97,13 +96,13 @@
               </mrow>
             </math>
           </div>
-          <p>The fixed-boundary problem is undecidable. The four matrices are nonsingular; adjoining the rank-one separator gives the five-matrix family used for M<sub>3</sub>(5).</p>
-          <p>In the separated coordinates below, <math><mrow><mi>c</mi><mo>=</mo><msup><mrow><mo>(</mo><mi>μ</mi><mo>,</mo><mo>−</mo><mn>1</mn><mo>,</mo><mi>t</mi><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup><mo>,</mo><mi>μ</mi><mo>=</mo><mi>σ</mi><mo>(</mo><mi>M</mi><mo>)</mo><mo>,</mo><mi>t</mi><mo>=</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>M</mi><mo>|</mo></mrow></msup></mrow></math>. Here <var>M</var> is the fixed terminal marker and σ its <a class="glossary-term" href="/math/matrix_mortality/glossary/#ternary-value" title="The base-three value after recoding binary 0,1 as digits 1,2.">ternary word value</a>. The first coordinate column is <var>e</var><sub>1</sub>.</p>
+          <p>Deciding whether such a role word exists is undecidable. The four tile matrices are nonsingular; adjoining the rank-one separator gives the five matrices of M<sub>3</sub>(5).</p>
+          <p>In the separated coordinates below, the boundary column is <math><mrow><mi>c</mi><mo>=</mo><msup><mrow><mo>(</mo><mi>μ</mi><mo>,</mo><mo>−</mo><mn>1</mn><mo>,</mo><mi>t</mi><mo>)</mo></mrow><mi mathvariant="normal">T</mi></msup><mo>,</mo><mi>μ</mi><mo>=</mo><mi>σ</mi><mo>(</mo><mi>M</mi><mo>)</mo><mo>,</mo><mi>t</mi><mo>=</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>M</mi><mo>|</mo></mrow></msup></mrow></math>, where <var>M</var> is the boundary word and σ the <a class="glossary-term" href="/math/matrix_mortality/glossary/#ternary-value" title="The base-three value after recoding binary 0,1 as digits 1,2.">ternary value</a>.</p>
 
           </section>
           <section class="fragment-section">
           <h3 id="shared-channel">Shared channel<a class="fragment-link" href="#shared-channel" aria-label="Link to this section">#</a></h3>
-          <p>The <a href="/math/matrix_mortality/m4_4/#side-normal-form">side-normal basis</a> writes every word-pair matrix as</p>
+          <p>The <a href="/math/matrix_mortality/paired_scalar_series/#side-normal-form">separated coordinates</a> write every word-pair matrix as</p>
           <div class="formula">
             <math display="block">
               <mrow>
@@ -118,7 +117,7 @@
               </mrow>
             </math>
           </div>
-          <p>For each fixed data letter <var>x</var>, the rule and deletion roles have the same upper word <var>u</var><sub><var>x</var></sub>. They therefore agree on the upper plane</p>
+          <p>For each letter <var>x</var>, the tiles R<sub><var>x</var></sub> and D<sub><var>x</var></sub> have the same upper word <var>u</var><sub><var>x</var></sub>, so their matrices agree on the plane where the lower-word coordinate is zero:</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
@@ -130,12 +129,12 @@
               </mrow>
             </math>
           </div>
-          <p><a href="/math/matrix_mortality/m4_4/#agreement-plane">Paired-role compression</a> shares this plane between rule and deletion phases. Here we share it between states remembering an incomplete binary codeword. Agreement is what makes fewer coordinates sufficient.</p>
+          <p>The <a href="/math/matrix_mortality/paired_scalar_series/#agreement-plane">paired scalar series</a> shares this plane between the rule and deletion phases. The compilers below share it between the states of a binary decoder.</p>
 
           </section>
           <section class="fragment-section">
           <h3 id="previous-binary-bounds">Previous binary bounds<a class="fragment-link" href="#previous-binary-bounds" aria-label="Link to this section">#</a></h3>
-          <p>Cassaigne, Halava, Harju, and Nicolas established Z<sub>9</sub>(2), R<sub>10</sub>(2), and M<sub>15</sub>(2), together with general alphabet-packing and scalar-to-corner reductions <a href="#ref-chhn-2014">[Cassaigne et al. 2014]</a>. The fixed-boundary result and their mortality packing give M<sub>12</sub>(2). Binary codes and incomplete-codeword decoders are prior techniques; the constructions below use the paired-role identity to remove states from the corresponding generic realizations.</p>
+          <p>Cassaigne, Halava, Harju, and Nicolas established Z<sub>9</sub>(2), R<sub>10</sub>(2), and M<sub>15</sub>(2), together with general alphabet-packing and scalar-to-corner reductions <a href="#ref-chhn-2014">[Cassaigne et al. 2014]</a>. The fixed-boundary result and their mortality packing give M<sub>12</sub>(2). Binary codes and decoders that remember an unfinished codeword are prior techniques; the constructions below use the agreement plane to remove coordinates from the corresponding generic decoders.</p>
           </section>
         </details>
 
@@ -144,7 +143,14 @@
 
           <section class="fragment-section">
           <h3 id="result">Results<a class="fragment-link" href="#result" aria-label="Link to this section">#</a></h3>
-          <p>The role alphabet factors as a phase bit R/D and a letter bit <span class="word">b</span>/<span class="word">c</span>. The scalar compiler stores one shared unfinished upper channel and preserves every coefficient in dimension six. The mortality compiler represents all five payload matrices by a <a class="glossary-term" href="/math/matrix_mortality/glossary/#prefix-code" title="A code in which no codeword is a proper prefix of another.">complete prefix decoder</a>, then applies <a class="glossary-term" href="/math/matrix_mortality/glossary/#common-image-restriction" title="Restriction to the invariant image shared by every generator.">common-image restriction</a> from dimension twelve to ten.</p>
+          <p><a href="/math/matrix_mortality/m3_5/#generator-packing">Generator packing</a> reaches two generators by spelling each original matrix in a binary prefix code and keeping one copy of the space for every unfinished prefix, so each unfinished prefix costs a full copy. Both compilers here pay less, using the agreement plane.</p>
+          <p>The scalar compiler spells the four roles as two-bit words, phase bit first. A generic decoder keeps three copies of the three-dimensional space, for the unfinished prefixes ε, <span class="word">0</span>, <span class="word">1</span>, and needs nine coordinates. After the phase bit, the rule and deletion states differ only in their lower-word coordinate, and every state shares the difference coordinate, so six coordinates suffice.</p>
+          <p>The mortality compiler spells the five matrices of M<sub>3</sub>(5) in a complete prefix code with four unfinished prefixes, which gives twelve dimensions. The agreement plane forces both generators to map into a common ten-dimensional subspace. Restricting to that subspace can create new zero products, but one extra letter at the end of a word maps any such product back to a zero of the twelve-dimensional pair.</p>
+
+          <div class="theorem">
+            <p><b>Theorem (Z<sub>6</sub>(2)).</b> A primitive-recursive map sends every program to two 6 × 6 integer matrices with common first column <var>e</var><sub>1</sub>, an integer row, and an integer column such that some product of the matrices has zero coefficient exactly when the program halts. The statement holds whether or not the empty product is admitted. Hence Z̊<sub>6</sub>(2), Z<sub>6</sub>(2), and R<sub>7</sub>(2) are undecidable.</p>
+            <p><b>Theorem (M<sub>10</sub>(2)).</b> A primitive-recursive map sends every program to two 10 × 10 integer matrices that are mortal exactly when the program halts. Hence M<sub><var>d</var></sub>(2) is undecidable for every <var>d</var> ≥ 10.</p>
+          </div>
 
           </section>
           <section class="fragment-section">
@@ -152,7 +158,7 @@
 
           <section class="fragment-section">
           <h4 id="two-bit-code">Two-bit code<a class="fragment-link" href="#two-bit-code" aria-label="Link to this section">#</a></h4>
-          <p>For each letter <var>x</var>, let <var>u</var><sub><var>x</var></sub> be the common upper word and <var>v</var><sub><var>x</var></sub><sup><var>p</var></sup> the lower word in phase <var>p</var>, either rule or deletion. Here <var>p</var> is a phase label, not a prime.</p>
+          <p>For each letter <var>x</var>, let <var>u</var><sub><var>x</var></sub> be the common upper word, and <var>v</var><sub><var>x</var></sub><sup>R</sup>, <var>v</var><sub><var>x</var></sub><sup>D</sup> the lower words of R<sub><var>x</var></sub> and D<sub><var>x</var></sub>.</p>
           <p>Every binary pair denotes one role:</p>
           <div class="formula plain">
             <math display="block">
@@ -164,7 +170,7 @@
               </mtable>
             </math>
           </div>
-          <p>Write U<sub><var>x</var></sub> = σ(<var>u</var><sub><var>x</var></sub>), A<sub><var>x</var></sub> = 3<sup>|<var>u</var><sub><var>x</var></sub>|</sup>, V<sub><var>x</var></sub><sup><var>p</var></sup> = σ(<var>v</var><sub><var>x</var></sub><sup><var>p</var></sup>), and B<sub><var>x</var></sub><sup><var>p</var></sup> = 3<sup>|<var>v</var><sub><var>x</var></sub><sup><var>p</var></sup>|</sup>.</p>
+          <p>The numbers U<sub><var>x</var></sub>, A<sub><var>x</var></sub>, V<sub><var>x</var></sub><sup>R</sup>, B<sub><var>x</var></sub><sup>R</sup>, V<sub><var>x</var></sub><sup>D</sup>, B<sub><var>x</var></sub><sup>D</sup> are the ternary values and length powers of these words, as in the <a href="/math/matrix_mortality/paired_scalar_series/#explicit-system">paired matrices</a>.</p>
 
           </section>
           <section class="fragment-section">
@@ -213,9 +219,9 @@
           <div class="formula plain">
             <math display="block">
               <mtable columnalign="right center left">
-                <mtr><mtd><mi>E</mi><mo>(</mo><mi>q</mi><mo>)</mo></mtd><mtd><mo>=</mo></mtd><mtd><mo>(</mo><mi>a</mi><mo>,</mo><mi>λ</mi><mo>,</mo><mi>υ</mi><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>)</mo><mo>,</mo></mtd></mtr>
-                <mtr><mtd><msub><mi>O</mi><mi>R</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo></mtd><mtd><mo>=</mo></mtd><mtd><mo>(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mi>λ</mi><mo>,</mo><mi>υ</mi><mo>,</mo><mn>0</mn><mo>)</mo><mo>,</mo></mtd></mtr>
-                <mtr><mtd><msub><mi>O</mi><mi>D</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo></mtd><mtd><mo>=</mo></mtd><mtd><mo>(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mi>υ</mi><mo>,</mo><mi>λ</mi><mo>)</mo><mo>.</mo></mtd></mtr>
+                <mtr><mtd><mi>ι</mi><mo>(</mo><mi>q</mi><mo>)</mo></mtd><mtd><mo>=</mo></mtd><mtd><mo>(</mo><mi>a</mi><mo>,</mo><mi>λ</mi><mo>,</mo><mi>υ</mi><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>)</mo><mo>,</mo></mtd></mtr>
+                <mtr><mtd><msub><mi>ι</mi><mi>R</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo></mtd><mtd><mo>=</mo></mtd><mtd><mo>(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mi>λ</mi><mo>,</mo><mi>υ</mi><mo>,</mo><mn>0</mn><mo>)</mo><mo>,</mo></mtd></mtr>
+                <mtr><mtd><msub><mi>ι</mi><mi>D</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo></mtd><mtd><mo>=</mo></mtd><mtd><mo>(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mi>υ</mi><mo>,</mo><mi>λ</mi><mo>)</mo><mo>.</mo></mtd></mtr>
               </mtable>
             </math>
           </div>
@@ -223,8 +229,8 @@
           <div class="formula plain">
             <math display="block">
               <mtable columnalign="left left">
-                <mtr><mtd><mi>E</mi><mo>(</mo><mi>q</mi><mo>)</mo><msub><mi>N</mi><mn>0</mn></msub><mo>=</mo><msub><mi>O</mi><mi>R</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo><mo>,</mo></mtd><mtd><mi>E</mi><mo>(</mo><mi>q</mi><mo>)</mo><msub><mi>N</mi><mn>1</mn></msub><mo>=</mo><msub><mi>O</mi><mi>D</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo><mo>;</mo></mtd></mtr>
-                <mtr><mtd><msub><mi>O</mi><mi>R</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo><msub><mi>N</mi><mi>x</mi></msub><mo>=</mo><mi>E</mi><mo>(</mo><mi>q</mi><msubsup><mi>X</mi><mrow><mi>R</mi><mo>,</mo><mi>x</mi></mrow><mi mathvariant="normal">T</mi></msubsup><mo>)</mo><mo>,</mo></mtd><mtd><msub><mi>O</mi><mi>D</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo><msub><mi>N</mi><mi>x</mi></msub><mo>=</mo><mi>E</mi><mo>(</mo><mi>q</mi><msubsup><mi>X</mi><mrow><mi>D</mi><mo>,</mo><mi>x</mi></mrow><mi mathvariant="normal">T</mi></msubsup><mo>)</mo><mo>.</mo></mtd></mtr>
+                <mtr><mtd><mi>ι</mi><mo>(</mo><mi>q</mi><mo>)</mo><msub><mi>N</mi><mn>0</mn></msub><mo>=</mo><msub><mi>ι</mi><mi>R</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo><mo>,</mo></mtd><mtd><mi>ι</mi><mo>(</mo><mi>q</mi><mo>)</mo><msub><mi>N</mi><mn>1</mn></msub><mo>=</mo><msub><mi>ι</mi><mi>D</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo><mo>;</mo></mtd></mtr>
+                <mtr><mtd><msub><mi>ι</mi><mi>R</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo><msub><mi>N</mi><mi>x</mi></msub><mo>=</mo><mi>ι</mi><mo>(</mo><mi>q</mi><msubsup><mi>X</mi><mrow><mi>R</mi><mo>,</mo><mi>x</mi></mrow><mi mathvariant="normal">T</mi></msubsup><mo>)</mo><mo>,</mo></mtd><mtd><msub><mi>ι</mi><mi>D</mi></msub><mo>(</mo><mi>q</mi><mo>)</mo><msub><mi>N</mi><mi>x</mi></msub><mo>=</mo><mi>ι</mi><mo>(</mo><mi>q</mi><msubsup><mi>X</mi><mrow><mi>D</mi><mo>,</mo><mi>x</mi></mrow><mi mathvariant="normal">T</mi></msubsup><mo>)</mo><mo>.</mo></mtd></mtr>
               </mtable>
             </math>
           </div>
@@ -369,8 +375,8 @@
               <mrow>
                 <mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub>
                 <mo>|</mo><msub><mi>y</mi><mn>1</mn></msub><mo>,</mo><msub><mi>y</mi><mn>2</mn></msub><mo>,</mo><msub><mi>y</mi><mn>3</mn></msub>
-                <mo>|</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi>
-                <mo>|</mo><mi>a</mi><mo>,</mo><mi>d</mi><mo>,</mo><mi>c</mi><mo>)</mo><mo>.</mo>
+                <mo>|</mo><msub><mi>z</mi><mn>1</mn></msub><mo>,</mo><msub><mi>z</mi><mn>2</mn></msub><mo>,</mo><msub><mi>z</mi><mn>3</mn></msub>
+                <mo>|</mo><msub><mi>z</mi><mn>1</mn></msub><mo>,</mo><msub><mi>z</mi><mn>4</mn></msub><mo>,</mo><msub><mi>z</mi><mn>3</mn></msub><mo>)</mo><mo>.</mo>
               </mrow>
             </math>
           </div>
@@ -378,7 +384,7 @@
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <msub><mi>B</mi><mi>i</mi></msub>
+                <msub><mi>ℬ</mi><mi>i</mi></msub>
                 <mo>=</mo>
                 <mi>Q</mi><msub><mi>𝒜</mi><mi>i</mi></msub><mi>J</mi>
                 <mspace width="1em"></mspace>
@@ -392,7 +398,7 @@
               <mrow>
                 <msub><mi>𝒜</mi><mi>i</mi></msub><mi>J</mi>
                 <mo>=</mo>
-                <mi>J</mi><msub><mi>B</mi><mi>i</mi></msub><mo>.</mo>
+                <mi>J</mi><msub><mi>ℬ</mi><mi>i</mi></msub><mo>.</mo>
               </mrow>
             </math>
           </div>
@@ -400,7 +406,7 @@
           </section>
           <section class="fragment-section">
           <h4 id="restriction-converse">Mortality converse<a class="fragment-link" href="#restriction-converse" aria-label="Link to this section">#</a></h4>
-          <p>If a twelve-dimensional product 𝒜<sub><var>z</var></sub> is zero, then B<sub><var>z</var></sub> = Q𝒜<sub><var>z</var></sub>J = 0. Conversely, if B<sub><var>z</var></sub> = 0, then 𝒜<sub><var>z</var></sub> kills <var>K</var>. Because the image of 𝒜<sub>0</sub> lies in <var>K</var>,</p>
+          <p>If a twelve-dimensional product 𝒜<sub><var>z</var></sub> is zero, then ℬ<sub><var>z</var></sub> = <var>Q</var>𝒜<sub><var>z</var></sub><var>J</var> = 0. Conversely, if ℬ<sub><var>z</var></sub> = 0, then 𝒜<sub><var>z</var></sub> kills <var>K</var>. Because the image of 𝒜<sub>0</sub> lies in <var>K</var>,</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
@@ -421,13 +427,13 @@
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <msub><mi>B</mi><mi>i</mi></msub>
+                <msub><mi>ℬ</mi><mi>i</mi></msub>
                 <mo>↦</mo>
-                <msub><mi>B</mi><mi>i</mi></msub><mo>⊕</mo><msub><mn>0</mn><mi>n</mi></msub>
+                <msub><mi>ℬ</mi><mi>i</mi></msub><mo>⊕</mo><msub><mn>0</mn><mi>n</mi></msub>
               </mrow>
             </math>
           </div>
-          <p>preserves zero products, proving M<sub>10+<var>n</var></sub>(2). The <a href="/math/matrix_mortality/#frontier">series landing page</a> records the resulting current frontiers.</p>
+          <p>preserves zero products, proving M<sub>10+<var>n</var></sub>(2). The <a href="/math/matrix_mortality/#frontier">decidability table</a> records the current frontier.</p>
           </section>
         </details>
 

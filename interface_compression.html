@@ -20,9 +20,8 @@
 
   <div class="shell">
     <section class="abstract" aria-label="Abstract">
-      <strong>Verdict</strong>
-      <p>Partition an ordinary finite matrix family into transition generators and cut generators <var>C</var><sub><var>j</var></sub> = <var>U</var><sub><var>j</var></sub><var>O</var><sub><var>j</var></sub>. The family is mortal exactly when the transition subfamily is already mortal or one nonempty path of compressed interface bridges has zero product.</p>
-      <p>The theorem requires no field, splitting, rank calculation, or invertibility assumption. Rank-one separators, singular-return compression, split-return normal forms, and multi-cut edge systems are instances of the same reduction.</p>
+      <p>Split a finite matrix family into transition generators and cut generators, each cut factored as <var>C</var><sub><var>j</var></sub> = <var>U</var><sub><var>j</var></sub><var>O</var><sub><var>j</var></sub> through a smaller interface space. The family is mortal exactly when the transitions alone are mortal or some path of interface bridges <var>O</var><sub><var>i</var></sub><var>A</var><sub><var>w</var></sub><var>U</var><sub><var>j</var></sub> has zero product. Mortality of a large family thereby reduces to mortality of small matrices.</p>
+      <p>The theorem holds over every commutative semiring and assumes no rank, invertibility, or minimality. Rank-one separators, the returns of a single transition and a single cut, and systems with several cuts are instances. For one transition <var>A</var> and one cut <var>UO</var> with no vanishing power of <var>A</var>, mortality of the pair equals mortality of the returns <var>O</var><var>A</var><sup><var>n</var></sup><var>U</var>, and a return family with finitely many shapes up to scaling reduces to a finite family.</p>
     </section>
 
     <nav class="contents" aria-label="Contents">
@@ -39,7 +38,9 @@
             <li><a href="#result">General theorem</a></li>
             <li><a href="#proof">Proof</a></li>
             <li><a href="#rank-one">Rank-one interfaces</a></li>
-            <li><a href="#single-cut">Single-cut return families</a></li>
+            <li><a href="#single-cut">Single-cut return families</a>
+              <ol><li><a href="#finite-shapes">Finitely many return shapes</a></li></ol>
+            </li>
             <li><a href="#many-cuts">Many cuts</a></li>
           </ol>
         </li>
@@ -57,7 +58,7 @@
       <article>
         <nav class="module-context" aria-label="Module relations">
           <p><b>Requires</b> <a href="/math/matrix_mortality/#definition">matrix mortality</a>.</p>
-          <p><b>Specializes to</b> <a href="/math/matrix_mortality/m3_5/#five-matrices">rank-one separators</a>, <a href="#single-cut">singular-return compression</a>, and multi-cut bridge systems.</p>
+          <p><b>Used by</b> <a href="/math/matrix_mortality/m8_2/#physical-products">M₉(2) and M₈(2)</a>, the <a href="/math/matrix_mortality/m3_2_return_guard/#return-compression">valuation guard</a>, and the <a href="/math/matrix_mortality/shortcut_collatz_incidence/#mortality-compiler">rank-two incidence compiler</a>. <b>Specializes to</b> <a href="/math/matrix_mortality/m3_5/#separator-construction">rank-one separators</a>.</p>
         </nav>
 
         <details class="major-section">
@@ -77,12 +78,12 @@
             </math>
           </div>
           <p>No matrix is added and no word grammar is imposed: mortality still quantifies over every nonempty word in the original family. “Transition” and “cut” name roles in the analysis.</p>
-          <p>In a reduction, transitions carry the ambient computation. A cut is made to factor through a smaller state space, so every word containing it must pass through a controlled interface. The theorem separates transition-only words from cut-containing words and compresses the latter. The <a href="/math/matrix_mortality/m3_5/#five-matrices">rank-one separator in M₃(5)</a> and the generator <var>UO</var> in <a href="/math/matrix_mortality/m9_2/#singular-return">M₉(2)</a> are cuts in this sense.</p>
+          <p>In a reduction, transitions carry the computation. A cut is made to factor through a smaller space, so every word containing it must pass through a controlled interface. The theorem separates transition-only words from cut-containing words and compresses the latter. The <a href="/math/matrix_mortality/m3_5/#separator-construction">rank-one separator of M₃(5)</a> and the second generator <var>UO</var> of <a href="/math/matrix_mortality/m8_2/#physical-products">M₉(2) and M₈(2)</a> are cuts in this sense.</p>
           </section>
 
           <section class="fragment-section">
           <h3 id="factored-cuts">Factored cuts<a class="fragment-link" href="#factored-cuts" aria-label="Link to this section">#</a></h3>
-          <p>For a first reading, use finite-dimensional rational vector spaces. A rank-one matrix factors through one coordinate; a rank-two matrix factors through two. This is the saving: between cuts, track only those coordinates instead of the whole ambient vector.</p>
+          <p>For a first reading, take finite-dimensional rational vector spaces. A rank-one matrix factors through a line and a rank-two matrix through a plane. Between two cuts, a product then needs to track only a vector of the interface, not a vector of the whole space.</p>
           <p>Let <var>L</var> be the physical state space and <var>S</var> an <a class="glossary-term" href="/math/matrix_mortality/glossary/#interface-space" title="A smaller vector space through which a cut factors.">interface space</a>. A <a class="glossary-term" href="/math/matrix_mortality/glossary/#factored-cut" title="An actual cut generator presented as a product through a common interface space.">factored cut</a> has the form</p>
           <div class="formula plain">
             <math display="block">
@@ -98,7 +99,7 @@
               </mrow>
             </math>
           </div>
-          <p>The map <var>O</var><sub><var>j</var></sub> sends the ambient state to the interface; <var>U</var><sub><var>j</var></sub> returns it to <var>L</var>. Thus an occurrence of <var>C</var><sub><var>j</var></sub> forces the product through <var>S</var> at that position. Every matrix has a trivial factorization through <var>L</var>; the construction becomes a compression when <var>S</var> is smaller. No minimal factorization is required.</p>
+          <p>The map <var>O</var><sub><var>j</var></sub> sends the physical state to the interface; <var>U</var><sub><var>j</var></sub> returns it to <var>L</var>. Thus an occurrence of <var>C</var><sub><var>j</var></sub> forces the product through <var>S</var> at that position. Every matrix has a trivial factorization through <var>L</var>; the construction becomes a compression when <var>S</var> is smaller. No minimal factorization is required.</p>
 
           </section>
           <section class="fragment-section">
@@ -228,7 +229,15 @@
               </mrow>
             </math>
           </div>
-          <p>If there is one transition <var>A</var>, these are the moments <var>M</var><sub><var>n</var></sub> = <var>OA</var><sup><var>n</var></sup><var>U</var>. Hence</p>
+          <p>If there is one transition <var>A</var>, these are the <a class="glossary-term" href="/math/matrix_mortality/glossary/#return-matrix-family" title="The matrices O A^n U exposed between consecutive cuts.">returns</a></p>
+          <div class="formula plain">
+            <math display="block">
+              <mrow>
+                <msub><mi>Γ</mi><mi>n</mi></msub><mo>=</mo><mi>O</mi><msup><mi>A</mi><mi>n</mi></msup><mi>U</mi><mo>,</mo><mspace width="1em"></mspace><mi>n</mi><mo>≥</mo><mn>0</mn><mo>,</mo>
+              </mrow>
+            </math>
+          </div>
+          <p>where <var>n</var> is the number of transitions between two cuts. The theorem becomes</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
@@ -236,11 +245,33 @@
                 <mo>⇔</mo>
                 <mo>(</mo><mo>∃</mo><mi>n</mi><mo>≥</mo><mn>1</mn><mo>:</mo><msup><mi>A</mi><mi>n</mi></msup><mo>=</mo><mn>0</mn><mo>)</mo>
                 <mo>∨</mo>
-                <mtext>Mortal</mtext><mo>{</mo><msub><mi>M</mi><mi>n</mi></msub><mo>:</mo><mi>n</mi><mo>≥</mo><mn>0</mn><mo>}</mo><mo>.</mo>
+                <mtext>Mortal</mtext><mo>{</mo><msub><mi>Γ</mi><mi>n</mi></msub><mo>:</mo><mi>n</mi><mo>≥</mo><mn>0</mn><mo>}</mo><mo>.</mo>
               </mrow>
             </math>
           </div>
-          <p>The M₉(2) and <a href="/math/matrix_mortality/m8_2/#physical-products">M₈(2)</a> constructions exclude the pure-transition branch with a nonzero eigenline, leaving the exact <a href="/math/matrix_mortality/m9_2/#singular-return">singular-return equivalence</a>.</p>
+          <p>When no power of <var>A</var> vanishes, for instance when <var>A</var> is invertible or has a nonzero eigenvalue, the first branch is empty and two physical matrices present the infinite family {Γ<sub><var>n</var></sub>}. This is <a class="glossary-term" href="/math/matrix_mortality/glossary/#singular-return-compression" title="Mortality of {A, UO} equals mortality of its returns when no power of A vanishes.">singular-return compression</a>: neither the cut nor the maps <var>U</var>, <var>O</var> need be invertible or of full rank. Both directions are explicit:</p>
+          <div class="formula plain">
+            <math display="block">
+              <mtable columnalign="left">
+                <mtr><mtd>
+                  <msup><mi>A</mi><msub><mi>p</mi><mn>0</mn></msub></msup><mi>C</mi><msup><mi>A</mi><msub><mi>p</mi><mn>1</mn></msub></msup><mi>C</mi><mo>⋯</mo><mi>C</mi><msup><mi>A</mi><msub><mi>p</mi><mi>r</mi></msub></msup><mo>=</mo><mn>0</mn>
+                  <mspace width="0.5em"></mspace><mo>⇒</mo><mspace width="0.5em"></mspace>
+                  <msub><mi>Γ</mi><msub><mi>p</mi><mn>0</mn></msub></msub><msub><mi>Γ</mi><msub><mi>p</mi><mn>1</mn></msub></msub><mo>⋯</mo><msub><mi>Γ</mi><msub><mi>p</mi><mi>r</mi></msub></msub><mo>=</mo><mn>0</mn><mo>,</mo>
+                </mtd></mtr>
+                <mtr><mtd>
+                  <mi>C</mi><msup><mi>A</mi><msub><mi>p</mi><mn>0</mn></msub></msup><mi>C</mi><mo>⋯</mo><msup><mi>A</mi><msub><mi>p</mi><mi>r</mi></msub></msup><mi>C</mi>
+                  <mo>=</mo>
+                  <mi>U</mi><mo>(</mo><msub><mi>Γ</mi><msub><mi>p</mi><mn>0</mn></msub></msub><mo>⋯</mo><msub><mi>Γ</mi><msub><mi>p</mi><mi>r</mi></msub></msub><mo>)</mo><mi>O</mi><mo>.</mo>
+                </mtd></mtr>
+              </mtable>
+            </math>
+          </div>
+          <p>The first line multiplies a zero physical word by <var>O</var> on the left and <var>U</var> on the right, so the transitions before the first cut and after the last cut become the first and last returns. The second wraps a return product in cuts.</p>
+
+          <section class="fragment-section">
+          <h4 id="finite-shapes">Finitely many return shapes<a class="fragment-link" href="#finite-shapes" aria-label="Link to this section">#</a></h4>
+          <p>Suppose that over a field every return is a nonzero multiple of one of finitely many matrices <var>F</var><sub>1</sub>, …, <var>F</var><sub><var>m</var></sub>, say Γ<sub><var>n</var></sub> = <var>ρ</var><sub><var>n</var></sub><var>F</var><sub><var>ℓ</var>(<var>n</var>)</sub> with <var>ρ</var><sub><var>n</var></sub> ≠ 0, and that every <var>F</var><sub><var>i</var></sub> occurs. Then {Γ<sub><var>n</var></sub>} and {<var>F</var><sub>1</sub>, …, <var>F</var><sub><var>m</var></sub>} are mortal together: a product of returns is a nonzero scalar times the corresponding product of the <var>F</var><sub><var>i</var></sub>, and every word in the <var>F</var><sub><var>i</var></sub> lifts to a word in returns by choosing, for each <var>i</var>, one <var>n</var> with <var>ℓ</var>(<var>n</var>) = <var>i</var>. A design that prescribes the returns at finitely many times and makes every later return a multiple of one fixed matrix therefore presents a finite family with two physical matrices.</p>
+          </section>
 
           </section>
           <section class="fragment-section">
@@ -264,22 +295,26 @@
               <p><code>InterfaceCompression.isMortal_rankOne_iff</code> retains the transition-only alternative and reduces the cut-containing branch to one scalar bridge incidence.</p>
             </div>
             <div>
+              <b><a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/SingularReturnFamily.lean">Singular-return compression</a></b>
+              <p><code>pairGenerator_isMortal_iff_returnFamily</code> proves that {<var>A</var>, <var>UO</var>} and its return family are mortal together when no power of <var>A</var> vanishes.</p>
+            </div>
+            <div>
               <b><a href="https://github.com/forever-and-ever/math/blob/main/verification/axioms.txt">Transitive axioms</a></b>
-              <p>Both declarations use only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>.</p>
+              <p>These declarations use only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>.</p>
             </div>
           </div>
 
           </section>
           <section class="fragment-section">
           <h3 id="formal-scope">Formal scope<a class="fragment-link" href="#formal-scope" aria-label="Link to this section">#</a></h3>
-          <p>The physical spelling, arbitrary-word block decomposition, exterior-block sandwich, bridge-path converse, general theorem, and rank-one scalar specialization are machine-checked. The theorem assumes neither minimal cut rank nor nonvanishing transition powers; those enter only in applications that remove one branch of the disjunction.</p>
+          <p>The physical spelling, arbitrary-word block decomposition, exterior-block sandwich, bridge-path converse, general theorem, and rank-one scalar specialization are machine-checked, as is singular-return compression. The theorem assumes neither minimal cut rank nor nonvanishing transition powers; those enter only in applications that remove one branch of the disjunction. The lemma on finitely many return shapes has no generic Lean declaration; its instances in M₉(2) and M₈(2) are machine-checked.</p>
 
           </section>
           <section class="fragment-section">
           <h3 id="sources">References<a class="fragment-link" href="#sources" aria-label="Link to this section">#</a></h3>
           <ol class="references">
-            <li><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="https://github.com/forever-and-ever/math/blob/main/MatrixMortality/InterfaceCompression.lean"><cite>Interface Compression</cite></a>, 2026. Lean formalization of the general theorem.</span></li>
-            <li><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/m9_2/"><cite>M₉(2): Two 9 × 9 Matrices via Singular Return Compression</cite></a>, 2026. The one-transition, one-cut application.</span></li>
+            <li><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/m8_2/"><cite>M₈(2): Mortality of Two 8 × 8 Integer Matrices</cite></a>, 2026. Two applications with one transition and one cut, in dimensions nine and eight.</span></li>
+            <li><span>GPT-5.6 Sol, elicited by @eternalism_4eva, <a href="/math/matrix_mortality/shortcut_collatz_incidence/"><cite>Shortcut-Collatz Incidence</cite></a>, 2026. An application to two-generator projective incidence.</span></li>
           </ol>
           </section>
         </details>

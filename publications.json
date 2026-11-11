@@ -38,7 +38,7 @@
       "route": "matrix_mortality/interface_compression"
     },
     {
-      "kind": "module",
+      "kind": "result",
       "source": "shortcut_collatz_incidence.html",
       "route": "matrix_mortality/shortcut_collatz_incidence"
     },
@@ -61,18 +61,20 @@
     },
     {
       "kind": "result",
-      "source": "m9_2.html",
-      "route": "matrix_mortality/m9_2"
-    },
-    {
-      "kind": "result",
       "source": "m8_2.html",
       "route": "matrix_mortality/m8_2"
     },
     {
-      "kind": "module",
+      "kind": "result",
       "source": "m3_2_return_guard.html",
       "route": "matrix_mortality/m3_2_return_guard"
+    }
+  ],
+  "redirects": [
+    {
+      "route": "matrix_mortality/m9_2",
+      "target": "matrix_mortality/m8_2",
+      "fragment": "tilted-separator"
     }
   ]
 }

@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="GPT-5.6 Sol; elicited by @eternalism_4eva">
-  <meta name="description" content="A prerequisite-complete glossary of matrix mortality, correspondence problems, linear representations, return systems, arithmetic dynamics, and formal verification.">
+  <meta name="description" content="Definitions and notation for the matrix-mortality series: bounded mortality, correspondence problems, tag systems, linear representations, return systems, arithmetic dynamics, and formal verification.">
   <meta property="og:title" content="Matrix Mortality Glossary">
-  <meta property="og:description" content="Canonical definitions and notation for reading the matrix-mortality corpus, written for a first-year master's student new to the subject.">
+  <meta property="og:description" content="Definitions and notation for reading the matrix-mortality series.">
   <meta property="og:type" content="website">
   <title>Matrix Mortality Glossary | Mathematics</title>
 </head>
@@ -24,6 +24,7 @@
     <nav class="contents" aria-label="Contents">
       <ol>
         <li><a href="#orientation">Orientation</a></li>
+        <li><a href="#notation">Notation</a></li>
         <li><a href="#problems">Problems and decidability</a></li>
         <li><a href="#words-machines">Words and machines</a></li>
         <li><a href="#linear-representations">Linear representations</a></li>
@@ -38,199 +39,163 @@
       <article>
         <section>
           <h2 id="orientation">Orientation<a class="fragment-link" href="#orientation" aria-label="Link to this section">#</a></h2>
-          <p>This glossary supplies the background needed to read the <a href="/math/matrix_mortality/">matrix-mortality collection</a>. It assumes undergraduate linear algebra and discrete mathematics, but no prior knowledge of matrix semigroups, computability, correspondence problems, tag systems, weighted automata, p-adic dynamics, or Lean.</p>
-          <p>Entries are grouped by mathematical dependency. The index below is alphabetical. A term's fragment is its canonical public name in this corpus; a former name is recorded only where it prevents confusion with existing articles or formal declarations.</p>
+          <p>This glossary defines the vocabulary of the <a href="/math/matrix_mortality/">matrix-mortality series</a>. It assumes undergraduate linear algebra and algebra and a first course in computability, including decidability, reductions, and Post’s correspondence problem, and defines what goes beyond them. Entries are grouped by subject; the index is alphabetical.</p>
 
           <nav class="glossary-index" aria-label="Alphabetical term index">
             <ol>
-              <li><a href="#agreement-subspace">Agreement subspace</a></li>
-              <li><a href="#alphabet-word">Alphabet and word</a></li>
+              <li><a href="#agreement-subspace">Agreement plane</a></li>
               <li><a href="#appendant">Appendant</a></li>
               <li><a href="#asymmetric-separator">Asymmetric separator</a></li>
               <li><a href="#binary-compiler">Binary compiler</a></li>
-              <li><a href="#boundary-data">Boundary data and scalar coefficient</a></li>
+              <li><a href="#boundary-data">Boundary row and column</a></li>
               <li><a href="#bounded-mortality">Bounded matrix mortality</a></li>
-              <li><a href="#change-of-basis">Change of basis and conjugation</a></li>
-              <li><a href="#compiler">Compiler</a></li>
               <li><a href="#common-image-restriction">Common-image restriction</a></li>
-              <li><a href="#computational-evidence">Computational evidence</a></li>
-              <li><a href="#cut-matrix">Cut matrix</a></li>
-              <li><a href="#cyclic-tag-system">Cyclic and restricted binary tag systems</a></li>
-              <li><a href="#decidable">Decidable</a></li>
-              <li><a href="#decision-problem">Decision problem</a></li>
-              <li><a href="#decoder-transducer">Decoder and transducer</a></li>
+              <li><a href="#compiler">Compiler</a></li>
+              <li><a href="#cut-matrix">Cut</a></li>
+              <li><a href="#cyclic-tag-system">Cyclic tag system</a></li>
+              <li><a href="#decoder-transducer">Decoder</a></li>
               <li><a href="#deletion-width">Deletion width</a></li>
               <li><a href="#denominator-clearing">Denominator clearing</a></li>
-              <li><a href="#direct-sum">Direct sum and block matrix</a></li>
               <li><a href="#exact-order-prime">Exact-order prime and primitive divisor</a></li>
               <li><a href="#existential-zero-transport">Existential zero transport</a></li>
               <li><a href="#exterior-wait">Exterior wait and pure transition word</a></li>
               <li><a href="#factored-cut">Factored cut</a></li>
               <li><a href="#finite-falsifier">Finite falsifier</a></li>
-              <li><a href="#fixed-boundary-match">Fixed-boundary match</a></li>
+              <li><a href="#fixed-boundary-match">Fixed-boundary correspondence</a></li>
               <li><a href="#formal-scope">Formal scope</a></li>
-              <li><a href="#formalization">Formalization</a></li>
-              <li><a href="#free-monoid-semigroup">Free monoid and free semigroup</a></li>
               <li><a href="#frontier-antichain">Frontier antichain</a></li>
               <li><a href="#generalized-post-correspondence">Generalized Post correspondence problem</a></li>
               <li><a href="#hankel-rank">Hankel matrix and Hankel rank</a></li>
-              <li><a href="#input-output-maps">Input and output maps</a></li>
               <li><a href="#interface-bridge">Interface bridge</a></li>
               <li><a href="#interface-compression">Interface compression</a></li>
               <li><a href="#interface-space">Interface space</a></li>
               <li><a href="#invariant-subspace-quotient">Invariant subspace and quotient</a></li>
-              <li><a href="#linear-representation">Linear representation</a></li>
+              <li><a href="#word-taxonomy">Kinds of words</a></li>
+              <li><a href="#linear-representation">Linear representation and realization</a></li>
               <li><a href="#live-region-trap">Live region and trap</a></li>
               <li><a href="#machine-checked">Machine-checked theorem</a></li>
-              <li><a href="#many-one-reduction">Many-one reduction</a></li>
               <li><a href="#matrix-mortality">Matrix mortality</a></li>
-              <li><a href="#matrix-semigroup">Matrix semigroup</a></li>
-              <li><a href="#mobius-transformation">Möbius transformation</a></li>
-              <li><a href="#moment-sequence">Moment sequence and geometric tail</a></li>
               <li><a href="#mortality-witness">Mortality witness</a></li>
               <li><a href="#neary-body">Neary body</a></li>
-              <li><a href="#nilpotent-jordan-eigenline">Nilpotent block, Jordan block, and eigenline</a></li>
-              <li><a href="#obstruction-no-go">Obstruction and no-go theorem</a></li>
-              <li><a href="#orbit-partial-map">Orbit and partial map</a></li>
-              <li><a href="#outer-product-separator">Outer product and rank-one separator</a></li>
+              <li><a href="#nilpotent-jordan-eigenline">Nilpotent chains and eigenline</a></li>
+              <li><a href="#obstruction-no-go">Obstruction</a></li>
               <li><a href="#padic-unit">p-adic unit</a></li>
               <li><a href="#padic-valuation">p-adic valuation</a></li>
-              <li><a href="#paired-role-compression">Paired-role compression</a></li>
               <li><a href="#paired-scalar-series">Paired scalar series</a></li>
+              <li><a href="#paired-role-compression">Paired-role compression</a></li>
               <li><a href="#parameter-monotonicity">Parameter monotonicity and padding</a></li>
               <li><a href="#periodic-ternary-value">Periodic ternary value</a></li>
+              <li><a href="#phase">Phase and toggle</a></li>
               <li><a href="#physical-family">Physical family</a></li>
+              <li><a href="#zero-language-equivalence">Pointwise zero preservation</a></li>
               <li><a href="#post-correspondence">Post correspondence problem</a></li>
               <li><a href="#prefix-code">Prefix code</a></li>
               <li><a href="#primitive-pair-content">Primitive pair and content</a></li>
               <li><a href="#primitive-recursive-reduction">Primitive-recursive reduction</a></li>
               <li><a href="#projective-incidence">Projective incidence</a></li>
-              <li><a href="#projective-line">Projective line and projective point</a></li>
-              <li><a href="#projectivization">Projectivization</a></li>
-              <li><a href="#rank-kernel-image">Rank, kernel, and image</a></li>
+              <li><a href="#projective-line">Projective line</a></li>
               <li><a href="#rank-profile">Rank profile</a></li>
+              <li><a href="#outer-product-separator">Rank-one separator</a></li>
               <li><a href="#ready-point-legal-wait">Ready point and legal wait</a></li>
-              <li><a href="#realization-dimension">Realization dimension</a></li>
+              <li><a href="#reset-target-tail">Reset, target, and tail</a></li>
               <li><a href="#reset-defect-numerator">Reset-defect numerator</a></li>
-              <li><a href="#reset-target-tail">Reset, target, and tail coordinate</a></li>
-              <li><a href="#resultant">Resultant and cross-resultant</a></li>
-              <li><a href="#return-matrix-family">Return matrix and return family</a></li>
+              <li><a href="#return-matrix-family">Return</a></li>
               <li><a href="#return-realization">Return realization</a></li>
               <li><a href="#scalar-zero-reachability">Scalar zero reachability</a></li>
               <li><a href="#semidecidable">Semidecidable</a></li>
               <li><a href="#semiring">Semiring</a></li>
-              <li><a href="#shortcut-collatz">Shortcut-Collatz map and reachability</a></li>
-              <li><a href="#singular-nonsingular">Singular and nonsingular matrices</a></li>
+              <li><a href="#shortcut-collatz">Shortcut Collatz map</a></li>
               <li><a href="#singular-return-compression">Singular-return compression</a></li>
-              <li><a href="#smith-normal-form">Smith normal form and Smith split</a></li>
-              <li><a href="#split-return-normal-form">Split-return normal form</a></li>
+              <li><a href="#smith-normal-form">Smith split</a></li>
               <li><a href="#symbolic-cross-check">Symbolic cross-check</a></li>
-              <li><a href="#tag-execution">Tag execution and halting</a></li>
               <li><a href="#tag-system">Tag system</a></li>
-              <li><a href="#ternary-value">Ternary word value</a></li>
-              <li><a href="#tile">Tile and tile word</a></li>
-              <li><a href="#transition-matrix">Transition matrix</a></li>
+              <li><a href="#moment-sequence">Tail and residuals</a></li>
+              <li><a href="#ternary-value">Ternary value</a></li>
+              <li><a href="#tile">Tile and role</a></li>
+              <li><a href="#tilted-code">Tilted code</a></li>
+              <li><a href="#transition-matrix">Transition</a></li>
               <li><a href="#transitive-axiom-set">Transitive axiom set</a></li>
               <li><a href="#trust-boundary">Trust boundary</a></li>
-              <li><a href="#ultrametric-law">Ultrametric law</a></li>
-              <li><a href="#undecidable">Undecidable</a></li>
               <li><a href="#valuation-guard">Valuation guard</a></li>
               <li><a href="#valuation-wall">Valuation wall</a></li>
               <li><a href="#word-commutation">Word commutation</a></li>
-              <li><a href="#word-morphism">Word morphism</a></li>
-              <li><a href="#word-pair-representation">Word-pair representation</a></li>
               <li><a href="#word-product">Word product and product order</a></li>
               <li><a href="#word-series">Word series</a></li>
-              <li><a href="#word-taxonomy">Word taxonomy</a></li>
+              <li><a href="#word-pair-representation">Word-pair matrices</a></li>
+              <li><a href="#zero-language">Zero set</a></li>
               <li><a href="#zero-in-the-corner">Zero-in-the-corner problem</a></li>
-              <li><a href="#zero-language">Zero language</a></li>
-              <li><a href="#zero-language-equivalence">Zero-language equivalence</a></li>
             </ol>
           </nav>
+        </section>
+
+        <section>
+          <h2 id="notation">Notation<a class="fragment-link" href="#notation" aria-label="Link to this section">#</a></h2>
+          <p>Symbols below keep one meaning throughout the series. Symbols defined inside a single article are local to it.</p>
+          <div class="table-scroll">
+          <table class="tile-table">
+            <thead>
+              <tr><th>Symbol</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>M<sub><var>d</var></sub>(<var>k</var>), Z<sub><var>d</var></sub>(<var>k</var>), Z̊<sub><var>d</var></sub>(<var>k</var>), R<sub><var>d</var></sub>(<var>k</var>)</td><td><a href="/math/matrix_mortality/#definition">Mortality, scalar zero reachability, its structured form, and the corner problem</a></td></tr>
+              <tr><td><var>β</var>, <span class="word">b</span>, <span class="word">c</span>, <var>B</var>, <var>I</var></td><td><a href="/math/matrix_mortality/m3_5/#tag-systems">Deletion width, tag letters, body, initial queue</a></td></tr>
+              <tr><td><var>H</var>, <var>M</var>, <var>W</var></td><td><a href="/math/matrix_mortality/m3_5/#four-tiles">Letter code, boundary word <span class="word">10<sup>β</sup></span>, the word <var>H</var>(<var>B</var>)</a></td></tr>
+              <tr><td>R<sub><var>x</var></sub>, D<sub><var>x</var></sub></td><td><a href="/math/matrix_mortality/m3_5/#four-tiles">Rule and deletion tiles for the letter <var>x</var>, and their matrices</a></td></tr>
+              <tr><td><var>U</var>(<var>w</var>), <var>V</var>(<var>w</var>)</td><td><a href="/math/matrix_mortality/m3_5/#four-tiles">Upper and lower concatenations of a tile word</a></td></tr>
+              <tr><td><var>σ</var>, Ψ, Φ</td><td><a href="/math/matrix_mortality/m3_5/#word-pair-representation">Ternary value, word-pair matrix, its separated form</a></td></tr>
+              <tr><td><var>E</var>, <var>K</var></td><td><a href="/math/matrix_mortality/paired_scalar_series/#agreement-plane">Agreement plane, anti-diagonal of the phase quotient</a></td></tr>
+              <tr><td><var>G</var><sub>b</sub>, <var>G</var><sub>c</sub>, <var>T</var>, <var>G</var><sub><var>z</var></sub></td><td><a href="/math/matrix_mortality/paired_scalar_series/#explicit-system">Data controls, toggle, product along a control word</a></td></tr>
+              <tr><td><var>c</var>, <var>μ</var>, <var>t</var>, <var>u</var></td><td><a href="/math/matrix_mortality/paired_scalar_series/#explicit-system">Paired column (<var>μ</var>, −1, <var>t</var>, 0)<sup>T</sup>, <var>μ</var> = <var>σ</var>(<var>M</var>), <var>t</var> = 3<sup>|<var>M</var>|</sup>, and <var>u</var> = <var>Tc</var></a></td></tr>
+              <tr><td><var>S</var></td><td><a href="/math/matrix_mortality/m4_4/#mortality">A rank-one separator</a></td></tr>
+              <tr><td><var>A</var>, <var>U</var>, <var>O</var>, <var>C</var></td><td><a href="/math/matrix_mortality/interface_compression/#factored-cuts">Transition, input and output maps, cut <var>C</var> = <var>UO</var></a></td></tr>
+              <tr><td>Γ<sub><var>n</var></sub></td><td><a href="/math/matrix_mortality/interface_compression/#single-cut">Return <var>O</var><var>A</var><sup><var>n</var></sup><var>U</var></a></td></tr>
+              <tr><td><var>F</var><sub><var>s</var></sub></td><td><a href="/math/matrix_mortality/m8_2/#tilted-code">Tilted code <var>σ</var>(<var>x</var>) + <var>s</var>·3<sup>|<var>x</var>|</sup></a></td></tr>
+              <tr><td><var>N</var><sub><var>n</var></sub></td><td><a href="/math/matrix_mortality/m8_2/#realization">Residual of a return sequence after removing its geometric tail</a></td></tr>
+              <tr><td><var>κ</var><sub>1</sub>, <var>κ</var><sub>2</sub></td><td><a href="/math/matrix_mortality/shortcut_collatz_incidence/#projective-incidence">Chart scalars of a projective-incidence instance</a></td></tr>
+              <tr><td><var>p</var>, <var>v</var><sub><var>p</var></sub></td><td><a href="/math/matrix_mortality/m3_2_return_guard/#padic-valuation">Prime and p-adic valuation</a></td></tr>
+            </tbody>
+          </table>
+          </div>
         </section>
 
         <section>
           <h2 id="problems">Problems and decidability<a class="fragment-link" href="#problems" aria-label="Link to this section">#</a></h2>
           <dl class="glossary">
             <div class="glossary-entry">
-              <dt id="decision-problem"><dfn>Decision problem</dfn><a class="fragment-link" href="#decision-problem" aria-label="Link to this term">#</a></dt>
-              <dd><p>A yes-or-no question attached to each input in a specified class. Formally it is a predicate on encoded inputs. A statement about a decision problem must fix the input domain: integer matrices, rational matrices, and a fixed finite family are different problems.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="decidable"><dfn>Decidable</dfn><a class="fragment-link" href="#decidable" aria-label="Link to this term">#</a></dt>
-              <dd><p>A decision problem is decidable if one algorithm halts on every valid input and returns the correct yes-or-no answer. Complexity asks how many resources such an algorithm uses; decidability asks first whether any total algorithm exists.</p></dd>
-            </div>
-            <div class="glossary-entry">
               <dt id="semidecidable"><dfn>Semidecidable</dfn><a class="fragment-link" href="#semidecidable" aria-label="Link to this term">#</a></dt>
-              <dd><p>A problem is semidecidable, or recursively enumerable, if an algorithm halts and accepts every yes-instance but may run forever on a no-instance. Matrix mortality is semidecidable: enumerate nonempty generator words by length and stop when a zero product appears.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="undecidable"><dfn>Undecidable</dfn><a class="fragment-link" href="#undecidable" aria-label="Link to this term">#</a></dt>
-              <dd><p>A decision problem is undecidable if no algorithm decides every valid input. This does not mean that each instance is opaque or that no useful subclasses are decidable. An undecidability proof usually transfers the impossibility of a known problem through a computable reduction.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="many-one-reduction"><dfn>Many-one reduction</dfn><a class="fragment-link" href="#many-one-reduction" aria-label="Link to this term">#</a></dt>
-              <dd>
-                <p>A computable function that maps each instance of one decision problem to one instance of another and preserves both answers. If P reduces to Q and P is undecidable, then Q is undecidable.</p>
-                <div class="formula plain">
-                  <math display="block">
-                    <mrow><mi>x</mi><mo>∈</mo><mi>P</mi><mspace width="0.8em"></mspace><mo>⟺</mo><mspace width="0.8em"></mspace><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>∈</mo><mi>Q</mi><mo>.</mo></mrow>
-                  </math>
-                </div>
-              </dd>
+              <dd><p>A problem is semidecidable if some algorithm halts and accepts on every yes-instance, possibly running forever on no-instances. Mortality is semidecidable: enumerating products by length finds a zero product whenever one exists. Undecidability of mortality is therefore the impossibility of recognizing every immortal family.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="primitive-recursive-reduction"><dfn>Primitive-recursive reduction</dfn><a class="fragment-link" href="#primitive-recursive-reduction" aria-label="Link to this term">#</a></dt>
-              <dd><p>A many-one reduction whose instance map is primitive recursive, a syntactically restricted class of total computable functions closed under composition and bounded iteration. It is stronger effectivity evidence than an existence proof of a computable map. It need not be packaged as a command-line program.</p></dd>
+              <dd><p>A many-one reduction whose instance map is primitive recursive, a class of total computable functions built from basic functions by composition and bounded recursion. Every reduction to a mortality problem in this series is primitive recursive and is checked as such in Lean.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="matrix-mortality"><dfn>Matrix mortality</dfn><a class="fragment-link" href="#matrix-mortality" aria-label="Link to this term">#</a></dt>
-              <dd>
-                <p>Given finitely many square matrices of one dimension, ask whether some nonempty product of the given matrices is the zero matrix. A family with such a product is mortal; otherwise it is immortal. This corpus uses integer entries unless another coefficient ring is stated.</p>
-                <div class="formula plain">
-                  <math display="block">
-                    <mrow>
-                      <mo>∃</mo><mi>n</mi><mo>≥</mo><mn>1</mn><mo>,</mo><mspace width="0.5em"></mspace>
-                      <msub><mi>A</mi><msub><mi>i</mi><mn>1</mn></msub></msub>
-                      <msub><mi>A</mi><msub><mi>i</mi><mn>2</mn></msub></msub>
-                      <mo>⋯</mo>
-                      <msub><mi>A</mi><msub><mi>i</mi><mi>n</mi></msub></msub>
-                      <mo>=</mo><mn>0</mn><mo>.</mo>
-                    </mrow>
-                  </math>
-                </div>
-              </dd>
+              <dd><p>Given finitely many square matrices of one dimension, the question whether some nonempty product of them is the zero matrix. A family with such a product is mortal; otherwise it is immortal. Entries are integers unless another ring is stated.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="bounded-mortality"><dfn>Bounded matrix mortality M<sub><var>d</var></sub>(<var>k</var>)</dfn><a class="fragment-link" href="#bounded-mortality" aria-label="Link to this term">#</a></dt>
-              <dd><p>The restriction of matrix mortality to at most <var>k</var> integer matrices of dimension <var>d</var>. The parameters bound the input family, not the witness length or matrix entries. Thus M<sub>9</sub>(2) concerns two arbitrary 9 × 9 integer matrices and products of unbounded length.</p></dd>
+              <dt id="bounded-mortality"><dfn>Bounded matrix mortality</dfn><a class="fragment-link" href="#bounded-mortality" aria-label="Link to this term">#</a></dt>
+              <dd><p>M<sub><var>d</var></sub>(<var>k</var>) is matrix mortality for at most <var>k</var> integer <var>d</var> × <var>d</var> matrices. The parameters bound the family, not the entries or the length of the product.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="mortality-witness"><dfn>Mortality witness</dfn><a class="fragment-link" href="#mortality-witness" aria-label="Link to this term">#</a></dt>
-              <dd><p>A nonempty word over the generator labels whose ordered matrix product is zero. It is also called a zero word. The empty word is excluded because its product is the identity matrix, except in dimension zero.</p></dd>
+              <dd><p>A nonempty word over the generators whose product is zero, also called a zero word. The empty word is excluded because its product is the identity.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="scalar-zero-reachability"><dfn>Scalar zero reachability Z<sub><var>d</var></sub>(<var>k</var>)</dfn><a class="fragment-link" href="#scalar-zero-reachability" aria-label="Link to this term">#</a></dt>
-              <dd>
-                <p>Given a row λ, a column γ, and at most <var>k</var> dimension-<var>d</var> matrices, ask whether λA<sub><var>w</var></sub>γ is zero for some nonempty word <var>w</var>. Only one coefficient must vanish; the whole product need not. The structured form Z̊ requires every generator to have first column <var>e</var><sub>1</sub>. Where the empty word is also allowed, the page says so and tests its coefficient λγ separately.</p>
-                <div class="formula plain">
-                  <math display="block">
-                    <mrow><mo>∃</mo><mi>w</mi><mo>:</mo><mspace width="0.5em"></mspace><mi>λ</mi><msub><mi>A</mi><mi>w</mi></msub><mi>γ</mi><mo>=</mo><mn>0</mn><mo>.</mo></mrow>
-                  </math>
-                </div>
-              </dd>
+              <dt id="scalar-zero-reachability"><dfn>Scalar zero reachability</dfn><a class="fragment-link" href="#scalar-zero-reachability" aria-label="Link to this term">#</a></dt>
+              <dd><p>Z<sub><var>d</var></sub>(<var>k</var>) supplies a row <var>L</var>, a column <var>C</var>, and at most <var>k</var> integer <var>d</var> × <var>d</var> matrices, and asks whether <var>LYC</var> = 0 for some nonempty product <var>Y</var>. Only one coefficient must vanish. The structured form Z̊<sub><var>d</var></sub>(<var>k</var>) requires every generator to have first column <var>e</var><sub>1</sub>.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="zero-in-the-corner"><dfn>Zero-in-the-corner problem R<sub><var>d</var></sub>(<var>k</var>)</dfn><a class="fragment-link" href="#zero-in-the-corner" aria-label="Link to this term">#</a></dt>
-              <dd><p>A scalar-reachability problem in which the observed row and column are fixed coordinate vectors, so the question is whether a designated entry of some nonempty product is zero. Which entry is designated matters: diagonal and off-diagonal conventions must not be identified without a reduction.</p></dd>
+              <dt id="zero-in-the-corner"><dfn>Zero-in-the-corner problem</dfn><a class="fragment-link" href="#zero-in-the-corner" aria-label="Link to this term">#</a></dt>
+              <dd><p>R<sub><var>d</var></sub>(<var>k</var>) is scalar zero reachability with <var>L</var> and <var>C</var> fixed to coordinate vectors: whether a designated entry of some nonempty product is zero. Z<sub><var>d</var></sub>(<var>k</var>) reduces to R<sub><var>d</var>+1</sub>(<var>k</var>).</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="parameter-monotonicity"><dfn>Parameter monotonicity and padding</dfn><a class="fragment-link" href="#parameter-monotonicity" aria-label="Link to this term">#</a></dt>
-              <dd><p>Undecidability at one pair (<var>d</var>,<var>k</var>) propagates to larger generator bounds by ignoring extras and to larger dimensions by embedding each matrix as a block with a zero block. A proof must preserve both mortality and immortality and, for an effective endpoint, preserve computability of the instance map.</p></dd>
+              <dd><p>Undecidability of M<sub><var>d</var></sub>(<var>k</var>) implies undecidability for every larger <var>d</var> and <var>k</var>: extra generators may go unused, and replacing each matrix <var>A</var> by <var>A</var> ⊕ 0 preserves and reflects every zero product.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="frontier-antichain"><dfn>Frontier antichain</dfn><a class="fragment-link" href="#frontier-antichain" aria-label="Link to this term">#</a></dt>
-              <dd><p>The Pareto-minimal undecidable parameter pairs under coordinatewise order. Each point establishes all larger cells by monotonicity, while no point in the antichain follows from another. The antichain summarizes known bounds; it is not a classification of the cells below it.</p></dd>
+              <dd><p>The minimal undecidable cells under the coordinatewise order. By monotonicity they determine every undecidable cell that is known; they say nothing about the cells below them.</p></dd>
             </div>
           </dl>
         </section>
@@ -239,79 +204,56 @@
           <h2 id="words-machines">Words and machines<a class="fragment-link" href="#words-machines" aria-label="Link to this section">#</a></h2>
           <dl class="glossary">
             <div class="glossary-entry">
-              <dt id="alphabet-word"><dfn>Alphabet and word</dfn><a class="fragment-link" href="#alphabet-word" aria-label="Link to this term">#</a></dt>
-              <dd><p>An alphabet is a set of symbols. A word is a finite ordered list of symbols from one alphabet; its length is |<var>w</var>|. The empty word ε has length zero. Concatenation joins words and is generally noncommutative.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="free-monoid-semigroup"><dfn>Free monoid and free semigroup</dfn><a class="fragment-link" href="#free-monoid-semigroup" aria-label="Link to this term">#</a></dt>
-              <dd><p>The free monoid Σ* consists of all finite words over Σ, including ε, with concatenation. The free semigroup Σ+ contains only nonempty words. Matrix mortality quantifies over Σ+; word morphisms are usually defined on Σ*.</p></dd>
-            </div>
-            <div class="glossary-entry">
               <dt id="word-product"><dfn>Word product and product order</dfn><a class="fragment-link" href="#word-product" aria-label="Link to this term">#</a></dt>
-              <dd>
-                <p>A labelled matrix family assigns a matrix A<sub><var>a</var></sub> to each letter <var>a</var>. The product of <var>w</var> = <var>w</var><sub>1</sub>…<var>w</var><sub><var>n</var></sub> is taken in the displayed left-to-right order. Reversing this convention reverses words and can silently invalidate a reduction if only one side changes.</p>
-                <div class="formula plain">
-                  <math display="block">
-                    <mrow><msub><mi>A</mi><mi>w</mi></msub><mo>=</mo><msub><mi>A</mi><msub><mi>w</mi><mn>1</mn></msub></msub><mo>⋯</mo><msub><mi>A</mi><msub><mi>w</mi><mi>n</mi></msub></msub><mo>.</mo></mrow>
-                  </math>
-                </div>
-              </dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="word-morphism"><dfn>Word morphism</dfn><a class="fragment-link" href="#word-morphism" aria-label="Link to this term">#</a></dt>
-              <dd><p>A map between free monoids determined by the image of each letter and extended by concatenation. Thus <var>h</var>(<var>uv</var>) = <var>h</var>(<var>u</var>)<var>h</var>(<var>v</var>) and <var>h</var>(ε) = ε. PCP and GPCP compare two such morphisms.</p></dd>
+              <dd><p>For a family indexed by letters, the product along a word <var>w</var> = <var>w</var><sub>1</sub>⋯<var>w</var><sub><var>n</var></sub> is taken in the written order, <var>X</var><sub><var>w</var></sub> = <var>X</var><sub><var>w</var><sub>1</sub></sub>⋯<var>X</var><sub><var>w</var><sub><var>n</var></sub></sub>. Applied to a column, the rightmost factor acts first; decoders in this series therefore read words from right to left.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="prefix-code"><dfn>Prefix code</dfn><a class="fragment-link" href="#prefix-code" aria-label="Link to this term">#</a></dt>
-              <dd><p>A set of codewords in which no codeword is a proper prefix of another. It is complete when every infinite input stream begins with some codeword, equivalently when its prefix tree has no missing infinite branch. Prefix codes permit deterministic left-to-right decoding without a delimiter.</p></dd>
+              <dd><p>A set of codewords none of which is a proper prefix of another, so that a stream can be decoded from left to right without separators. It is complete when every infinite stream begins with a codeword.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="decoder-transducer"><dfn>Decoder and transducer</dfn><a class="fragment-link" href="#decoder-transducer" aria-label="Link to this term">#</a></dt>
-              <dd><p>A decoder reads encoded letters and recovers source symbols. A finite-state transducer additionally carries a finite control state and may emit output while reading. Matrix compilers realize such machines by block matrices: block position stores control state, and block values store the accumulated matrix product.</p></dd>
+              <dt id="decoder-transducer"><dfn>Decoder</dfn><a class="fragment-link" href="#decoder-transducer" aria-label="Link to this term">#</a></dt>
+              <dd><p>A finite-state device that reads a coded word and emits source letters. A matrix compiler realizes one with block matrices: the block position stores the decoder state, such as an unfinished codeword or a phase, and the block value stores the product emitted so far.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="post-correspondence"><dfn>Post correspondence problem (PCP)</dfn><a class="fragment-link" href="#post-correspondence" aria-label="Link to this term">#</a></dt>
-              <dd><p>Given pairs of words (<var>u</var><sub><var>i</var></sub>,<var>v</var><sub><var>i</var></sub>), ask whether some nonempty index word produces equal concatenations on the two sides. The same sequence of tile indices must be used above and below.</p></dd>
+              <dt id="post-correspondence"><dfn>Post correspondence problem</dfn><a class="fragment-link" href="#post-correspondence" aria-label="Link to this term">#</a></dt>
+              <dd><p>PCP(<var>n</var>) gives <var>n</var> word pairs and asks for a nonempty index word whose upper and lower concatenations agree.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="generalized-post-correspondence"><dfn>Generalized Post correspondence problem (GPCP)</dfn><a class="fragment-link" href="#generalized-post-correspondence" aria-label="Link to this term">#</a></dt>
-              <dd><p>PCP with fixed boundary words around the variable morphic images. A common convention asks whether α<var>u</var>(<var>w</var>)β = γ<var>v</var>(<var>w</var>)δ for some nonempty <var>w</var>. Generator counts refer to the variable tiles unless a paper explicitly counts boundary pairs.</p></dd>
+              <dt id="generalized-post-correspondence"><dfn>Generalized Post correspondence problem</dfn><a class="fragment-link" href="#generalized-post-correspondence" aria-label="Link to this term">#</a></dt>
+              <dd><p>GPCP(<var>n</var>) additionally fixes boundary words that occur once, at the ends. The count <var>n</var> counts the selectable pairs, not the boundary.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="fixed-boundary-match"><dfn>Fixed-boundary match</dfn><a class="fragment-link" href="#fixed-boundary-match" aria-label="Link to this term">#</a></dt>
-              <dd><p>An equality of two word morphisms after prescribed left or right boundary words are attached. A terminal match is the one-sided specialization used in this corpus, such as <var>U</var>(<var>w</var>)<var>M</var> = <var>V</var>(<var>w</var>). It is not ordinary PCP until the boundary has been compiled into tiles or matrices.</p></dd>
+              <dt id="fixed-boundary-match"><dfn>Fixed-boundary correspondence</dfn><a class="fragment-link" href="#fixed-boundary-match" aria-label="Link to this term">#</a></dt>
+              <dd><p>The GPCP instance of this series: four word pairs, empty left boundaries, and the upper right boundary <var>M</var>, so a solution satisfies <var>U</var>(<var>w</var>)<var>M</var> = <var>V</var>(<var>w</var>). It is equivalent to halting of Neary’s tag systems (<a href="/math/matrix_mortality/m3_5/#four-tiles">M₃(5)</a>).</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="tile"><dfn>Tile and tile word</dfn><a class="fragment-link" href="#tile" aria-label="Link to this term">#</a></dt>
-              <dd><p>A tile is one pair (<var>u</var><sub><var>i</var></sub>,<var>v</var><sub><var>i</var></sub>) in a correspondence instance. A tile word is the chosen sequence of tile labels. “Rule tile” and “deletion tile” name semantic roles in the synchronized tag construction, not additional boundary tiles.</p></dd>
+              <dt id="tile"><dfn>Tile and role</dfn><a class="fragment-link" href="#tile" aria-label="Link to this term">#</a></dt>
+              <dd><p>A tile is one word pair of a correspondence instance, and a tile word is a sequence of tiles. The four tiles of fixed-boundary correspondence are the rule tiles R<sub><var>x</var></sub> and the deletion tiles D<sub><var>x</var></sub> for <var>x</var> ∈ {<span class="word">b</span>, <span class="word">c</span>}; the same symbols denote their matrices. Their pairs (letter, phase) are called roles.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="tag-system"><dfn>Tag system</dfn><a class="fragment-link" href="#tag-system" aria-label="Link to this term">#</a></dt>
-              <dd><p>A queue-rewriting machine specified by a finite alphabet, a positive deletion width β, and one appendant for each letter. A step reads the first letter, deletes the first β letters, and appends the word assigned to the letter read. If fewer than β letters remain, the ordinary execution halts.</p></dd>
+              <dd><p>A machine with a queue of letters, a deletion width <var>β</var>, and a word for each letter. A step reads the first letter, appends its word, and deletes the first <var>β</var> letters; the system halts when fewer than <var>β</var> letters remain. The letters deleted by one step form a stroke. At every time, the strokes followed by the queue equal the initial queue followed by the appended words.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="deletion-width"><dfn>Deletion width</dfn><a class="fragment-link" href="#deletion-width" aria-label="Link to this term">#</a></dt>
-              <dd><p>The fixed number β of queue symbols removed by each tag step. It is a machine parameter, not the length of an appendant. Width two is universal over sufficiently rich alphabets, while binary width two is decidable; these facts cannot be conflated.</p></dd>
+              <dd><p>The number <var>β</var> of letters deleted by each tag step. In this series <var>β</var> ≥ 3.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="appendant"><dfn>Appendant</dfn><a class="fragment-link" href="#appendant" aria-label="Link to this term">#</a></dt>
-              <dd><p>The complete word appended after a tag letter is read. In the restricted binary system used here, the appendants are <span class="word">b</span> and <var>B</var><span class="word">b</span>. An appendant may contain a variable body, but the two nouns are not synonyms.</p></dd>
+              <dd><p>The word appended when a letter is read. In Neary’s binary tag systems the appendants are <span class="word">b</span> for <span class="word">b</span> and <var>B</var><span class="word">b</span> for <span class="word">c</span>.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="neary-body"><dfn>Neary body</dfn><a class="fragment-link" href="#neary-body" aria-label="Link to this term">#</a></dt>
-              <dd><p>The binary word <var>B</var> forming the variable prefix of the <span class="word">c</span>-appendant in the restricted system: <code>tagOutput B b = b</code> and <code>tagOutput B c = B ++ [b]</code>. Earlier pages used <var>q</var> for the same object; <var>B</var> is canonical to avoid collision with quotient and prime-power variables.</p></dd>
+              <dd><p>The word <var>B</var> over <span class="word">b</span>, <span class="word">c</span> in the rule <span class="word">c</span> ↦ <var>B</var><span class="word">b</span>. The initial queue is <var>B</var> without its first <var>β</var> − 1 letters, followed by <span class="word">b</span>. Neary’s compiler encodes a program and its input in <var>β</var> and <var>B</var>.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="tag-execution"><dfn>Tag execution and halting</dfn><a class="fragment-link" href="#tag-execution" aria-label="Link to this term">#</a></dt>
-              <dd><p>An execution is the finite or infinite sequence of queues obtained by repeated tag steps. Halting may mean that the queue becomes too short or that a distinguished symbol is encountered, depending on the encoded source theorem. A reduction must state which convention it preserves.</p></dd>
+              <dt id="cyclic-tag-system"><dfn>Cyclic tag system</dfn><a class="fragment-link" href="#cyclic-tag-system" aria-label="Link to this term">#</a></dt>
+              <dd><p>A tag-like machine that cycles through a fixed list of words and appends the current one only when the letter read is 1. It is an intermediate model in the chain from a universal machine to Neary’s binary tag systems.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="cyclic-tag-system"><dfn>Cyclic and restricted binary tag systems</dfn><a class="fragment-link" href="#cyclic-tag-system" aria-label="Link to this term">#</a></dt>
-              <dd><p>A cyclic tag system cycles through a fixed list of appendants and conditionally appends the current one. A restricted binary tag system has alphabet {<span class="word">b</span>,<span class="word">c</span>} and a constrained pair of appendants. They are intermediate machine models in the checked halting reduction, not alternate names for an ordinary tag system.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="word-taxonomy"><dfn>Word taxonomy</dfn><a class="fragment-link" href="#word-taxonomy" aria-label="Link to this term">#</a></dt>
-              <dd><p>A tile word indexes correspondence pairs; a role word records rule or deletion roles; a control word uses compressed data and toggle controls; a binary word encodes another alphabet; a physical word indexes the actual matrix generators. These words may correspond under a compiler, but they inhabit different alphabets and should not be identified.</p></dd>
+              <dt id="word-taxonomy"><dfn>Kinds of words</dfn><a class="fragment-link" href="#word-taxonomy" aria-label="Link to this term">#</a></dt>
+              <dd><p>The series uses several alphabets, and a word always belongs to one of them. A tile word lists tiles; a control word lists the matrices of the paired scalar series; a binary word spells another alphabet in a code; a physical word lists the matrices of the actual mortality instance. Compilers map words of one kind to words of another, and a zero of one need not be a zero of the other word for word.</p></dd>
             </div>
           </dl>
         </section>
@@ -321,112 +263,83 @@
           <dl class="glossary">
             <div class="glossary-entry">
               <dt id="semiring"><dfn>Semiring</dfn><a class="fragment-link" href="#semiring" aria-label="Link to this term">#</a></dt>
-              <dd><p>A system of scalars with associative addition and multiplication, additive zero, multiplicative identity, distributivity, and absorbing zero; addition is commutative. Subtraction and division need not exist. A commutative semiring also has commutative multiplication. The examples ℕ, ℤ and ℚ suffice for the <a href="/math/matrix_mortality/interface_compression/#result">interface theorem</a>, whose proof uses no division.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="matrix-semigroup"><dfn>Matrix semigroup</dfn><a class="fragment-link" href="#matrix-semigroup" aria-label="Link to this term">#</a></dt>
-              <dd><p>The set of all nonempty products generated by a family of matrices. If the identity, corresponding to the empty product, is included, the object is a matrix monoid. Mortality asks whether the zero matrix belongs to the generated semigroup.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="singular-nonsingular"><dfn>Singular and nonsingular matrices</dfn><a class="fragment-link" href="#singular-nonsingular" aria-label="Link to this term">#</a></dt>
-              <dd><p>A square matrix is singular when it is not invertible, equivalently when its determinant is zero over a field. “Nonsingular” means invertible. A mortal family must contain or generate singular matrices, but its individual generators need not all be singular.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="rank-kernel-image"><dfn>Rank, kernel, and image</dfn><a class="fragment-link" href="#rank-kernel-image" aria-label="Link to this term">#</a></dt>
-              <dd><p>The kernel of a linear map is the subspace sent to zero; its image is the subspace attained; its rank is the image dimension. Rank refers to a map or matrix. It must not be used as a synonym for the dimension of the ambient realization.</p></dd>
+              <dd><p>A set with an addition and a multiplication satisfying the ring axioms except that additive inverses need not exist; the integers, the rationals, and the natural numbers are examples. Interface compression holds over every commutative semiring, since its proof never subtracts.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="rank-profile"><dfn>Rank profile</dfn><a class="fragment-link" href="#rank-profile" aria-label="Link to this term">#</a></dt>
-              <dd><p>The list of generator ranks in a fixed ordering, or its unordered multiset when labels are immaterial. Splitting a mortality problem by rank profile isolates invertible, zero, and singular strata. It is a classification coordinate, not a reduction or a claim that the strata are equivalent.</p></dd>
+              <dd><p>The ranks of the generators of a family. M₃(2) splits by rank profile into strata of different difficulty.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="invariant-subspace-quotient"><dfn>Invariant subspace and quotient</dfn><a class="fragment-link" href="#invariant-subspace-quotient" aria-label="Link to this term">#</a></dt>
-              <dd><p>A subspace <var>W</var> is invariant under a matrix family if every generator maps <var>W</var> into itself. The family then induces maps on <var>W</var> and on the quotient space <var>V</var>/<var>W</var>. Quotienting can remove behavior invisible to the observed scalar, but it may create false zeros unless the converse is proved.</p></dd>
+              <dd><p>If every generator maps a subspace <var>K</var> into itself, the generators act on the quotient space. If moreover the boundary row vanishes on <var>K</var>, every coefficient survives the passage to the quotient. The paired scalar series is such a quotient.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="direct-sum"><dfn>Direct sum and block matrix</dfn><a class="fragment-link" href="#direct-sum" aria-label="Link to this term">#</a></dt>
-              <dd><p>A direct sum combines independent vector spaces; in coordinates its maps are block diagonal. Block matrices also encode transitions between components. The zero-padding map A ↦ A ⊕ 0 preserves zero products because a word product becomes A<sub><var>w</var></sub> ⊕ 0.</p></dd>
+              <dt id="outer-product-separator"><dfn>Rank-one separator</dfn><a class="fragment-link" href="#outer-product-separator" aria-label="Link to this term">#</a></dt>
+              <dd><p>A generator <var>S</var> = <var>c</var><var>r</var> built from a column <var>c</var> and a row <var>r</var>. For every product <var>X</var>, <var>S</var><var>X</var><var>S</var> = (<var>r</var><var>X</var><var>c</var>)<var>S</var>, so a vanishing coefficient becomes a zero product; the converse must be proved for every product in which <var>S</var> occurs.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="outer-product-separator"><dfn>Outer product and rank-one separator</dfn><a class="fragment-link" href="#outer-product-separator" aria-label="Link to this term">#</a></dt>
-              <dd>
-                <p>The outer product <var>u</var><var>v</var><sup>T</sup> has rank at most one. Used as a separator C around a product A<sub><var>w</var></sub>, it converts one scalar coefficient into a whole zero matrix. A nonzero rank-one separator has both boundary vectors nonzero.</p>
-                <div class="formula plain">
-                  <math display="block">
-                    <mrow>
-                      <mi>C</mi><msub><mi>A</mi><mi>w</mi></msub><mi>C</mi>
-                      <mo>=</mo>
-                      <mi>u</mi><mo>(</mo><msup><mi>v</mi><mi>T</mi></msup><msub><mi>A</mi><mi>w</mi></msub><mi>u</mi><mo>)</mo><msup><mi>v</mi><mi>T</mi></msup><mo>.</mo>
-                    </mrow>
-                  </math>
-                </div>
-              </dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="boundary-data"><dfn>Boundary data and scalar coefficient</dfn><a class="fragment-link" href="#boundary-data" aria-label="Link to this term">#</a></dt>
-              <dd><p>A boundary row λ and boundary column γ select the scalar λA<sub><var>w</var></sub>γ from a matrix product. They encode fixed left and right words or initial and terminal linear states. Boundary data belong to scalar reachability; a rank-one separator is the matrix constructed from them.</p></dd>
+              <dt id="boundary-data"><dfn>Boundary row and column</dfn><a class="fragment-link" href="#boundary-data" aria-label="Link to this term">#</a></dt>
+              <dd><p>A row <var>r</var> and a column <var>c</var> that select the coefficient <var>r</var><var>X</var><sub><var>w</var></sub><var>c</var> of a product. They encode fixed left and right boundary words.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="word-series"><dfn>Word series</dfn><a class="fragment-link" href="#word-series" aria-label="Link to this term">#</a></dt>
-              <dd><p>A function from words to scalars. A linear representation has the form <var>s</var>(<var>w</var>) = λμ(<var>w</var>)γ, where μ is a matrix-valued word morphism. Unlike an ordinary sequence, a word series branches over every letter at each length.</p></dd>
+              <dd><p>A function from words to scalars, such as the coefficient of a word’s product at fixed boundary data.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="paired-scalar-series"><dfn>Paired scalar series</dfn><a class="fragment-link" href="#paired-scalar-series" aria-label="Link to this term">#</a></dt>
-              <dd><p>The project’s four-dimensional word series for fixed-boundary correspondence. Two data controls and one phase toggle carry the two encoded words; the boundary coefficient vanishes exactly when they agree. The <a href="/math/matrix_mortality/paired_scalar_series/#result">reusable scalar interface</a> states this contract; the <a href="/math/matrix_mortality/m4_4/#explicit-system">coordinate formula</a> supplies its matrices.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="zero-language"><dfn>Zero language</dfn><a class="fragment-link" href="#zero-language" aria-label="Link to this term">#</a></dt>
-              <dd><p>The set of words at which a scalar- or matrix-valued word series vanishes. A reduction to mortality often needs only this language, not the exact nonzero values. The empty word must be handled separately when the target problem requires a nonempty witness.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="zero-language-equivalence"><dfn>Zero-language equivalence</dfn><a class="fragment-link" href="#zero-language-equivalence" aria-label="Link to this term">#</a></dt>
-              <dd><p>Pointwise agreement about which words vanish: <var>f</var>(<var>w</var>) = 0 if and only if <var>g</var>(<var>w</var>) = 0 for every word in the stated domain. The formal code sometimes calls this “same-zero.” It is weaker than equality of series and therefore can admit smaller realizations.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="existential-zero-transport"><dfn>Existential zero transport</dfn><a class="fragment-link" href="#existential-zero-transport" aria-label="Link to this term">#</a></dt>
-              <dd><p>Preserving whether a nonempty zero word exists, while allowing a witness to be replaced by a different word. This is weaker than pointwise <a href="#zero-language-equivalence">zero-language equivalence</a>. In <a href="/math/matrix_mortality/m8_2/#existential-transport">M₈(2)</a>, prepending a toggle replaces each source zero rejected by the changed separator.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="asymmetric-separator"><dfn>Asymmetric separator</dfn><a class="fragment-link" href="#asymmetric-separator" aria-label="Link to this term">#</a></dt>
-              <dd><p>The rank-one separator used in the eight-dimensional construction. Its row assigns different slopes to the rule and erase phases: erase-phase zeros are exactly word equalities, while the rule phase never vanishes on the source image. A leading toggle restores any discarded witness. It preserves existence of a zero, not the full zero language. See the <a href="/math/matrix_mortality/m8_2/#asymmetric-separator">construction and scope</a>.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="linear-representation"><dfn>Linear representation</dfn><a class="fragment-link" href="#linear-representation" aria-label="Link to this term">#</a></dt>
-              <dd><p>A finite-dimensional factorization of a word series into an initial row, a matrix morphism, and a terminal column. “Realization” denotes the same mathematical structure when emphasizing its state-space construction. Exact representations preserve every value; zero-language representations need only preserve zeros.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="realization-dimension"><dfn>Realization dimension</dfn><a class="fragment-link" href="#realization-dimension" aria-label="Link to this term">#</a></dt>
-              <dd><p>The dimension of the vector space on which a linear representation acts. This corpus says “nine-dimensional realization,” not “nine-state realization,” because state is reserved for automata and dynamical systems. “Rank nine” is used only when an actual matrix or Hankel form has rank nine.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="ternary-value"><dfn>Ternary word value</dfn><a class="fragment-link" href="#ternary-value" aria-label="Link to this term">#</a></dt>
-              <dd><p>Recode the binary symbols 0 and 1 as the ternary digits 1 and 2. Read the resulting string as a base-three integer, denoted σ, with the empty string assigned zero. For example, the binary word 01 becomes the ternary numeral 12, of value five. No leading zero is allowed, so distinct words, including words of different lengths, have distinct values. Appending a word shifts the old digits left by its length:</p>
-                <div class="formula plain"><math display="block"><mrow><mi>σ</mi><mo>(</mo><mi>uv</mi><mo>)</mo><mo>=</mo><mi>σ</mi><mo>(</mo><mi>u</mi><mo>)</mo><msup><mn>3</mn><mrow><mo>|</mo><mi>v</mi><mo>|</mo></mrow></msup><mo>+</mo><mi>σ</mi><mo>(</mo><mi>v</mi><mo>)</mo><mo>.</mo></mrow></math></div>
-              </dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="periodic-ternary-value"><dfn>Periodic ternary value</dfn><a class="fragment-link" href="#periodic-ternary-value" aria-label="Link to this term">#</a></dt>
-              <dd><p>For a nonempty block <var>w</var>, the rational value of the infinite ternary fraction repeating its recoded digits is <math><mfrac><mrow><mi>σ</mi><mo>(</mo><mi>w</mi><mo>)</mo></mrow><mrow><msup><mn>3</mn><mrow><mo>|</mo><mi>w</mi><mo>|</mo></mrow></msup><mo>−</mo><mn>1</mn></mrow></mfrac></math>. Different finite blocks can have the same periodic value. Equality is equivalent to <a href="#word-commutation">commutation</a> of the blocks, by cross multiplication and finite ternary-code injectivity.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="word-commutation"><dfn>Word commutation</dfn><a class="fragment-link" href="#word-commutation" aria-label="Link to this term">#</a></dt>
-              <dd><p>Two words commute when their concatenations agree in either order: <math><mrow><mi>uv</mi><mo>=</mo><mi>vu</mi></mrow></math>. For example, 01 and 0101 commute; 01 and 10 do not. This finite identity allows prefix comparisons between competing periods without constructing infinite words. See its use in the <a href="/math/matrix_mortality/m8_2/#periodic-prefix">wrong-phase exclusion</a>.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="word-pair-representation"><dfn>Word-pair representation</dfn><a class="fragment-link" href="#word-pair-representation" aria-label="Link to this term">#</a></dt>
-              <dd><p>A matrix morphism that encodes a pair of words so multiplication represents pairwise concatenation. The <a href="/math/matrix_mortality/m3_5/#word-pair-representation">three-dimensional construction</a> stores powers of three and <a href="#ternary-value">ternary word values</a>, turning equality of encoded words into vanishing of one matrix entry.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="agreement-subspace"><dfn>Agreement subspace</dfn><a class="fragment-link" href="#agreement-subspace" aria-label="Link to this term">#</a></dt>
-              <dd><p>A subspace on which two linear actions agree. In <a href="/math/matrix_mortality/m4_4/#agreement-plane">paired-role compression</a>, equal upper words give an agreement plane for each rule/deletion pair. Identifying this plane across the two phase copies saves two dimensions. The induced control maps must be well-defined on the quotient and preserve the observed coefficient for every word.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="change-of-basis"><dfn>Change of basis and conjugation</dfn><a class="fragment-link" href="#change-of-basis" aria-label="Link to this term">#</a></dt>
-              <dd><p>Replacing every generator A by P<sup>−1</sup>AP expresses the same linear action in another basis and preserves mortality. If P and P<sup>−1</sup> have integer entries, P is unimodular and integrality is preserved. Rational changes of basis may require later denominator clearing.</p></dd>
+              <dt id="linear-representation"><dfn>Linear representation and realization</dfn><a class="fragment-link" href="#linear-representation" aria-label="Link to this term">#</a></dt>
+              <dd><p>A factorization <var>f</var>(<var>w</var>) = <var>λ</var><var>Y</var><sub><var>w</var></sub><var>γ</var> of a word series by a row, matrices for the letters, and a column. Its dimension is the size of the matrices. For a single matrix sequence Γ<sub><var>n</var></sub>, a realization is a triple (<var>A</var>, <var>U</var>, <var>O</var>) with Γ<sub><var>n</var></sub> = <var>O</var><var>A</var><sup><var>n</var></sup><var>U</var>. An exact representation reproduces every value; one that reproduces only the zeros may be smaller.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="hankel-rank"><dfn>Hankel matrix and Hankel rank</dfn><a class="fragment-link" href="#hankel-rank" aria-label="Link to this term">#</a></dt>
-              <dd><p>The Hankel matrix of a word series has rows and columns indexed by words and entry H<sub><var>u</var>,<var>v</var></sub> = <var>s</var>(<var>uv</var>). Over a field, its rank is the minimum dimension of an exact linear representation. This lower bound does not automatically apply to a different series with the same zero language.</p></dd>
+              <dd><p>The Hankel matrix of a word series <var>f</var> has rows and columns indexed by words and entries <var>f</var>(<var>x</var><var>y</var>); that of a matrix sequence is the block matrix [Γ<sub><var>i</var>+<var>j</var></sub>]. It factors through the space of any representation, so its rank bounds the dimension from below, and for matrix sequences the bound is attained (Ho–Kalman). The bound concerns exact representations only.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="paired-scalar-series"><dfn>Paired scalar series</dfn><a class="fragment-link" href="#paired-scalar-series" aria-label="Link to this term">#</a></dt>
+              <dd><p>The <a href="/math/matrix_mortality/paired_scalar_series/#result">three integer 4 × 4 matrices</a> <var>G</var><sub>b</sub>, <var>G</var><sub>c</sub>, <var>T</var> and the column <var>c</var>. The paired coefficient of a control word <var>z</var> is <var>e</var><sub>1</sub><sup>T</sup><var>G</var><sub><var>z</var></sub><var>c</var>; it vanishes exactly when the tile word decoded from <var>z</var> solves fixed-boundary correspondence.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="phase"><dfn>Phase and toggle</dfn><a class="fragment-link" href="#phase" aria-label="Link to this term">#</a></dt>
+              <dd><p>The paired scalar series stores whether the next data letter selects a rule tile or a deletion tile: the rule phase or the deletion phase. The toggle <var>T</var> switches the phase, and a data letter leaves the deletion phase. In the column <var>G</var><sub><var>z</var></sub><var>c</var> the lower word’s length appears in coordinate two in rule phase and in coordinate four in deletion phase.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="zero-language"><dfn>Zero set</dfn><a class="fragment-link" href="#zero-language" aria-label="Link to this term">#</a></dt>
+              <dd><p>The set of words at which a word series vanishes. A reduction to mortality needs only this set, or only whether it is nonempty, not the other values.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="zero-language-equivalence"><dfn>Pointwise zero preservation</dfn><a class="fragment-link" href="#zero-language-equivalence" aria-label="Link to this term">#</a></dt>
+              <dd><p>Two word series preserve zeros pointwise when they vanish on the same words, possibly after a fixed renaming of words. The tilted separator of M₉(2) does this.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="existential-zero-transport"><dfn>Existential zero transport</dfn><a class="fragment-link" href="#existential-zero-transport" aria-label="Link to this term">#</a></dt>
+              <dd><p>Preserving only whether a nonempty zero word exists, while a witness may be replaced by a different word. The asymmetric separator of M₈(2) rejects some zeros of the paired series and recovers each by prepending a toggle.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="tilted-code"><dfn>Tilted code</dfn><a class="fragment-link" href="#tilted-code" aria-label="Link to this term">#</a></dt>
+              <dd><p><var>F</var><sub><var>s</var></sub>(<var>x</var>) = <var>σ</var>(<var>x</var>) + <var>s</var>·3<sup>|<var>x</var>|</sup>. For <var>s</var> &lt; −3/2 it is injective on binary words, because the words of each length fill an interval and these intervals are disjoint (<a href="/math/matrix_mortality/m8_2/#tilted-code">M₈(2)</a>).</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="asymmetric-separator"><dfn>Asymmetric separator</dfn><a class="fragment-link" href="#asymmetric-separator" aria-label="Link to this term">#</a></dt>
+              <dd><p>The separator row (1, <var>a</var>, <var>q</var>, <var>q</var>) of <a href="/math/matrix_mortality/m8_2/#asymmetric-separator">M₈(2)</a>. Its value is <var>F</var><sub><var>q</var></sub>(<var>X</var>) − <var>F</var><sub><var>q</var></sub>(<var>Y</var>) in deletion phase and <var>F</var><sub><var>q</var></sub>(<var>X</var>) − <var>F</var><sub><var>a</var></sub>(<var>Y</var>), never zero, in rule phase.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="ternary-value"><dfn>Ternary value</dfn><a class="fragment-link" href="#ternary-value" aria-label="Link to this term">#</a></dt>
+              <dd><p>For a binary word <var>x</var>, <var>σ</var>(<var>x</var>) is the base-three value of <var>x</var> with the digits 0, 1 replaced by 1, 2; the empty word has value 0. For example <var>σ</var>(<span class="word">01</span>) = 5. Because no digit is 0, <var>σ</var> is injective, and <var>σ</var>(<var>x</var><var>y</var>) = <var>σ</var>(<var>x</var>)3<sup>|<var>y</var>|</sup> + <var>σ</var>(<var>y</var>).</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="periodic-ternary-value"><dfn>Periodic ternary value</dfn><a class="fragment-link" href="#periodic-ternary-value" aria-label="Link to this term">#</a></dt>
+              <dd><p>For a nonempty word <var>w</var>, the value <var>σ</var>(<var>w</var>)/(3<sup>|<var>w</var>|</sup> − 1) of the ternary fraction that repeats the recoded digits of <var>w</var>. Two words have the same periodic value exactly when they commute.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="word-commutation"><dfn>Word commutation</dfn><a class="fragment-link" href="#word-commutation" aria-label="Link to this term">#</a></dt>
+              <dd><p>Words <var>u</var>, <var>v</var> commute when <var>u</var><var>v</var> = <var>v</var><var>u</var>, equivalently when both are powers of one word. For example <span class="word">01</span> and <span class="word">0101</span> commute.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="word-pair-representation"><dfn>Word-pair matrices</dfn><a class="fragment-link" href="#word-pair-representation" aria-label="Link to this term">#</a></dt>
+              <dd><p>The <a href="/math/matrix_mortality/m3_5/#word-pair-representation">3 × 3 matrices</a> Ψ(<var>x</var>, <var>y</var>) with Ψ(<var>x</var><var>x</var>′, <var>y</var><var>y</var>′) = Ψ(<var>x</var>, <var>y</var>)Ψ(<var>x</var>′, <var>y</var>′), whose upper-right entry <var>σ</var>(<var>x</var>) − <var>σ</var>(<var>y</var>) vanishes exactly when <var>x</var> = <var>y</var>. Conjugating by a unimodular matrix gives Φ(<var>u</var>, <var>v</var>), in which the two words occupy separate coordinates.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="agreement-subspace"><dfn>Agreement plane</dfn><a class="fragment-link" href="#agreement-subspace" aria-label="Link to this term">#</a></dt>
+              <dd><p>The plane <var>E</var> = span{<var>e</var><sub>1</sub>, <var>e</var><sub>3</sub>} on which the rule and deletion matrices of one letter agree, because they have the same upper word. The paired scalar series and the binary compilers share it between decoder states.</p></dd>
             </div>
           </dl>
         </section>
@@ -436,101 +349,75 @@
           <dl class="glossary">
             <div class="glossary-entry">
               <dt id="compiler"><dfn>Compiler</dfn><a class="fragment-link" href="#compiler" aria-label="Link to this term">#</a></dt>
-              <dd><p>An explicit, structure-preserving transformation between problem presentations, usually assembled from smaller encodings and equipped with forward and converse theorems. A compiler becomes a decision-problem reduction only after its instance map is effective and its yes/no equivalence is proved for every input.</p></dd>
+              <dd><p>An explicit map from instances of one problem to instances of another, with a forward theorem and a converse that covers every word of the target instance. It is a reduction once the map is computable.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="paired-role-compression"><dfn>Paired-role compression</dfn><a class="fragment-link" href="#paired-role-compression" aria-label="Link to this term">#</a></dt>
-              <dd><p>The project construction that identifies an agreement subspace across rule and deletion phases, replacing four semantic roles by three controls: two data controls and one phase toggle. The quotient must preserve the boundary coefficient for every control word, not only correctly phased executions.</p></dd>
+              <dd><p>The <a href="/math/matrix_mortality/paired_scalar_series/#paired-compression">quotient construction</a> that replaces four maps agreeing in pairs on an <var>r</var>-dimensional subspace by two data maps and a toggle in dimension 2<var>d</var> − <var>r</var>.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="binary-compiler"><dfn>Binary compiler</dfn><a class="fragment-link" href="#binary-compiler" aria-label="Link to this term">#</a></dt>
-              <dd><p>A compiler replacing a finite generator alphabet by two generators. It uses a binary code and stores the unfinished codeword in a finite-dimensional decoder. Correctness must cover complete codewords, incomplete suffixes, and words beginning from every reachable decoder state.</p></dd>
+              <dd><p>A compiler that replaces a larger alphabet by two generators, spelling letters in a binary code and storing an unfinished codeword in the matrix blocks. Its converse must cover complete codewords, unfinished suffixes, and words that start in any decoder state.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="common-image-restriction"><dfn>Common-image restriction</dfn><a class="fragment-link" href="#common-image-restriction" aria-label="Link to this term">#</a></dt>
-              <dd><p>A dimension reduction in which all relevant generators map into one common invariant image, allowing the representation to be restricted to that image. The easy direction projects zero products. The converse needs a synchronizing or appended letter that turns any new restricted zero into a zero of the original family.</p></dd>
+              <dd><p>Restricting a family whose generators all map into one subspace to that subspace. Restriction can create zero products; in the binary compilers one appended letter turns each of them into a zero product of the original family.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="transition-matrix"><dfn>Transition matrix</dfn><a class="fragment-link" href="#transition-matrix" aria-label="Link to this term">#</a></dt>
-              <dd><p>An actual generator designated to occupy the blocks between cuts. In a one-transition return system it is the matrix A whose powers encode waiting or internal evolution. “Transition” names a role in the physical family; earlier prose also called it the ambient matrix or ambient action.</p></dd>
+              <dt id="transition-matrix"><dfn>Transition</dfn><a class="fragment-link" href="#transition-matrix" aria-label="Link to this term">#</a></dt>
+              <dd><p>A generator designated to occur between cuts. With one transition <var>A</var>, the number of consecutive transitions between two cuts is the wait <var>n</var>.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="input-output-maps"><dfn>Input and output maps</dfn><a class="fragment-link" href="#input-output-maps" aria-label="Link to this term">#</a></dt>
-              <dd><p>Linear maps U into a transition space and O back to an interface space. They expose the return OA<sup><var>n</var></sup>U after <var>n</var> transition steps. Full-rank hypotheses allow cancellation in the split construction, but <a href="#singular-return-compression">singular-return compression</a> does not need them.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="interface-space"><dfn>Interface space</dfn><a class="fragment-link" href="#interface-space" aria-label="Link to this term">#</a></dt>
-              <dd><p>A vector space <var>S</var> through which a cut matrix factors. Input maps send <var>S</var> into the physical transition space; output maps return to <var>S</var>. Its dimension may exceed the rank of the cut, so “interface dimension” and “cut rank” are not aliases.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="interface-bridge"><dfn>Interface bridge</dfn><a class="fragment-link" href="#interface-bridge" aria-label="Link to this term">#</a></dt>
-              <dd><p>For cuts indexed by <var>i</var> and <var>j</var> and a transition word <var>w</var>, the bridge from <var>i</var> to <var>j</var> is O<sub><var>i</var></sub>A<sub><var>w</var></sub>U<sub><var>j</var></sub>. Consecutive cuts in a physical word multiply as a path of such maps on the interface space.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="interface-compression"><dfn>Interface compression</dfn><a class="fragment-link" href="#interface-compression" aria-label="Link to this term">#</a></dt>
-              <dd><p>The exact reduction of mortality for transitions and factored cuts to two cases: a transition-only zero word or a zero product along a nonempty path of interface bridges. The proof retains transitions before the first cut and after the last. Rank-one separators and singular-return compression are specializations.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="return-matrix-family"><dfn>Return matrix and return family</dfn><a class="fragment-link" href="#return-matrix-family" aria-label="Link to this term">#</a></dt>
-              <dd>
-                <p>The return matrix at wait <var>n</var> is M<sub><var>n</var></sub> = OA<sup><var>n</var></sup>U. The return family is the infinite labelled family of all M<sub><var>n</var></sub>. A physical word with several cuts becomes a product of returns whose labels are its intervening wait lengths.</p>
-                <div class="formula plain">
-                  <math display="block">
-                    <mrow><msub><mi>M</mi><mi>n</mi></msub><mo>=</mo><mi>O</mi><msup><mi>A</mi><mi>n</mi></msup><mi>U</mi><mo>.</mo></mrow>
-                  </math>
-                </div>
-              </dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="return-realization"><dfn>Return realization</dfn><a class="fragment-link" href="#return-realization" aria-label="Link to this term">#</a></dt>
-              <dd><p>The triple (A,U,O), together with its transition and interface spaces, that realizes a prescribed return sequence. Earlier M₉(2) prose called the explicit construction a return chart. “Realization” states the mathematical object; coordinates and charts are presentations of it.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="cut-matrix"><dfn>Cut matrix</dfn><a class="fragment-link" href="#cut-matrix" aria-label="Link to this term">#</a></dt>
-              <dd><p>An actual generator designated as a boundary between transition blocks. When C = UO, each occurrence forces the ambient product through the interface space. “Cut” names an analytic role, not an added matrix or a restriction on allowed words. Its rank is at most the interface dimension and need not be one.</p></dd>
+              <dt id="cut-matrix"><dfn>Cut</dfn><a class="fragment-link" href="#cut-matrix" aria-label="Link to this term">#</a></dt>
+              <dd><p>A generator designated to factor through a smaller space, <var>C</var> = <var>U</var><var>O</var>. Every product containing it passes through that space. “Transition” and “cut” name roles in an analysis of an ordinary family; they add no matrices and restrict no words.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="factored-cut"><dfn>Factored cut</dfn><a class="fragment-link" href="#factored-cut" aria-label="Link to this term">#</a></dt>
-              <dd><p>A cut generator presented as C<sub><var>j</var></sub> = U<sub><var>j</var></sub>O<sub><var>j</var></sub> through a common interface space. The factorization supplies the endpoints of interface bridges; it need not be a minimal-rank factorization.</p></dd>
+              <dd><p>A cut presented as <var>C</var><sub><var>j</var></sub> = <var>U</var><sub><var>j</var></sub><var>O</var><sub><var>j</var></sub>, with <var>O</var><sub><var>j</var></sub> mapping into an interface space and <var>U</var><sub><var>j</var></sub> mapping back. The factorization need not be of minimal rank.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="interface-space"><dfn>Interface space</dfn><a class="fragment-link" href="#interface-space" aria-label="Link to this term">#</a></dt>
+              <dd><p>The space through which a cut factors. Its dimension may exceed the rank of the cut.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="interface-bridge"><dfn>Interface bridge</dfn><a class="fragment-link" href="#interface-bridge" aria-label="Link to this term">#</a></dt>
+              <dd><p>For cuts <var>i</var>, <var>j</var> and a transition word <var>w</var>, the map <var>O</var><sub><var>i</var></sub><var>A</var><sub><var>w</var></sub><var>U</var><sub><var>j</var></sub> of the interface. Consecutive cuts in a product contribute consecutive bridges of a path.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="interface-compression"><dfn>Interface compression</dfn><a class="fragment-link" href="#interface-compression" aria-label="Link to this term">#</a></dt>
+              <dd><p>The <a href="/math/matrix_mortality/interface_compression/#result">theorem</a> that a family of transitions and factored cuts is mortal exactly when the transitions alone are mortal or some path of interface bridges has zero product.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="physical-family"><dfn>Physical family</dfn><a class="fragment-link" href="#physical-family" aria-label="Link to this term">#</a></dt>
-              <dd><p>The finite matrix family supplied to the actual target problem, as opposed to an infinite return family or an intermediate semantic alphabet. For two-generator return compression the physical family is {A,UO}. A physical word is an unrestricted nonempty word over these matrices.</p></dd>
+              <dd><p>The finite family of matrices given to the mortality problem, as opposed to an infinite family of returns or an intermediate alphabet. A physical word is any nonempty word over it.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="split-return-normal-form"><dfn>Split-return normal form</dfn><a class="fragment-link" href="#split-return-normal-form" aria-label="Link to this term">#</a></dt>
-              <dd><p>A return construction in which the cut factors through an interface with full-rank input and output maps and the transition is invertible. These hypotheses give the physical/return mortality equivalence by cancellation. They are stronger assumptions than those needed by <a href="#singular-return-compression">singular-return compression</a>, not a stronger conclusion. See the <a href="/math/matrix_mortality/m3_2_return_guard/#return-compression">rank-two example</a>.</p></dd>
+              <dt id="return-matrix-family"><dfn>Return</dfn><a class="fragment-link" href="#return-matrix-family" aria-label="Link to this term">#</a></dt>
+              <dd><p>For one transition <var>A</var> and one cut <var>U</var><var>O</var>, the return after wait <var>n</var> is Γ<sub><var>n</var></sub> = <var>O</var><var>A</var><sup><var>n</var></sup><var>U</var>. A physical word with several cuts corresponds to a product of returns, one for each run of transitions between cuts.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="singular-return-compression"><dfn>Singular-return compression</dfn><a class="fragment-link" href="#singular-return-compression" aria-label="Link to this term">#</a></dt>
-              <dd>
-                <p>The single-transition, single-cut specialization of interface compression: mortality of {A,UO} is equivalent to mortality of {OA<sup><var>n</var></sup>U : <var>n</var> ≥ 0}, assuming only that no pure power A<sup><var>n</var></sup> is zero. Sandwiching a cut-containing physical zero retains its exterior waits; wrapping a zero return product in cuts gives the converse.</p>
-                <div class="formula plain">
-                  <math display="block">
-                    <mrow>
-                      <msup><mi>A</mi><msub><mi>p</mi><mn>0</mn></msub></msup><mi>U</mi><mi>O</mi><mo>⋯</mo><mi>U</mi><mi>O</mi><msup><mi>A</mi><msub><mi>p</mi><mi>r</mi></msub></msup><mo>=</mo><mn>0</mn>
-                      <mspace width="0.8em"></mspace><mo>⇒</mo><mspace width="0.8em"></mspace>
-                      <mo>∏</mo><mo>(</mo><mi>O</mi><msup><mi>A</mi><msub><mi>p</mi><mi>j</mi></msub></msup><mi>U</mi><mo>)</mo><mo>=</mo><mn>0</mn><mo>.</mo>
-                    </mrow>
-                  </math>
-                </div>
-              </dd>
+              <dd><p>The <a href="/math/matrix_mortality/interface_compression/#single-cut">theorem</a> that {<var>A</var>, <var>U</var><var>O</var>} is mortal exactly when its returns are, provided no power of <var>A</var> vanishes. Neither the cut nor <var>U</var>, <var>O</var> need be invertible.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="return-realization"><dfn>Return realization</dfn><a class="fragment-link" href="#return-realization" aria-label="Link to this term">#</a></dt>
+              <dd><p>A triple (<var>A</var>, <var>U</var>, <var>O</var>) whose returns are a prescribed sequence, for instance the three paired controls followed by multiples of a separator. Its least dimension is the Hankel rank of the sequence.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="exterior-wait"><dfn>Exterior wait and pure transition word</dfn><a class="fragment-link" href="#exterior-wait" aria-label="Link to this term">#</a></dt>
-              <dd><p>In a physical word, transitions before the first cut or after the last cut are exterior waits. A word containing no cut is a pure transition word A<sup><var>n</var></sup>. Both cases must be controlled; proving only the grammar of transitions between cuts does not prove unrestricted mortality.</p></dd>
+              <dd><p>Transitions before the first cut or after the last are exterior waits; a word with no cut is a pure transition word. A converse for unrestricted products must handle both.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="moment-sequence"><dfn>Moment sequence and geometric tail</dfn><a class="fragment-link" href="#moment-sequence" aria-label="Link to this term">#</a></dt>
-              <dd><p>The sequence OA<sup><var>n</var></sup>U of returns is the moment sequence of a realization. An exceptional moment is one of finitely many prescribed initial values. A geometric tail has the form s<sup><var>n</var>−<var>N</var></sup>R after a cutoff <var>N</var>, so one eigenmode carries every later return.</p></dd>
+              <dt id="moment-sequence"><dfn>Tail and residuals</dfn><a class="fragment-link" href="#moment-sequence" aria-label="Link to this term">#</a></dt>
+              <dd><p>When the returns from time three on are <var>ξ</var><sup>2−<var>n</var></sup><var>S</var>, extending this geometric tail back to times 0, 1, 2 and subtracting it leaves residuals <var>N</var><sub>0</sub>, <var>N</var><sub>1</sub>, <var>N</var><sub>2</sub>. An invertible part of the transition realizes the tail and a nilpotent part the residuals.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="nilpotent-jordan-eigenline"><dfn>Nilpotent block, Jordan block, and eigenline</dfn><a class="fragment-link" href="#nilpotent-jordan-eigenline" aria-label="Link to this term">#</a></dt>
-              <dd><p>A nilpotent block dies after finitely many powers and can carry exceptional moments. A Jordan block is a standard indecomposable block for one eigenvalue. An eigenline is a one-dimensional invariant subspace; a nonzero eigenvalue on it proves that no power of the whole transition matrix is zero.</p></dd>
+              <dt id="nilpotent-jordan-eigenline"><dfn>Nilpotent chains and eigenline</dfn><a class="fragment-link" href="#nilpotent-jordan-eigenline" aria-label="Link to this term">#</a></dt>
+              <dd><p>A nilpotent Jordan chain of length ℓ contributes to returns at times 0, …, ℓ − 1 only; an eigenline with nonzero eigenvalue carries a geometric tail and keeps every power of the transition nonzero. For residuals supported on times 0, 1, 2, the least number of chains of length three is rank <var>N</var><sub>2</sub>, and those of lengths two and one supply what the longer chains cannot.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="denominator-clearing"><dfn>Denominator clearing</dfn><a class="fragment-link" href="#denominator-clearing" aria-label="Link to this term">#</a></dt>
-              <dd><p>Multiplying each rational generator by a nonzero common denominator produces integer generators. A word product is multiplied by the product of its generators' nonzero scalars, so zero is preserved and reflected. “Integerization” names this passage; effectivity additionally requires the denominators and entries to be computable.</p></dd>
+              <dd><p>Multiplying each rational generator by its own nonzero integer. Every product is multiplied by a nonzero scalar, so zero products are preserved and reflected. For a computable reduction the entries are evaluated as unreduced fractions, which keeps the map primitive recursive.</p></dd>
             </div>
           </dl>
         </section>
@@ -539,87 +426,60 @@
           <h2 id="arithmetic-dynamics">Arithmetic dynamics<a class="fragment-link" href="#arithmetic-dynamics" aria-label="Link to this section">#</a></h2>
           <dl class="glossary">
             <div class="glossary-entry">
-              <dt id="projective-line"><dfn>Projective line and projective point</dfn><a class="fragment-link" href="#projective-line" aria-label="Link to this term">#</a></dt>
-              <dd><p>The projective line over a field is the set of one-dimensional subspaces of a two-dimensional vector space. A nonzero pair (<var>x</var>,<var>y</var>) represents the point [<var>x</var>:<var>y</var>]; multiplying both coordinates by a nonzero scalar leaves the point unchanged. The affine coordinate is <var>x</var>/<var>y</var> when <var>y</var> ≠ 0.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="projectivization"><dfn>Projectivization</dfn><a class="fragment-link" href="#projectivization" aria-label="Link to this term">#</a></dt>
-              <dd><p>Passing from a nonzero vector or rank-one image to its projective point, thereby forgetting common scalar content. This often reduces a two-coordinate return recurrence to a one-variable rational map. It loses information needed for integrality or height arguments, so primitive representatives may later be restored.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="mobius-transformation"><dfn>Möbius transformation</dfn><a class="fragment-link" href="#mobius-transformation" aria-label="Link to this term">#</a></dt>
-              <dd>
-                <p>The projective action of an invertible 2 × 2 matrix. In an affine chart it is a fractional-linear map; the denominator-zero point is sent to infinity. Composition corresponds to matrix multiplication up to nonzero scalar.</p>
-                <div class="formula plain">
-                  <math display="block">
-                    <mrow><mi>z</mi><mo>↦</mo><mfrac><mrow><mi>a</mi><mi>z</mi><mo>+</mo><mi>b</mi></mrow><mrow><mi>c</mi><mi>z</mi><mo>+</mo><mi>d</mi></mrow></mfrac><mo>.</mo></mrow>
-                  </math>
-                </div>
-              </dd>
+              <dt id="projective-line"><dfn>Projective line</dfn><a class="fragment-link" href="#projective-line" aria-label="Link to this term">#</a></dt>
+              <dd><p>The nonzero columns (<var>x</var>, <var>y</var>)<sup>T</sup> up to a common nonzero factor, with affine coordinate <var>x</var>/<var>y</var> and the point at infinity <var>y</var> = 0. An invertible 2 × 2 matrix acts on it by a Möbius map <var>z</var> ↦ (<var>a</var><var>z</var> + <var>b</var>)/(<var>c</var><var>z</var> + <var>d</var>), and a nonzero row defines the point of its kernel.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="projective-incidence"><dfn>Projective incidence</dfn><a class="fragment-link" href="#projective-incidence" aria-label="Link to this term">#</a></dt>
-              <dd><p>Ask whether a product of invertible rational 2 × 2 matrices sends a nonzero source column into the kernel of a nonzero target row. Equivalently, the scalar r<sup>T</sup>M<sub><var>w</var></sub>c must vanish. Multiplying generators by nonzero scalars preserves the answer. GPI₂ is the two-generator restriction with the <a href="/math/matrix_mortality/shortcut_collatz_incidence/#projective-incidence">two explicit generic-chart normalizations</a>, not a name for every incidence instance.</p></dd>
+              <dd><p>Whether some product of given invertible 2 × 2 matrices moves a given column into the kernel of a given row: ∃<var>w</var> <var>r</var><sup>T</sup><var>X</var><sub><var>w</var></sub><var>c</var> = 0. GPI₂ is the <a href="/math/matrix_mortality/shortcut_collatz_incidence/#projective-incidence">two-generator restriction</a> normalized so that two chart scalars equal 1.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="shortcut-collatz"><dfn>Shortcut-Collatz map and reachability</dfn><a class="fragment-link" href="#shortcut-collatz" aria-label="Link to this term">#</a></dt>
-              <dd><p>The integer map sending even <var>n</var> to <var>n</var>/2 and odd <var>n</var> to (3<var>n</var>+1)/2. Shortcut-Collatz reachability asks, for one supplied integer, whether some finite iterate equals 1. It is a pointwise decision problem, distinct from the universal Collatz conjecture.</p></dd>
+              <dt id="shortcut-collatz"><dfn>Shortcut Collatz map</dfn><a class="fragment-link" href="#shortcut-collatz" aria-label="Link to this term">#</a></dt>
+              <dd><p>The map <var>x</var> ↦ <var>x</var>/2 for even <var>x</var> and <var>x</var> ↦ (3<var>x</var> + 1)/2 for odd <var>x</var>. Reachability asks, for one given integer, whether some iterate is 1; the Collatz conjecture asserts this for every positive integer.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="padic-valuation"><dfn>p-adic valuation</dfn><a class="fragment-link" href="#padic-valuation" aria-label="Link to this term">#</a></dt>
-              <dd><p>For a prime <var>p</var> and nonzero rational <var>x</var>, ν<sub><var>p</var></sub>(<var>x</var>) is the exponent of <var>p</var> in the reduced factorization of <var>x</var>. It is positive for divisibility in the numerator, negative for powers in the denominator, and additive under multiplication. Conventionally ν<sub><var>p</var></sub>(0) = ∞.</p></dd>
+              <dd><p>For a prime <var>p</var> and a nonzero rational <var>x</var>, <var>v</var><sub><var>p</var></sub>(<var>x</var>) is the exponent of <var>p</var> in <var>x</var>, negative for denominators. It satisfies <var>v</var><sub><var>p</var></sub>(<var>x</var> + <var>y</var>) = min(<var>v</var><sub><var>p</var></sub>(<var>x</var>), <var>v</var><sub><var>p</var></sub>(<var>y</var>)) whenever the two valuations differ, so terms of different valuation cannot cancel.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="padic-unit"><dfn>p-adic unit</dfn><a class="fragment-link" href="#padic-unit" aria-label="Link to this term">#</a></dt>
-              <dd><p>A nonzero rational with p-adic valuation zero. For an integer, this means not divisible by <var>p</var>. Unit conditions prevent cancellation from changing a chosen valuation and are frequently the local hypotheses behind wait-forcing arguments.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="ultrametric-law"><dfn>Ultrametric law</dfn><a class="fragment-link" href="#ultrametric-law" aria-label="Link to this term">#</a></dt>
-              <dd><p>The p-adic valuation satisfies ν<sub><var>p</var></sub>(<var>x</var> + <var>y</var>) ≥ min{ν<sub><var>p</var></sub>(<var>x</var>),ν<sub><var>p</var></sub>(<var>y</var>)}. If the two input valuations differ, equality holds. Thus terms of unequal valuation cannot cancel, the rigidity used by valuation guards and walls.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="orbit-partial-map"><dfn>Orbit and partial map</dfn><a class="fragment-link" href="#orbit-partial-map" aria-label="Link to this term">#</a></dt>
-              <dd><p>An orbit is the sequence obtained by iterating a map from an initial point. A partial map is defined only on a stated domain; an illegal input may be sent to a rejecting sink when one wants a total transition system. Reachability asks whether the orbit ever meets a target set.</p></dd>
+              <dd><p>A nonzero rational of p-adic valuation zero.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="live-region-trap"><dfn>Live region and trap</dfn><a class="fragment-link" href="#live-region-trap" aria-label="Link to this term">#</a></dt>
-              <dd><p>A live region contains the nonterminal states not yet excluded by an invariant. Membership does not guarantee eventual success. A trap is a forward-invariant set excluding the target: once entered, it cannot be escaped to reach the target. The <a href="/math/matrix_mortality/m3_2_return_guard/#permanent-trap">valuation guard</a> uses these regions to reject incorrect waits.</p></dd>
+              <dd><p>In the valuation guard, the live points are the nonzero rationals of positive p-adic valuation. The trap is a set that every return maps into itself and that excludes the target 1; a point that enters it can never reach 1 (<a href="/math/matrix_mortality/m3_2_return_guard/#permanent-trap">valuation guard</a>).</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="valuation-guard"><dfn>Valuation guard</dfn><a class="fragment-link" href="#valuation-guard" aria-label="Link to this term">#</a></dt>
-              <dd><p>The project construction in which a return can stay live only when its chosen wait equals a p-adic valuation, thereby turning an arbitrary word choice into deterministic arithmetic evolution. “Guard” names the enforcement mechanism, not an extra generator or an algorithm deciding all resulting orbits.</p></dd>
+              <dd><p>A <a href="/math/matrix_mortality/m3_2_return_guard/#result">family of pairs in M₃(2)</a> whose returns admit, at each live point, only the wait equal to the point’s p-adic valuation, so that mortality becomes reachability of 1 along one deterministic orbit.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="ready-point-legal-wait"><dfn>Ready point and legal wait</dfn><a class="fragment-link" href="#ready-point-legal-wait" aria-label="Link to this term">#</a></dt>
-              <dd><p>In the valuation guard, a live point has a unique candidate wait: its positive p-adic valuation. It is <em>ready</em> only if it also satisfies the <a href="/math/matrix_mortality/m3_2_return_guard/#carry-depth">exact carry-depth equation</a>. Readiness is necessary for that wait to avoid the trap, not sufficient for eventual success. A ready orbit may continue forever.</p></dd>
+              <dd><p>In the valuation guard, the legal wait at a live point is its p-adic valuation. The point is ready if it also satisfies the carry-depth condition under which that wait avoids the trap. A ready orbit may still continue forever.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="reset-target-tail"><dfn>Reset, target, and tail coordinate</dfn><a class="fragment-link" href="#reset-target-tail" aria-label="Link to this term">#</a></dt>
-              <dd><p>The reset is the distinguished initial projective point; the target is the point killed by the terminal separator. A tail coordinate is a rational affine coordinate chosen so the legal return has a simple recurrence. These roles are semantic and may be represented by different homogeneous vectors after normalization.</p></dd>
+              <dt id="reset-target-tail"><dfn>Reset, target, and tail</dfn><a class="fragment-link" href="#reset-target-tail" aria-label="Link to this term">#</a></dt>
+              <dd><p>The reset is the point <var>ρ</var> to which the separator sends every orbit; the target is the point 1 that the separator tests for. The tail coordinate of a ready point is the unit <var>X</var> in its normal form <var>p</var><sup><var>a</var></sup> + <var>p</var><sup><var>s</var><var>a</var></sup>/<var>X</var>.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="valuation-wall"><dfn>Valuation wall</dfn><a class="fragment-link" href="#valuation-wall" aria-label="Link to this term">#</a></dt>
-              <dd><p>A proved p-adic invariant separating the reset orbit from the target. Typically a strict ball around reset is preserved by every positive legal branch while the target lies outside it. A wall is a sufficient immortality certificate for the parameter chamber satisfying its inequalities, not a global decision procedure.</p></dd>
+              <dd><p>A ball in a p-adic or ℓ-adic metric that contains the reset, is preserved by every legal step, and excludes the target. Its existence proves the corresponding pair immortal.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="reset-defect-numerator"><dfn>Reset-defect numerator</dfn><a class="fragment-link" href="#reset-defect-numerator" aria-label="Link to this term">#</a></dt>
-              <dd><p>For integral parameters with α = A/L and drift δ = D/L, the integer A + D − L = L(α + δ − 1). It measures the reset's affine displacement from the terminal target after denominators are cleared. Earlier prose and formal names called it the “reset resultant”; it is not a polynomial resultant.</p></dd>
+              <dd><p>For α = <var>N</var>/<var>L</var> and δ = <var>D</var>/<var>L</var> with integers <var>N</var>, <var>D</var>, <var>L</var>, the integer <var>R</var> = <var>N</var> + <var>D</var> − <var>L</var> = <var>L</var>(ρ − 1), the distance from reset to target after clearing denominators.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="primitive-pair-content"><dfn>Primitive pair and content</dfn><a class="fragment-link" href="#primitive-pair-content" aria-label="Link to this term">#</a></dt>
-              <dd><p>A nonzero integer pair is primitive when its two coordinates are coprime. Dividing both coordinates by their greatest common divisor removes its <em>content</em> without changing the represented projective point. A signed content also records a simultaneous sign change. The <a href="/math/matrix_mortality/m3_2_return_guard/#endpoint-coordinates">terminal-centered coordinates</a> use such pairs to track divisibility that projectivization alone forgets.</p></dd>
+              <dd><p>A pair of coprime integers representing a point of the projective line. The content is the common factor, possibly signed, removed to reach it.</p></dd>
             </div>
             <div class="glossary-entry">
-              <dt id="resultant"><dfn>Resultant and cross-resultant</dfn><a class="fragment-link" href="#resultant" aria-label="Link to this term">#</a></dt>
-              <dd><p>The resultant of two polynomials is an elimination invariant that vanishes when they have a common root over an algebraic closure. For two affine pencils, the cross-resultant is the corresponding 2 × 2 determinant of coefficients. This standard noun is reserved for elimination; it does not name the reset-defect numerator.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="smith-normal-form"><dfn>Smith normal form and Smith split</dfn><a class="fragment-link" href="#smith-normal-form" aria-label="Link to this term">#</a></dt>
-              <dd><p>Smith normal form diagonalizes an integer matrix using unimodular row and column operations, exposing divisibility invariants. A Smith split in the return-guard analysis factors primitive endpoint content according to those invariants. It is a derived arithmetic coordinate system, not another dynamical state space.</p></dd>
+              <dt id="smith-normal-form"><dfn>Smith split</dfn><a class="fragment-link" href="#smith-normal-form" aria-label="Link to this term">#</a></dt>
+              <dd><p>In the valuation guard at depth two, a factorization of the content removed by one legal step, and of its complementary factor, into factors fixed by the parameters and factors depending on the wait.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="exact-order-prime"><dfn>Exact-order prime and primitive divisor</dfn><a class="fragment-link" href="#exact-order-prime" aria-label="Link to this term">#</a></dt>
-              <dd><p>A prime ℓ has exact multiplicative order <var>n</var> for base <var>p</var> when <var>p</var><sup><var>n</var></sup> ≡ 1 mod ℓ and no smaller positive exponent works. A primitive prime divisor of <var>p</var><sup><var>n</var></sup> − 1 divides no <var>p</var><sup><var>m</var></sup> − 1 with 0 &lt; <var>m</var> &lt; <var>n</var>; therefore <var>p</var> has exact order <var>n</var> modulo ℓ. Such primes isolate a chosen wait length.</p></dd>
+              <dd><p>A prime ℓ has exact order <var>n</var> for the base <var>p</var> if <var>p</var><sup><var>n</var></sup> ≡ 1 modulo ℓ and no smaller positive exponent works. A primitive divisor of <var>p</var><sup><var>n</var></sup> − 1 is a prime of exact order <var>n</var>.</p></dd>
             </div>
           </dl>
         </section>
@@ -628,53 +488,46 @@
           <h2 id="verification-evidence">Verification and evidence<a class="fragment-link" href="#verification-evidence" aria-label="Link to this section">#</a></h2>
           <dl class="glossary">
             <div class="glossary-entry">
-              <dt id="formalization"><dfn>Formalization</dfn><a class="fragment-link" href="#formalization" aria-label="Link to this term">#</a></dt>
-              <dd><p>A mathematical development expressed in a proof assistant's formal language. Formalization includes definitions and theorem statements as well as proofs. Its value depends on statement fidelity: a flawless proof of a weakened or misencoded proposition does not establish the intended theorem.</p></dd>
-            </div>
-            <div class="glossary-entry">
               <dt id="machine-checked"><dfn>Machine-checked theorem</dfn><a class="fragment-link" href="#machine-checked" aria-label="Link to this term">#</a></dt>
-              <dd><p>A theorem whose proof term has been accepted by a small trusted kernel. In this repository, “Lean proves” means the declaration is in the checked dependency chain and passes the strict build. It does not mean that the prose statement, literature claim, or external source theorem was automatically audited.</p></dd>
+              <dd><p>A theorem whose Lean proof passes this repository’s strict build. It establishes the formal statement; whether that statement matches the prose is a separate question, answered by the formal-scope notes.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="transitive-axiom-set"><dfn>Transitive axiom set</dfn><a class="fragment-link" href="#transitive-axiom-set" aria-label="Link to this term">#</a></dt>
-              <dd><p>The axioms on which a theorem depends after following every referenced declaration. Auditing only the theorem's source file can miss an admitted result upstream. This project snapshots the complete transitive set for publication-facing declarations and rejects project-specific axioms and proof escapes.</p></dd>
+              <dd><p>The axioms a theorem depends on after following every declaration it uses. This project compares the complete set for each publication-facing theorem with a reviewed snapshot and admits only propext, Classical.choice, and Quot.sound.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="trust-boundary"><dfn>Trust boundary</dfn><a class="fragment-link" href="#trust-boundary" aria-label="Link to this term">#</a></dt>
-              <dd><p>The components that must be trusted rather than proved within the artifact. For a Lean theorem this normally includes the kernel, compiler/runtime assumptions, the pinned library, and the fidelity of definitions to the informal problem. External universality or literature theorems enlarge the boundary unless they are reconstructed formally.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="symbolic-cross-check"><dfn>Symbolic cross-check</dfn><a class="fragment-link" href="#symbolic-cross-check" aria-label="Link to this term">#</a></dt>
-              <dd><p>A separate exact calculation, often in a computer algebra system, that reconstructs identities using rational or polynomial arithmetic. It is auxiliary when Lean already proves the identity: useful for discovery, regression diagnosis, and independent formula transcription, but not an additional premise of the theorem.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="finite-falsifier"><dfn>Finite falsifier</dfn><a class="fragment-link" href="#finite-falsifier" aria-label="Link to this term">#</a></dt>
-              <dd><p>A bounded exhaustive search designed to refute an overstrong universal claim by finding a counterexample. Passing the search excludes counterexamples only within its bound. It becomes a proof only when a proved finite reduction shows that every possible counterexample lies inside the searched domain.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="computational-evidence"><dfn>Computational evidence</dfn><a class="fragment-link" href="#computational-evidence" aria-label="Link to this term">#</a></dt>
-              <dd><p>Exact or numerical observations not yet connected to the target by a complete proof. Exact arithmetic prevents rounding error but does not turn a sampled or bounded experiment into a universal theorem. A formal-scope statement must distinguish such evidence from proved results.</p></dd>
-            </div>
-            <div class="glossary-entry">
-              <dt id="obstruction-no-go"><dfn>Obstruction and no-go theorem</dfn><a class="fragment-link" href="#obstruction-no-go" aria-label="Link to this term">#</a></dt>
-              <dd><p>An obstruction proves that a stated architecture, parameter chamber, or invariant cannot achieve its intended target. A no-go theorem is useful only with its quantifiers and scope intact. It does not rule out unrelated compilers, a changed zero language, or the original open problem unless it explicitly quantifies over them.</p></dd>
+              <dd><p>What must be trusted rather than proved: the Lean kernel, the pinned libraries, and the fidelity of the definitions to the problems they name.</p></dd>
             </div>
             <div class="glossary-entry">
               <dt id="formal-scope"><dfn>Formal scope</dfn><a class="fragment-link" href="#formal-scope" aria-label="Link to this term">#</a></dt>
-              <dd><p>The exact boundary between claims proved in the assistant and claims supported by prose, computation, or literature. A page's formal-scope statement should name the final declarations, imported assumptions, and remaining external seams. Formal scope is narrower than rhetorical confidence and broader than a list of filenames.</p></dd>
+              <dd><p>The boundary between claims proved in Lean and claims supported only by prose, audit, or computation. Each page states it in its Bookkeeping section.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="symbolic-cross-check"><dfn>Symbolic cross-check</dfn><a class="fragment-link" href="#symbolic-cross-check" aria-label="Link to this term">#</a></dt>
+              <dd><p>An independent exact computation, usually in a computer algebra system, that reconstructs identities already proved in Lean. It is not a premise of any theorem.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="finite-falsifier"><dfn>Finite falsifier</dfn><a class="fragment-link" href="#finite-falsifier" aria-label="Link to this term">#</a></dt>
+              <dd><p>A bounded exhaustive search for counterexamples to a universal claim. It excludes counterexamples only within its bound and is not a proof.</p></dd>
+            </div>
+            <div class="glossary-entry">
+              <dt id="obstruction-no-go"><dfn>Obstruction</dfn><a class="fragment-link" href="#obstruction-no-go" aria-label="Link to this term">#</a></dt>
+              <dd><p>A proved limit of a stated construction or family, such as a lower bound on the dimension of its realizations. It does not bound the underlying problem unless it quantifies over all constructions.</p></dd>
             </div>
           </dl>
         </section>
 
         <section>
           <h2 id="sources">Sources<a class="fragment-link" href="#sources" aria-label="Link to this section">#</a></h2>
-          <p>Standard mortality and bounded-reduction terminology follows Cassaigne, Halava, Harju, and Nicolas; bounded GPCP terminology follows Nicolas; the restricted tag vocabulary follows Neary; and the Hankel-rank convention follows weighted-automata literature. Project-specific terms are defined by the linked expositions and Lean modules.</p>
+          <p>Mortality and reduction terminology follows Cassaigne, Halava, Harju, and Nicolas; GPCP terminology follows Nicolas; tag-system vocabulary follows Neary; realization and Hankel rank follow linear systems theory and weighted-automata theory. Terms introduced by this series are defined in the linked articles.</p>
           <ol class="references">
             <li><span>Julien Cassaigne, Vesa Halava, Tero Harju, and François Nicolas, <a href="https://arxiv.org/abs/1404.0644"><cite>Tighter Undecidability Bounds for Matrix Mortality, Zero-in-the-Corner Problems, and More</cite></a>, 2014.</span></li>
             <li><span>François Nicolas, <a href="https://arxiv.org/abs/0802.0726"><cite>(Generalized) Post Correspondence Problem and Semi-Thue Systems</cite></a>, 2008.</span></li>
             <li><span>Turlough Neary, <a href="https://doi.org/10.4230/LIPIcs.STACS.2015.649"><cite>Undecidability in Binary Tag Systems and the Post Correspondence Problem for Five Pairs of Words</cite></a>, STACS 2015.</span></li>
+            <li><span>B. L. Ho and R. E. Kalman, <a href="https://doi.org/10.1524/auto.1966.14.112.545"><cite>Effective Construction of Linear State-Variable Models from Input/Output Functions</cite></a>, Regelungstechnik 14, 1966.</span></li>
             <li><span>Stefan Kiefer, <a href="https://arxiv.org/abs/2009.01217"><cite>Notes on Equivalence and Minimization of Weighted Automata</cite></a>, 2020.</span></li>
-            <li><span><a href="https://github.com/forever-and-ever/math/blob/main/FORMALIZATION.md"><cite>Formal Verification</cite></a>, theorem map and trust boundary for this corpus.</span></li>
+            <li><span><a href="https://github.com/forever-and-ever/math/blob/main/FORMALIZATION.md"><cite>Formal Verification</cite></a>, theorem map and trust boundary for this series.</span></li>
           </ol>
         </section>
       </article>
@@ -683,7 +536,6 @@
 
   <footer>
     <div>
-      <p>Canonical terminology for the matrix-mortality collection.</p>
       <p><a href="https://github.com/forever-and-ever/math">Source repository</a></p>
     </div>
   </footer>

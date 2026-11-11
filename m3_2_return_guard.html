@@ -4,25 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="GPT-5.6 Sol; elicited by @eternalism_4eva">
-  <meta property="og:title" content="The Valuation Guard">
+  <meta property="og:title" content="A Valuation Guard in M₃(2)">
   <meta property="og:type" content="article">
-  <title>The Valuation Guard | Matrix Mortality</title>
+  <title>A Valuation Guard in M₃(2) | Matrix Mortality</title>
 </head>
 <body>
   <a class="skip-link" href="#article">Skip to the exposition</a>
 
   <header class="masthead">
     <div class="masthead-inner">
-      <h1>The Valuation Guard</h1>
+      <h1>A Valuation Guard in M₃(2)</h1>
       <p class="byline">GPT-5.6 Sol · elicited by <a href="https://x.com/eternalism_4eva">@eternalism_4eva</a></p>
     </div>
   </header>
 
   <div class="shell">
     <section class="abstract" aria-label="Abstract">
-      <strong>For the unresolved two-generator 3 × 3 matrix-mortality cell M<sub>3</sub>(2), mortality in the three-mode family below is equivalent to one deterministic p-adic orbit reaching one.</strong>
-      <p>The construction fits a rank-one separator, exact legal-wait verifier, permanent illegal-wait trap, and unbounded rational payload into two 3 × 3 matrices. Its return series has exact linear dimension three.</p>
-          <p>The later results give sufficient conditions for this family to be immortal, using parity and prime divisibility. An explicit two-step orbit also refutes several proposed local measures of progress. These are statements about the displayed family, not a decision procedure or an undecidability proof for M₃(2).</p>
+      <strong>In the open cell M<sub>3</sub>(2), a four-parameter family of integer pairs is mortal exactly when a deterministic orbit of rational numbers, governed by a p-adic valuation, reaches 1.</strong>
+      <p>Each pair consists of an invertible transition and a rank-two cut. Their returns act on the projective line: the return after no transition is a rank-one separator that tests for the point 1 and resets to a fixed point, and every longer return is a Möbius map that admits exactly one wait, determined by the valuation of the current point, and sends every other wait into a trap from which 1 is unreachable. The equivalence covers every product of the two matrices. The return series has exact dimension three.</p>
+      <p>Parity, Smith-form, and valuation arguments prove large parameter regions immortal, and a two-step orbit shows that four natural measures of progress fail. None of this decides M<sub>3</sub>(2): no universal computation has been compiled into the orbit, and no decision procedure for the orbit is known.</p>
     </section>
 
     <nav class="contents" aria-label="Contents">
@@ -82,13 +82,13 @@
             <li><a href="#arbitrary-words">Arbitrary physical words</a></li>
             <li><a href="#examples">Concrete pairs</a></li>
             <li>
-              <a href="#parity-smith">Parity, Smith, and universal boundary</a>
+              <a href="#parity-smith">Immortality certificates</a>
               <ol>
                 <li><a href="#endpoint-coordinates">Terminal-centered coordinates</a></li>
                 <li><a href="#odd-reset-defect">Odd reset-defect numerator immortality</a></li>
                 <li><a href="#maximal-isolation">Maximal steps are isolated</a></li>
                 <li><a href="#universal-boundary">Universal-boundary wall</a></li>
-                <li><a href="#order-breaking-bridge">Order-breaking bridge obstruction</a></li>
+                <li><a href="#order-breaking-bridge">Four failed progress measures</a></li>
               </ol>
             </li>
           </ol>
@@ -108,17 +108,17 @@
     <main id="article">
       <article>
         <nav class="module-context" aria-label="Module relations">
-          <p><b>Specializes</b> <a href="/math/matrix_mortality/interface_compression/">interface compression</a> to one invertible transition and one rank-two cut.</p>
-          <p><b>Establishes</b> the <a href="#result">valuation guard</a> and the proved <a href="#parity-smith">valuation barriers</a> for its parameter family.</p>
+          <p><b>Requires</b> <a href="/math/matrix_mortality/interface_compression/#single-cut">singular-return compression</a> for one invertible transition and one rank-two cut.</p>
+          <p><b>Establishes</b> the <a href="#result">valuation guard</a> and <a href="#parity-smith">immortality certificates</a> for its parameters.</p>
         </nav>
 
         <details class="major-section">
           <summary><h2 id="known-stuff">Known Stuff<a class="fragment-link" href="#known-stuff" aria-label="Link to this section">#</a></h2></summary>
 
           <section class="fragment-section">
-          <h3 id="frontier-cell">Mortality setting<a class="fragment-link" href="#frontier-cell" aria-label="Link to this section">#</a></h3>
-          <p>M<sub>3</sub>(2) asks whether some nonempty word in two supplied 3 × 3 integer matrices equals zero. The cell remains unresolved in the <a href="/math/matrix_mortality/#frontier">decidability table</a>.</p>
-          <p>If both matrices are invertible, every product is invertible. We study the <a class="glossary-term" href="/math/matrix_mortality/glossary/#rank-profile" title="The ranks of the generators, kept separate from their ambient dimension.">rank profile</a> (3,2): one invertible generator <var>A</var> and one rank-two generator <var>B</var>. This does not exhaust M₃(2), which also has a rank-(2,2) case.</p>
+          <h3 id="frontier-cell">The cell M<sub>3</sub>(2)<a class="fragment-link" href="#frontier-cell" aria-label="Link to this section">#</a></h3>
+          <p>M<sub>3</sub>(2) asks whether some nonempty product of two given 3 × 3 integer matrices is zero. Two 2 × 2 matrices are decidable <a href="#ref-bournez-branicky-2002">[Bournez–Branicky 2002]</a>, so M<sub>3</sub>(2) is the smallest open two-generator cell in the <a href="/math/matrix_mortality/#frontier">decidability table</a>.</p>
+          <p>The cell splits by the ranks of the two generators. A zero generator is mortal and two invertible generators are not. A pair with a rank-one generator reduces to zeros of scalar linear recurrences of order at most three, which are decidable; this reduction is audited in the repository but not formalized. The open part of the cell therefore consists of the <a class="glossary-term" href="/math/matrix_mortality/glossary/#rank-profile" title="The ranks of the generators of a family.">rank profiles</a> (3, 2) and (2, 2); the second contains <a href="/math/matrix_mortality/shortcut_collatz_incidence/">shortcut-Collatz incidence</a>. This page studies the profile (3, 2): an invertible generator <var>A</var> and a rank-two generator <var>C</var>.</p>
 
           </section>
           <section class="fragment-section">
@@ -130,19 +130,19 @@
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <mi>B</mi><mo>=</mo><mi>U</mi><mi>V</mi><mo>,</mo>
+                <mi>C</mi><mo>=</mo><mi>U</mi><mi>O</mi><mo>,</mo>
                 <mspace width="0.8em"></mspace>
                 <mi>U</mi><mo>:</mo><msup><mi>ℚ</mi><mn>2</mn></msup><mo>→</mo><msup><mi>ℚ</mi><mn>3</mn></msup><mo>,</mo>
                 <mspace width="0.8em"></mspace>
-                <mi>V</mi><mo>:</mo><msup><mi>ℚ</mi><mn>3</mn></msup><mo>→</mo><msup><mi>ℚ</mi><mn>2</mn></msup><mo>.</mo>
+                <mi>O</mi><mo>:</mo><msup><mi>ℚ</mi><mn>3</mn></msup><mo>→</mo><msup><mi>ℚ</mi><mn>2</mn></msup><mo>.</mo>
               </mrow>
             </math>
           </div>
-          <p>A block beginning and ending with <var>B</var> then collapses to the interface. Define the return after <var>n</var> ambient steps by</p>
+          <p>A block beginning and ending with <var>C</var> then collapses to the interface. Define the return after <var>n</var> transition steps by</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <msub><mi>G</mi><mi>n</mi></msub><mo>=</mo><mi>V</mi><msup><mi>A</mi><mi>n</mi></msup><mi>U</mi><mo>∈</mo><msub><mi>M</mi><mn>2</mn></msub><mo>(</mo><mi>ℚ</mi><mo>)</mo><mo>.</mo>
+                <msub><mi>Γ</mi><mi>n</mi></msub><mo>=</mo><mi>O</mi><msup><mi>A</mi><mi>n</mi></msup><mi>U</mi><mo>∈</mo><msup><mi>ℚ</mi><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow></msup><mo>.</mo>
               </mrow>
             </math>
           </div>
@@ -154,22 +154,22 @@
           <div class="formula">
             <math display="block">
               <mrow>
-                <mi>B</mi><msup><mi>A</mi><msub><mi>n</mi><mn>1</mn></msub></msup><mi>B</mi>
-                <msup><mi>A</mi><msub><mi>n</mi><mn>2</mn></msub></msup><mi>B</mi>
+                <mi>C</mi><msup><mi>A</mi><msub><mi>n</mi><mn>1</mn></msub></msup><mi>C</mi>
+                <msup><mi>A</mi><msub><mi>n</mi><mn>2</mn></msub></msup><mi>C</mi>
                 <mo>⋯</mo>
-                <msup><mi>A</mi><msub><mi>n</mi><mi>k</mi></msub></msup><mi>B</mi>
+                <msup><mi>A</mi><msub><mi>n</mi><mi>k</mi></msub></msup><mi>C</mi>
                 <mo>=</mo>
                 <mi>U</mi>
-                <msub><mi>G</mi><msub><mi>n</mi><mn>1</mn></msub></msub>
-                <msub><mi>G</mi><msub><mi>n</mi><mn>2</mn></msub></msub>
+                <msub><mi>Γ</mi><msub><mi>n</mi><mn>1</mn></msub></msub>
+                <msub><mi>Γ</mi><msub><mi>n</mi><mn>2</mn></msub></msub>
                 <mo>⋯</mo>
-                <msub><mi>G</mi><msub><mi>n</mi><mi>k</mi></msub></msub>
-                <mi>V</mi><mo>.</mo>
+                <msub><mi>Γ</mi><msub><mi>n</mi><mi>k</mi></msub></msub>
+                <mi>O</mi><mo>.</mo>
               </mrow>
             </math>
           </div>
-          <p>Because <var>A</var> is invertible and <var>U</var>, <var>V</var> have full interface rank, exterior powers of <var>A</var> cannot create or hide a zero. Mortality of the physical pair is therefore exactly mortality of the infinite return family. This is the <a class="glossary-term" href="/math/matrix_mortality/glossary/#split-return-normal-form" title="Full-rank interface factors and invertible transition permit cancellation around return products.">split-return normal form</a>, a specialization of <a href="/math/matrix_mortality/interface_compression/#single-cut">single-cut compression</a>.</p>
-          <p>The problem is not an ordinary scalar recurrence. A word may choose a different unbounded index <var>n</var> at every return, producing a product of recurrence values. Linear recurrence automata provide nearby vocabulary for this controlled setting <a href="#ref-hkpy-2024">[Hirvensalo et al. 2024]</a>.</p>
+          <p>Since <var>A</var> is invertible, no power of <var>A</var> vanishes, and <a href="/math/matrix_mortality/interface_compression/#single-cut">singular-return compression</a> shows that the pair {<var>A</var>, <var>C</var>} is mortal exactly when the infinite family {Γ<sub><var>n</var></sub>} is.</p>
+          <p>The entries of Γ<sub><var>n</var></sub> are linear recurrence sequences in <var>n</var>, but the problem is not a recurrence problem: a word chooses a different, unbounded <var>n</var> at every return and multiplies the resulting matrices. Linear recurrence automata provide nearby vocabulary for this controlled setting <a href="#ref-hkpy-2024">[Hirvensalo et al. 2024]</a>.</p>
 
           </section>
           </section>
@@ -222,7 +222,9 @@
           <div class="theorem">
             <p><strong>Valuation guard.</strong> Fix a prime <var>p</var>, a depth <var>s</var> ≥ 2, a center <var>α</var>, and a reset <var>ρ</var>. Assume <var>α</var> and <var>α</var>−1 are p-adic units and <var>ρ</var> has positive valuation. The two rational 3 × 3 matrices constructed below are mortal exactly when the deterministic guarded orbit starting at <var>ρ</var> reaches 1.</p>
           </div>
-          <p>The result does not decide that reachability problem. It removes the matrix-semigroup freedom surrounding it: separator placement, arbitrary words, incorrect waits, affine poles, and infinity are all covered by the equivalence.</p>
+          <p>The returns are 2 × 2 matrices, and a product of returns acts on the projective line, one Möbius map per return, with a freely chosen wait <var>n</var> each time. Products of invertible matrices never vanish, so a zero product needs a singular return. The design makes Γ<sub>0</sub> the only singular return, a rank-one separator that tests whether the current point is 1 and resets it to <var>ρ</var>. Mortality then asks whether some sequence of positive waits moves <var>ρ</var> to 1.</p>
+          <p>A free choice of wait at every step is what prevents such a family from following a computation. The guard removes it: at a live point <var>z</var>, the valuation <var>v</var><sub><var>p</var></sub>(<var>z</var>) is the only wait that keeps 1 reachable, and every other wait sends the point into a trap. The surviving dynamics is a single deterministic orbit.</p>
+          <p>The theorem does not decide whether that orbit reaches 1. It removes the matrix-semigroup freedom around the orbit: separator placement, arbitrary words, wrong waits, poles, and the point at infinity are all covered by the equivalence.</p>
 
           </section>
           <section class="fragment-section">
@@ -230,7 +232,7 @@
 
           <section class="fragment-section">
           <h4 id="ambient-and-cut">Transition matrix and cut<a class="fragment-link" href="#ambient-and-cut" aria-label="Link to this section">#</a></h4>
-          <p>The design has two requirements. A zero-length return must be a rank-one test-and-reset map; every positive return must be invertible and reject all but one wait at a live point. Three distinct powers in <var>A</var> provide the constant, contracting and expanding terms needed for those identities. The maps <var>U</var> and <var>V</var> combine them into a two-dimensional return.</p>
+          <p>The design has two requirements. A zero-length return must be a rank-one test-and-reset map; every positive return must be invertible and reject all but one wait at a live point. Three distinct powers in <var>A</var> provide the constant, contracting and expanding terms needed for those identities. The maps <var>U</var> and <var>O</var> combine them into a two-dimensional return.</p>
           <p>Put <var>δ</var> = <var>ρ</var>−<var>α</var>. The hypotheses imply that <var>δ</var> is also a p-adic unit. Take</p>
           <div class="formula">
             <math display="block">
@@ -258,7 +260,7 @@
           <div class="formula">
             <math display="block">
               <mrow>
-                <mi>V</mi><mo>=</mo>
+                <mi>O</mi><mo>=</mo>
                 <mo fence="true" stretchy="true">[</mo>
                 <mtable>
                   <mtr><mtd><mo>−</mo><mi>α</mi></mtd><mtd><mi>α</mi></mtd><mtd><mi>δ</mi></mtd></mtr>
@@ -266,7 +268,7 @@
                 </mtable>
                 <mo fence="true" stretchy="true">]</mo><mo>,</mo>
                 <mspace width="1em"></mspace>
-                <mi>B</mi><mo>=</mo><mi>U</mi><mi>V</mi><mo>=</mo>
+                <mi>C</mi><mo>=</mo><mi>U</mi><mi>O</mi><mo>=</mo>
                 <mo fence="true" stretchy="true">[</mo>
                 <mtable>
                   <mtr><mtd><mo>−</mo><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr>
@@ -277,16 +279,16 @@
               </mrow>
             </math>
           </div>
-          <p>The ambient matrix has three distinct arithmetic modes: constant, contracting by <var>p</var>, and expanding by <var>p</var><sup><var>s</var>−1</sup>. The cut <var>B</var> has rank exactly two.</p>
+          <p>The transition matrix has three distinct arithmetic modes: constant, contracting by <var>p</var>, and expanding by <var>p</var><sup><var>s</var>−1</sup>. The cut <var>C</var> has rank exactly two.</p>
 
           </section>
           <section class="fragment-section">
           <h4 id="return-matrices">Return matrices<a class="fragment-link" href="#return-matrices" aria-label="Link to this section">#</a></h4>
-          <p>The return <var>G</var><sub><var>n</var></sub> = <var>VA</var><sup><var>n</var></sup><var>U</var> is</p>
+          <p>The return Γ<sub><var>n</var></sub> = <var>OA</var><sup><var>n</var></sup><var>U</var> is</p>
           <div class="formula">
             <math display="block">
               <mrow>
-                <msub><mi>G</mi><mi>n</mi></msub><mo>=</mo>
+                <msub><mi>Γ</mi><mi>n</mi></msub><mo>=</mo>
                 <mo fence="true" stretchy="true">[</mo>
                 <mtable>
                   <mtr>
@@ -306,7 +308,7 @@
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <msub><mi>G</mi><mn>0</mn></msub>
+                <msub><mi>Γ</mi><mn>0</mn></msub>
                 <mo>=</mo>
                 <mo fence="true" stretchy="true">[</mo>
                 <mtable><mtr><mtd><mi>ρ</mi></mtd></mtr><mtr><mtd><mn>1</mn></mtd></mtr></mtable>
@@ -315,8 +317,8 @@
                 <mtable><mtr><mtd><mn>1</mn></mtd><mtd><mo>−</mo><mn>1</mn></mtd></mtr></mtable>
                 <mo fence="true" stretchy="true">]</mo><mo>,</mo>
                 <mspace width="0.8em"></mspace>
-                <msubsup><mi>G</mi><mn>0</mn><mn>2</mn></msubsup>
-                <mo>=</mo><mo>(</mo><mi>ρ</mi><mo>−</mo><mn>1</mn><mo>)</mo><msub><mi>G</mi><mn>0</mn></msub><mo>.</mo>
+                <msubsup><mi>Γ</mi><mn>0</mn><mn>2</mn></msubsup>
+                <mo>=</mo><mo>(</mo><mi>ρ</mi><mo>−</mo><mn>1</mn><mo>)</mo><msub><mi>Γ</mi><mn>0</mn></msub><mo>.</mo>
               </mrow>
             </math>
           </div>
@@ -324,7 +326,7 @@
           <div class="formula plain">
             <math display="block">
               <mrow>
-                <mi>det</mi><mo>(</mo><msub><mi>G</mi><mi>n</mi></msub><mo>)</mo>
+                <mi>det</mi><mo>(</mo><msub><mi>Γ</mi><mi>n</mi></msub><mo>)</mo>
                 <mo>=</mo>
                 <mi>δ</mi><msup><mi>p</mi><mrow><mo>(</mo><mi>s</mi><mo>−</mo><mn>2</mn><mo>)</mo><mi>n</mi></mrow></msup>
                 <mo>(</mo><mn>1</mn><mo>−</mo><msup><mi>p</mi><mi>n</mi></msup><mo>)</mo>
@@ -333,7 +335,7 @@
               </mrow>
             </math>
           </div>
-          <p>The physical separator is already the word <var>B</var><sup>2</sup> = <var>UG</var><sub>0</sub><var>V</var>. No third generator is added.</p>
+          <p>The physical separator is already the word <var>C</var><sup>2</sup> = <var>U</var>Γ<sub>0</sub><var>O</var>. No third generator is added.</p>
 
           </section>
           </section>
@@ -342,7 +344,7 @@
 
           <section class="fragment-section">
           <h4 id="defect-identity">The defect identity<a class="fragment-link" href="#defect-identity" aria-label="Link to this section">#</a></h4>
-          <p>Multiplying <var>G</var><sub><var>n</var></sub> by the nonzero scalar <var>p</var><sup><var>n</var></sup> does not change its projective action. In affine coordinate <var>z</var>, the resulting map is</p>
+          <p>Multiplying Γ<sub><var>n</var></sub> by the nonzero scalar <var>p</var><sup><var>n</var></sup> does not change its projective action. In affine coordinate <var>z</var>, the resulting map is</p>
           <div class="formula">
             <math display="block">
               <mrow>
@@ -523,7 +525,7 @@
           </section>
           <section class="fragment-section">
           <h3 id="arbitrary-words">Arbitrary physical words<a class="fragment-link" href="#arbitrary-words" aria-label="Link to this section">#</a></h3>
-          <p>The free semigroup may place <var>A</var> and <var>B</var> in any order. The proof first fractures a zero product at occurrences of the internal separator <var>B</var><sup>2</sup>. Positive returns between separators act on projective states from right to left, matching matrix multiplication on columns.</p>
+          <p>The free semigroup may place <var>A</var> and <var>C</var> in any order. The proof first fractures a zero product at occurrences of the internal separator <var>C</var><sup>2</sup>. Positive returns between separators act on projective states from right to left, matching matrix multiplication on columns.</p>
           <p>Trap invariance propagates through every suffix of a successful bridge. A suffix cannot reach 1 early, because another positive return sends 1 into the trap. Every intermediate state is therefore live, and the forcing theorem makes its selected wait equal its valuation and its carry depth exact. Thus every successful arbitrary word is a legal path.</p>
           <p>Conversely, every legal path is represented by its sequence of positive waits. The resulting equivalence is</p>
           <div class="formula">
@@ -543,7 +545,7 @@
               </mtable>
             </math>
           </div>
-          <p>The coefficient <a class="glossary-term" href="/math/matrix_mortality/glossary/#hankel-rank" title="A finite prefix/suffix matrix gives a lower bound for the dimension of an exact linear representation.">Hankel section</a> of the return series has rank three. The construction cannot be reproduced exactly in two linear states.</p>
+          <p>A 3 × 3 section of the <a class="glossary-term" href="/math/matrix_mortality/glossary/#hankel-rank" title="The rank of the matrix of values on concatenations; it bounds every realization dimension from below.">Hankel matrix</a> of the return sequence has nonzero determinant, so no two-dimensional transition realizes the same returns.</p>
 
           </section>
           <section class="fragment-section">
@@ -561,7 +563,7 @@
                 </mtable>
                 <mo fence="true" stretchy="true">]</mo><mo>,</mo>
                 <mspace width="1em"></mspace>
-                <mi>B</mi><mo>=</mo>
+                <mi>C</mi><mo>=</mo>
                 <mo fence="true" stretchy="true">[</mo>
                 <mtable>
                   <mtr><mtd><mo>−</mo><mn>28</mn></mtd><mtd><mn>28</mn></mtd><mtd><mn>0</mn></mtd></mtr>
@@ -574,20 +576,20 @@
           </div>
           <div class="formula plain">
             <math display="block">
-              <mrow><msup><mi>B</mi><mn>2</mn></msup><mi>A</mi><msup><mi>B</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn><mo>.</mo></mrow>
+              <mrow><msup><mi>C</mi><mn>2</mn></msup><mi>A</mi><msup><mi>C</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn><mo>.</mo></mrow>
             </math>
           </div>
           <p>The guard does not force termination. At <var>p</var> = 5, <var>s</var> = 2, <var>ρ</var> = 5/6, and <var>α</var> = 2, the ready reset is a nonterminal fixed point.</p>
 
           </section>
           <section class="fragment-section">
-          <h3 id="parity-smith">Parity, Smith, and universal boundary<a class="fragment-link" href="#parity-smith" aria-label="Link to this section">#</a></h3>
-          <p>The orbit equivalence lets arithmetic invariants prove that a parameter family is immortal. For divisibility arguments, shift the target from one to zero and retain coprime integer numerators and denominators. This is a change of coordinates on the same orbit, not a new dynamics.</p>
+          <h3 id="parity-smith">Immortality certificates<a class="fragment-link" href="#parity-smith" aria-label="Link to this section">#</a></h3>
+          <p>By the orbit equivalence, a property that holds at the reset, survives every legal step, and fails at 1 proves that the pair is immortal. Two such certificates follow: an odd reset-defect numerator, and a valuation wall at the primes dividing <var>p</var> − 1. For the even case at depth two, steps of maximal cancellation are shown never to occur twice in a row. The last subsection shows that four natural local measures of progress fail. These divisibility arguments move the target from 1 to 0 and write orbit points as coprime integer pairs; that changes coordinates, not the dynamics.</p>
           <section class="fragment-section">
           <h4 id="endpoint-coordinates">Terminal-centered coordinates<a class="fragment-link" href="#endpoint-coordinates" aria-label="Link to this section">#</a></h4>
-          <p>Choose integers <var>A</var><sub>0</sub>, <var>D</var>, <var>L</var> with nonzero <var>L</var> such that <math><mrow><mi>α</mi><mo>=</mo><msub><mi>A</mi><mn>0</mn></msub><mo>/</mo><mi>L</mi><mo>,</mo><mi>δ</mi><mo>=</mo><mi>D</mi><mo>/</mo><mi>L</mi></mrow></math>. For an original orbit point <var>x</var>, the terminal-centered coordinate is</p>
+          <p>Choose integers <var>N</var>, <var>D</var>, <var>L</var> with nonzero <var>L</var> such that <math><mrow><mi>α</mi><mo>=</mo><mi>N</mi><mo>/</mo><mi>L</mi><mo>,</mo><mi>δ</mi><mo>=</mo><mi>D</mi><mo>/</mo><mi>L</mi></mrow></math>. For an original orbit point <var>x</var>, the terminal-centered coordinate is</p>
           <div class="formula plain"><math display="block"><mrow><mi>z</mi><mo>=</mo><mi>L</mi><mo>(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>=</mo><mfrac><mi>r</mi><mi>t</mi></mfrac><mo>,</mo><mspace width="1em"></mspace><mi>x</mi><mo>=</mo><mn>1</mn><mo>+</mo><mfrac><mi>r</mi><mrow><mi>L</mi><mi>t</mi></mrow></mfrac><mo>.</mo></mrow></math></div>
-          <p>Take <math><mrow><mi mathvariant="normal">gcd</mi><mo>(</mo><mi>r</mi><mo>,</mo><mi>t</mi><mo>)</mo><mo>=</mo><mn>1</mn></mrow></math>. The reset becomes <math><mrow><mi>R</mi><mo>=</mo><mi>L</mi><mo>(</mo><mi>ρ</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>=</mo><msub><mi>A</mi><mn>0</mn></msub><mo>+</mo><mi>D</mi><mo>−</mo><mi>L</mi></mrow></math>, represented by (<var>R</var>,1), and the target becomes zero. A step produces a new <a class="glossary-term" href="/math/matrix_mortality/glossary/#primitive-pair-content" title="A coprime integer pair after removing a common, possibly signed, factor.">primitive pair</a> (<var>r</var>′,<var>t</var>′); <var>h</var> records the signed common factor removed. The next equations retain it, so no divisibility information is lost.</p>
+          <p>Take <math><mrow><mi mathvariant="normal">gcd</mi><mo>(</mo><mi>r</mi><mo>,</mo><mi>t</mi><mo>)</mo><mo>=</mo><mn>1</mn></mrow></math>. The reset becomes <math><mrow><mi>R</mi><mo>=</mo><mi>L</mi><mo>(</mo><mi>ρ</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi>N</mi><mo>+</mo><mi>D</mi><mo>−</mo><mi>L</mi></mrow></math>, represented by (<var>R</var>,1), and the target becomes zero. A step produces a new <a class="glossary-term" href="/math/matrix_mortality/glossary/#primitive-pair-content" title="A coprime integer pair after removing a common, possibly signed, factor.">primitive pair</a> (<var>r</var>′,<var>t</var>′); <var>h</var> records the signed common factor removed. The next equations retain it, so no divisibility information is lost.</p>
           </section>
 
           <section class="fragment-section">
@@ -595,7 +597,7 @@
           <p>With the terminal-centered coordinates just defined, recall</p>
           <div class="formula plain">
             <math display="block">
-              <mrow><mi>R</mi><mo>=</mo><msub><mi>A</mi><mn>0</mn></msub><mo>+</mo><mi>D</mi><mo>−</mo><mi>L</mi><mo>.</mo></mrow>
+              <mrow><mi>R</mi><mo>=</mo><mi>N</mi><mo>+</mo><mi>D</mi><mo>−</mo><mi>L</mi><mo>.</mo></mrow>
             </math>
           </div>
           <p>The adjacent unit assumptions on <var>α</var> and <var>α</var>−1 force <var>p</var> to be odd. In primitive terminal-endpoint coordinates, one legal wait <var>a</var> and its removed content <var>h</var> obey</p>
@@ -610,7 +612,7 @@
                 <mtr>
                   <mtd><mi>h</mi><msup><mi>r</mi><mo>′</mo></msup></mtd>
                   <mtd><mo>=</mo></mtd>
-                  <mtd><mi>D</mi><mi>r</mi><mo>+</mo><mo>(</mo><msub><mi>A</mi><mn>0</mn></msub><mo>−</mo><mi>L</mi><mo>)</mo><mi>h</mi><msup><mi>t</mi><mo>′</mo></msup><mo>.</mo></mtd>
+                  <mtd><mi>D</mi><mi>r</mi><mo>+</mo><mo>(</mo><mi>N</mi><mo>−</mo><mi>L</mi><mo>)</mo><mi>h</mi><msup><mi>t</mi><mo>′</mo></msup><mo>.</mo></mtd>
                 </mtr>
               </mtable>
             </math>
@@ -639,7 +641,7 @@
             <math display="block">
               <mrow>
                 <msup><mi>r</mi><mo>′</mo></msup><mo>=</mo><mi>θ</mi><mi>t</mi><mo>+</mo>
-                <mo>(</mo><mi>D</mi><msup><mi>q</mi><mn>2</mn></msup><mo>+</mo><msub><mi>A</mi><mn>0</mn></msub><mo>−</mo><mi>L</mi><mo>)</mo>
+                <mo>(</mo><mi>D</mi><msup><mi>q</mi><mn>2</mn></msup><mo>+</mo><mi>N</mi><mo>−</mo><mi>L</mi><mo>)</mo>
                 <msup><mi>t</mi><mo>′</mo></msup><mo>.</mo>
               </mrow>
             </math>
@@ -649,11 +651,11 @@
           </section>
           <section class="fragment-section">
           <h4 id="universal-boundary">Universal-boundary wall<a class="fragment-link" href="#universal-boundary" aria-label="Link to this section">#</a></h4>
-          <p>At depth two, let <math><mrow><mi>q</mi><mo>=</mo><msup><mi>p</mi><mi>a</mi></msup></mrow></math>, and let <var>F</var><sub><var>q</var></sub> be the old guard map expressed in the terminal-centered coordinate: <math><mrow><msub><mi>F</mi><mi>q</mi></msub><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mi>L</mi><mo>(</mo><msub><mi>Φ</mi><mi>a</mi></msub><mo>(</mo><mn>1</mn><mo>+</mo><mi>z</mi><mo>/</mo><mi>L</mi><mo>)</mo><mo>−</mo><mn>1</mn><mo>)</mo></mrow></math>. It obeys the exact reset-defect factorization</p>
+          <p>At depth two, let <math><mrow><mi>q</mi><mo>=</mo><msup><mi>p</mi><mi>a</mi></msup></mrow></math>, and let <var>F</var><sub><var>q</var></sub> be the old guard map expressed in the terminal-centered coordinate: <math><mrow><msub><mi>φ</mi><mi>q</mi></msub><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mi>L</mi><mo>(</mo><msub><mi>Φ</mi><mi>a</mi></msub><mo>(</mo><mn>1</mn><mo>+</mo><mi>z</mi><mo>/</mo><mi>L</mi><mo>)</mo><mo>−</mo><mn>1</mn><mo>)</mo></mrow></math>. It obeys the exact reset-defect factorization</p>
           <div class="formula">
             <math display="block">
               <mrow>
-                <mo>(</mo><msub><mi>F</mi><mi>q</mi></msub><mo>(</mo><mi>z</mi><mo>)</mo><mo>−</mo><mi>R</mi><mo>)</mo>
+                <mo>(</mo><msub><mi>φ</mi><mi>q</mi></msub><mo>(</mo><mi>z</mi><mo>)</mo><mo>−</mo><mi>R</mi><mo>)</mo>
                 <mo>(</mo><mi>z</mi><mo>−</mo><mi>L</mi><mo>(</mo><mi>q</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>)</mo>
                 <mo>=</mo>
                 <mi>D</mi><mo>(</mo><mi>q</mi><mo>−</mo><mn>1</mn><mo>)</mo>
@@ -721,14 +723,14 @@
 
           </section>
           <section class="fragment-section">
-          <h4 id="order-breaking-bridge">Order-breaking bridge obstruction<a class="fragment-link" href="#order-breaking-bridge" aria-label="Link to this section">#</a></h4>
+          <h4 id="order-breaking-bridge">Four failed progress measures<a class="fragment-link" href="#order-breaking-bridge" aria-label="Link to this section">#</a></h4>
           <p>The preceding theorem uses primes dividing <math><mrow><mi>p</mi><mo>−</mo><mn>1</mn></mrow></math>, which divide every positive-wait factor. A prime dividing only selected factors might seem to give a finer invariant. The next example shows why preservation can fail at the first wait outside its <a class="glossary-term" href="/math/matrix_mortality/glossary/#exact-order-prime" title="The least positive n with pⁿ congruent to 1 modulo the chosen prime.">multiplicative order</a>, even though the next orbit point is still ready. At depth two, take</p>
           <div class="formula plain">
             <math display="block">
               <mrow>
                 <mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo>
                 <mspace width="0.8em"></mspace>
-                <msub><mi>A</mi><mn>0</mn></msub><mo>=</mo><mi>R</mi><mo>=</mo><mn>249398</mn><mo>,</mo>
+                <mi>N</mi><mo>=</mo><mi>R</mi><mo>=</mo><mn>249398</mn><mo>,</mo>
                 <mspace width="0.8em"></mspace>
                 <mi>D</mi><mo>=</mo><mi>L</mi><mo>=</mo><mn>1</mn><mo>.</mo>
               </mrow>

@@ -34,12 +34,15 @@ tag source and matrix compilers, is machine-checked in Lean 4.
 
 - [Mathematics index](math.html)
 - [Matrix mortality landing page](matrix_mortality.html)
-- [Matrix mortality glossary](matrix_mortality_glossary.html): canonical definitions and notation
-- [Fixed-Boundary Correspondence](m3_5.html): `GPCP(4)` and `M₃(5)`
-- [Paired-Role Compression](m4_4.html): `Z₄(3)` and `M₄(4)`
-- [Binary Compilers](binary_compilers.html): `Z₆(2)` and `M₁₀(2)`
-- [Singular Return Compression](m9_2.html): `M₉(2)`
-- [Asymmetric Return Compression](m8_2.html): `M₈(2)`
+- [Matrix mortality glossary](matrix_mortality_glossary.html): definitions and notation
+- [M₃(5)](m3_5.html): `GPCP(4)` and `M₃(5)`
+- [The paired scalar series](paired_scalar_series.html): three controls for four tiles
+- [M₄(4)](m4_4.html): `Z₄(3)` and `M₄(4)`
+- [Interface compression](interface_compression.html): cuts, bridges, and returns
+- [Binary compilers](binary_compilers.html): `Z₆(2)` and `M₁₀(2)`
+- [M₈(2)](m8_2.html): `M₉(2)` and `M₈(2)`
+- [A valuation guard in M₃(2)](m3_2_return_guard.html)
+- [Shortcut-Collatz incidence](shortcut_collatz_incidence.html)
 - [`M₃(5)` technical manuscript](paper/main.pdf)
 
 ## Supporting Material

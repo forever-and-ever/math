@@ -29,8 +29,9 @@ jq -e '
     type == "string" and
     test("^[A-Za-z0-9][A-Za-z0-9_.-]*[.]png$");
   . as $manifest |
+  (.redirects // []) as $redirects |
   .version == 3 and
-  ((keys - ["graphs", "publications", "version"]) | length == 0) and
+  ((keys - ["graphs", "publications", "redirects", "version"]) | length == 0) and
   (.graphs | type == "array") and
   all(.graphs[];
     type == "object" and
@@ -80,6 +81,30 @@ jq -e '
       $manifest.publications[];
       .kind == "collection" and .route == $graph.collection
     )
+  ) and
+  ((has("redirects") | not) or (.redirects | type == "array")) and
+  all($redirects[];
+    type == "object" and
+    (keys - ["fragment"]) == ["route", "target"] and
+    (.route | safe_route and length > 0) and
+    ((has("fragment") | not) or
+      (.fragment | type == "string" and test("^[A-Za-z][A-Za-z0-9_-]*$")))
+  ) and
+  (([$redirects[].route] | length) ==
+    ([$redirects[].route] | unique | length)) and
+  all(
+    $redirects[];
+    . as $redirect |
+    all($manifest.publications[]; .route != $redirect.route) and
+    any(
+      $manifest.publications[];
+      .kind == "collection" and
+      .route == ($redirect.route | split("/") | .[0:-1] | join("/"))
+    ) and
+    any(
+      $manifest.publications[];
+      .kind != "index" and .route == $redirect.target
+    )
   )
 ' "$MANIFEST" >/dev/null
 
@@ -87,6 +112,20 @@ while IFS= read -r graph_source; do
   [[ -s "$graph_source" ]]
   jq -e . "$graph_source" >/dev/null
 done < <(jq -r '.graphs[].source' "$MANIFEST")
+
+while IFS=$'\t' read -r target_source fragment; do
+  [[ "$(xmllint --html --xpath "count(//*[@id='$fragment'])" "$target_source" 2>/dev/null)" == 1 ]] || {
+    printf '%s: redirect fragment absent: #%s\n' "$target_source" "$fragment" >&2
+    exit 1
+  }
+done < <(jq -r '
+  . as $manifest |
+  (.redirects // [])[] |
+  select(has("fragment")) |
+  . as $redirect |
+  [($manifest.publications[] | select(.route == $redirect.target) | .source), .fragment] |
+  @tsv
+' "$MANIFEST")
 
 uv run --script scripts/render_publication_graph.py --check
 
@@ -313,9 +352,7 @@ check_collection() {
     "$table_stars/parent::a[@href='/math/matrix_mortality/m4_4/#result']"
   assert_xpath_count 1 \
     "$table_stars/parent::a[@href='/math/matrix_mortality/binary_compilers/#mortality-ten']"
-  assert_xpath_count 1 \
-    "$table_stars/parent::a[@href='/math/matrix_mortality/m9_2/#result']"
-  assert_xpath_count 1 \
+  assert_xpath_count 2 \
     "$table_stars/parent::a[@href='/math/matrix_mortality/m8_2/#result']"
 
   local formulas='//div[contains(concat(" ", normalize-space(@class), " "), " formula ")]'
@@ -378,7 +415,6 @@ check_publication frankl.html 0 collection
 check_publication m3_5.html 3
 check_publication m4_4.html 0
 check_publication binary_compilers.html 0
-check_publication m9_2.html 0
 check_publication m8_2.html 0
 check_publication m3_2_return_guard.html 0
 check_publication paired_scalar_series.html 0

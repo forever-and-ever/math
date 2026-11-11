@@ -398,17 +398,9 @@ def render_graph(graph: Graph, nodes: dict[str, Node]) -> str:
         "        <section>",
         '          <h2 id="modules">Modules<a class="fragment-link" '
         'href="#modules" aria-label="Link to this section">#</a></h2>',
-        "          <p>The constructions have two tasks. Source recognition encodes "
-        "a halting computation as equality of words, then as a zero scalar "
-        "coefficient. Target compression turns that test into mortality with fewer "
-        "generators or coordinates. The arithmetic modules instead analyze "
-        "particular families without settling their open table entries.</p>",
-        "          <p>For the basic reduction, start with "
-        '<a href="/math/matrix_mortality/m3_5/#four-tiles">the four word pairs</a> '
-        'and their <a href="/math/matrix_mortality/m3_5/#five-matrices">five matrices</a>. '
-        "Each card links to the relevant statement or construction, not necessarily "
-        "the beginning of its article. Requires links give mathematical "
-        "prerequisites, not a mandatory reading order.</p>",
+        "          <p>The layers follow the stages of the proofs described above. "
+        "Each card links to its statement, which is not necessarily the "
+        "beginning of an article.</p>",
         '          <dl class="module-legend">',
         "            <div><dt>Kind</dt><dd>What the box states: a definition, a "
         "construction, a lemma, a reduction (a correctness-preserving "
