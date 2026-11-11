@@ -1,4 +1,3 @@
-import Frankl.AffineEntropyBridge
 import MatrixMortality.InterfaceCompression
 import MatrixMortality.PairedRank
 import MatrixMortality.ProjectiveCollatz

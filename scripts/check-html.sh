@@ -411,7 +411,6 @@ check_reference() {
 
 check_collection matrix_mortality.html matrix_mortality
 check_reference matrix_mortality_glossary.html
-check_publication frankl.html 0 collection
 check_publication m3_5.html 3
 check_publication m4_4.html 0
 check_publication binary_compilers.html 0
@@ -432,4 +431,4 @@ done < <(jq -r '.publications[] | select(.kind == "collection") | .route' "$MANI
 
 diff --unified \
   <(jq -r '.publications[].source' "$MANIFEST" | sort) \
-  <(rg --files -g '*.html' | sort)
+  <(rg --files -g '*.html' -g '!/exile/' | sort)

@@ -20,6 +20,11 @@ collection and names no publication, its `target` names a non-index publication,
 the route and omits it from the sitemap; `scripts/publish.sh` verifies it with the publication
 routes.
 
+Withdrawing a publication moves its source to `exile/`, removes its manifest entry and its parent's
+listing, and drops from `Verification.Publication` any formal root only it needed. Its route then
+resolves nowhere, since a redirect serves only content that survives at its target. Exiled sources
+stay in the repository, unlisted and unchecked; recalling one reverses each step.
+
 Every listed source must contain no `<style>` element, inline `style` attribute, or stylesheet
 link. Eternalist owns typography, color, layout, responsive behavior, and print presentation
 through its central house styles. Use only the semantic class hooks defined by Eternalist's
